@@ -1,0 +1,17 @@
+{
+  "name": "SpaceCorps Agent Hub",
+  "description": "Autonomous cloud infrastructure and developer tooling ecosystem by SpaceCorps.",
+  "url": "https://spacecorps.github.io/",
+  "version": "1.0.0",
+  "capabilities": ["deploy", "compute", "database", "storage", "agentic-automation"],
+  "skills": [
+    {
+      "name": "sliplane-cli",
+      "url": "https://spacecorps.github.io/llms.txt"
+    }
+  ],
+  "contact": {
+    "email": "contact@spacecorps.dev",
+    "url": "https://spacecorps.github.io/contact.html"
+  }
+}
