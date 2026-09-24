@@ -36,6 +36,7 @@ SpaceCorps engineers high-performance, native Rust command-line tools, autonomou
 | **Notify CLI** | `notify` | DevOps & Alerting | [Docs](https://spacecorps.github.io/Notify-Cli/) | [GitHub](https://github.com/SpaceCorps/Notify-Cli) | [llms.txt](https://spacecorps.github.io/Notify-Cli/llms.txt) |
 | **GitHub Issue Importer** | `gh-issue-import` | DevOps & Alerting | [Docs](https://spacecorps.github.io/Github-Issue-Importer/) | [GitHub](https://github.com/SpaceCorps/Github-Issue-Importer) | [llms.txt](https://spacecorps.github.io/Github-Issue-Importer/llms.txt) |
 | **Samsung ArtMode CLI** | `samsung-artmode` | Hardware & IoT | [Docs](https://spacecorps.github.io/Samsung-Artmode-Cli/) | [GitHub](https://github.com/SpaceCorps/Samsung-Artmode-Cli) | [llms.txt](https://spacecorps.github.io/Samsung-Artmode-Cli/llms.txt) |
+| **OpenAppleModels** | `oam` | AI & Game Engines | [Docs](https://spacecorps.github.io/open-apple-models/) | [GitHub](https://github.com/SpaceCorps/open-apple-models) | [llms.txt](https://spacecorps.github.io/open-apple-models/llms.txt) |
 
 ## Universal Engineering Standards
 

@@ -71,6 +71,10 @@ SpaceCorps builds native Rust developer tools and autonomous agent infrastructur
 - [Samsung ArtMode CLI](https://spacecorps.github.io/Samsung-Artmode-Cli/): Samsung The Frame TV Art Mode control, matte settings, photo uploads, and slideshows.
   - Binary: `samsung-artmode` | Agent Manual: [llms.txt](https://spacecorps.github.io/Samsung-Artmode-Cli/llms.txt) | GitHub: [SpaceCorps/Samsung-Artmode-Cli](https://github.com/SpaceCorps/Samsung-Artmode-Cli)
 
+### AI & Game Engine Runtimes
+- [OpenAppleModels](https://spacecorps.github.io/open-apple-models/): Deterministic tool calling, autonomous agent loops, episodic NPC memory, and OpenAI-compatible server on Apple on-device Foundation Models.
+  - Binary: `oam` | Agent Manual: [llms.txt](https://spacecorps.github.io/open-apple-models/llms.txt) | GitHub: [SpaceCorps/open-apple-models](https://github.com/SpaceCorps/open-apple-models)
+
 ---
 
 ## Universal Agent Usage Rules

@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://spacecorps.github.io/">
   <meta property="og:title" content="SpaceCorps | High-Performance Native Rust CLIs & Autonomous Agent Tools">
-  <meta property="og:description" content="22 native Rust command-line tools with sub-3ms startup, zero runtime bloat, deterministic JSON/YAML outputs, and OS keystore security for developers and autonomous AI agents.">
+  <meta property="og:description" content="23 high-performance command-line tools and autonomous AI agent runtimes with sub-3ms startup, zero runtime bloat, deterministic JSON/YAML outputs, and OS keystore security.">
   <meta property="og:image" content="https://spacecorps.github.io/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://spacecorps.github.io/">
   <meta name="twitter:title" content="SpaceCorps | High-Performance Native Rust CLIs & Autonomous Agent Tools">
-  <meta name="twitter:description" content="22 native Rust command-line tools with sub-3ms startup, zero runtime bloat, deterministic JSON/YAML outputs, and OS keystore security for developers and autonomous AI agents.">
+  <meta name="twitter:description" content="23 high-performance command-line tools and autonomous AI agent runtimes with sub-3ms startup, zero runtime bloat, deterministic JSON/YAML outputs, and OS keystore security.">
   <meta name="twitter:image" content="https://spacecorps.github.io/og-image.png">
 
   <!-- AI Agents & Discovery -->
@@ -487,6 +487,7 @@
     .cat-domains { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
     .cat-devops { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
     .cat-iot { background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
+    .cat-ai { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.3); }
 
     .binary-pill {
       display: inline-flex;
@@ -749,7 +750,7 @@
       </p>
       <div class="hero-actions">
         <a href="#registry" class="btn-primary">
-          Explore All 22 CLIs &darr;
+          Explore All 23 Tools &darr;
         </a>
         <a href="https://spacecorps.github.io/llms.txt" class="btn-secondary">
           Agent llms.txt &rarr;
@@ -762,8 +763,8 @@
       <!-- Metrics -->
       <div class="metrics-bar">
         <div class="metric-card">
-          <div class="metric-val">22</div>
-          <div class="metric-lbl">Native Rust CLIs</div>
+          <div class="metric-val">23</div>
+          <div class="metric-lbl">Tools &amp; Agent CLIs</div>
         </div>
         <div class="metric-card">
           <div class="metric-val">&lt; 3ms</div>
@@ -798,17 +799,18 @@
           <input type="text" id="searchInput" class="search-input" placeholder="Search by tool name, binary, category, or command description (e.g. 'search', 'deploy', 'domain')...">
         </div>
         <div class="category-pills" id="categoryFilters">
-          <button class="category-pill active" data-category="all">All (22)</button>
+          <button class="category-pill active" data-category="all">All (23)</button>
           <button class="category-pill" data-category="cloud">Cloud & Compute (3)</button>
           <button class="category-pill" data-category="search">AI Search & Scraping (3)</button>
           <button class="category-pill" data-category="social">Social Intelligence (7)</button>
           <button class="category-pill" data-category="domains">Domains & DNS (3)</button>
           <button class="category-pill" data-category="devops">DevOps & Alerting (5)</button>
           <button class="category-pill" data-category="iot">Hardware & IoT (1)</button>
+          <button class="category-pill" data-category="ai">AI &amp; Games (1)</button>
         </div>
       </div>
 
-      <div class="results-count" id="resultsCount">Showing 22 of 22 tools</div>
+      <div class="results-count" id="resultsCount">Showing 23 of 23 tools</div>
 
       <!-- CLI Grid -->
       <div class="cli-grid" id="cliGrid">
@@ -1297,6 +1299,28 @@
           </div>
         </div>
 
+        <!-- 23. OpenAppleModels -->
+        <div class="cli-card" data-category="ai" data-keywords="open-apple-models oam apple foundation models tool calling agent loops npc dialogue unity godot unreal swift on-device intelligence ai">
+          <div class="cli-card-header">
+            <div class="cli-name">OpenAppleModels</div>
+            <span class="cli-category-tag cat-ai">AI &amp; Games</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('oam')">$ oam</div>
+          <p class="cli-desc">Deterministic tool calling, autonomous agent loops, episodic NPC memory, and an OpenAI-compatible local server for Apple Foundation Models on iOS/macOS 27.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 245+ unit tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/open-apple-models/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/open-apple-models" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/open-apple-models/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1403,7 +1427,8 @@
             <li><a href="https://spacecorps.github.io/Exa-Cli/">Exa CLI</a></li>
             <li><a href="https://spacecorps.github.io/Firecrawl-Cli/">Firecrawl CLI</a></li>
             <li><a href="https://spacecorps.github.io/Spaceship-Cli/">Spaceship CLI</a></li>
-            <li><a href="#registry">View All 22 CLIs &rarr;</a></li>
+            <li><a href="https://spacecorps.github.io/open-apple-models/">OpenAppleModels</a></li>
+            <li><a href="#registry">View All 23 Tools &rarr;</a></li>
           </ul>
         </div>
         <div class="footer-col">

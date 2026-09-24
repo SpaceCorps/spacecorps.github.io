@@ -1,6 +1,6 @@
 # SpaceCorps CLI Suite — Full Autonomous Agent Manual
 
-> Comprehensive system instructions, API command patterns, and execution blueprints for the entire SpaceCorps CLI suite (22 native Rust CLIs).
+> Comprehensive system instructions, API command patterns, and execution blueprints for the entire SpaceCorps CLI suite (23 high-performance tools and CLIs).
 
 ## 1. SpaceCorps System Architecture
 
@@ -196,6 +196,14 @@ Fast, ergonomic Rust CLI for Namecheap domain availability, multi-domain search,
 - **List Registered:** `namecheap-cli domains list --json`
 - **DNS Records:** `namecheap-cli dns list --domain "example.com" --json`
 - **Docs:** https://github.com/SpaceCorps/namecheap-cli
+
+### 23. OpenAppleModels (`oam`)
+Deterministic tool calling, autonomous agent loops, episodic NPC memory, and local OpenAI-compatible server for Apple Foundation Models (iOS/macOS 27).
+- **Respond (Grounded Tool Choice):** `oam respond "query" --tool-json '<spec>' --tool-choice required`
+- **OpenAI Local Server:** `oam serve --port 8080 --host 127.0.0.1`
+- **Interactive RPG Tavern Demo:** `oam demo tavern`
+- **JSON-RPC Bridge (Unity/Godot):** `oam bridge --stdio`
+- **Docs:** https://spacecorps.github.io/open-apple-models/
 
 ---
 
