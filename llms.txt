@@ -1,55 +1,94 @@
-# Sliplane CLI
+# SpaceCorps CLI Suite & Agent Hub
 
-> A blazing fast native command-line tool and agent interface for the Sliplane cloud hosting platform API (v0, OpenAPI spec 0.5.0). Built in Rust for developers and autonomous AI agents.
+> High-performance native Rust command-line tools and autonomous AI agent interfaces engineered by SpaceCorps. Sub-3ms cold starts, zero runtime dependencies, structured YAML/JSON outputs, OS keystore security, and 100% offline TCP mock tested.
 
-## When to Use This CLI
+## Organization & Architecture Overview
 
-Use the `sliplane` CLI whenever you need to:
-- **Deploy and manage web services:** Deploy Docker images or git repositories on Sliplane compute servers.
-- **Inspect server status & metrics:** Query server health, CPU usage, memory metrics, and attached storage volumes.
-- **Provision databases:** Spin up, restart, pause, backup, or retrieve credentials for managed PostgreSQL instances.
-- **Object storage:** Create S3-compatible buckets, configure CORS policies, and issue scoped access keys.
-- **Manage environment variables safely:** Update secrets and environment variables with safeguards that prevent unintended deletion.
-- **Agentic automation:** Drive deployments, diagnostics, and infrastructure changes deterministically via `--json` output and stable error exit codes.
+SpaceCorps builds native Rust developer tools and autonomous agent infrastructure. All tools in the SpaceCorps CLI suite adhere to the **SpaceCorps Standard**:
+1. **Native Rust 2024:** Single static binary with zero GC and sub-3ms startup latency.
+2. **Blocking I/O (`ureq`):** Zero asynchronous runtime bloat, minimal memory footprint (< 15MB RSS).
+3. **Dual Agent Output:** Clean human-friendly YAML on `stdout` by default; strict JSON with `--json` for LLM tool-calling; structured error envelopes on `stderr` with stable exit codes (1 to 7).
+4. **OS Keystore Integration:** Sensitive credentials encrypted in macOS Keychain, Linux Secret Service, or Windows DPAPI.
+5. **Self-Documenting Agent Manual:** Run `<binary> agent-readme [--json]` in any CLI for full autonomous self-configuration.
 
-Do NOT use this tool if:
-- You need GUI-based visual management (use the web console at https://sliplane.io instead).
-- You are trying to interact with non-Sliplane hosting providers (e.g. AWS, Render, Fly).
+---
 
-## Core Agent Operating Principles
+## CLI Tools Registry
 
-1. **Explicit Account Selection:** Always pass `--account <name>` (short `-a <name>`) on commands that touch the API. This guarantees multi-account safety and prevents accidental resource destruction.
-2. **First-Time Setup:** Run `sliplane login` to authenticate with your Sliplane account token (opens the browser to copy an API token) or use `pbpaste | sliplane login --api-key-stdin` in non-interactive environments.
-3. **Machine-Readable Outputs:** Always supply `--json` when parsing command results in scripts or LLM tool-calling loops.
-4. **Error Codes:** Non-zero exit codes carry structured error envelopes with stable machine-readable codes (`no_account`, `auth_required`, `not_found`, `rate_limited`, `invalid_input`).
+### Cloud & Compute Infrastructure
+- [Sliplane CLI](https://spacecorps.github.io/Sliplane-Cli/): Cloud hosting, servers, Docker services, managed PostgreSQL, and S3 object storage.
+  - Binary: `sliplane` | Agent Manual: [llms.txt](https://spacecorps.github.io/Sliplane-Cli/llms.txt) | GitHub: [SpaceCorps/Sliplane-Cli](https://github.com/SpaceCorps/Sliplane-Cli)
+- [Cloudflare CLI](https://spacecorps.github.io/Cloudflare-Cli/): Cloudflare v4 API for DNS records, zones, page rules, and cache purging.
+  - Binary: `cloudflare` | Agent Manual: [llms.txt](https://spacecorps.github.io/Cloudflare-Cli/llms.txt) | GitHub: [SpaceCorps/Cloudflare-Cli](https://github.com/SpaceCorps/Cloudflare-Cli)
+- [Storage CLI](https://spacecorps.github.io/Storage-Cli/): Azure Blob Storage uploader with automated zip archiving and secure SAS token generation.
+  - Binary: `storage` | Agent Manual: [llms.txt](https://spacecorps.github.io/Storage-Cli/llms.txt) | GitHub: [SpaceCorps/Storage-Cli](https://github.com/SpaceCorps/Storage-Cli)
 
-## Key Command Patterns
+### AI Search, Scraping & Web Retrieval
+- [Exa CLI](https://spacecorps.github.io/Exa-Cli/): Exa AI neural search, semantic search, and web contents retrieval API.
+  - Binary: `exa` | Agent Manual: [llms.txt](https://spacecorps.github.io/Exa-Cli/llms.txt) | GitHub: [SpaceCorps/Exa-Cli](https://github.com/SpaceCorps/Exa-Cli)
+- [Firecrawl CLI](https://spacecorps.github.io/Firecrawl-Cli/): Firecrawl web scraping to clean markdown, web crawling, extraction, and search API.
+  - Binary: `firecrawl` | Agent Manual: [llms.txt](https://spacecorps.github.io/Firecrawl-Cli/llms.txt) | GitHub: [SpaceCorps/Firecrawl-Cli](https://github.com/SpaceCorps/Firecrawl-Cli)
+- [TIC CLI](https://spacecorps.github.io/Tic-Cli/): TIC intelligence API for Swedish corporate registry, bankruptcy, vehicle, and debtor records.
+  - Binary: `tic` | Agent Manual: [llms.txt](https://spacecorps.github.io/Tic-Cli/llms.txt) | GitHub: [SpaceCorps/Tic-Cli](https://github.com/SpaceCorps/Tic-Cli)
 
-### Authentication & Accounts
-- `sliplane login [name]`: Interactively authenticate and store the API token in the OS keystore.
-- `sliplane accounts list --check`: List all configured accounts and verify token validity.
-- `sliplane accounts test <name>`: Verify connectivity and inspect token identity.
+### Domain Registrars & DNS
+- [Spaceship CLI](https://spacecorps.github.io/Spaceship-Cli/): Spaceship domain registrar, nameservers, DNS management, and hosting API.
+  - Binary: `spaceship` | Agent Manual: [llms.txt](https://spacecorps.github.io/Spaceship-Cli/llms.txt) | GitHub: [SpaceCorps/Spaceship-Cli](https://github.com/SpaceCorps/Spaceship-Cli)
+- [Loopia CLI](https://spacecorps.github.io/Loopia-Cli/): Loopia XML-RPC API for domain administration, subdomains, DNS records, and billing.
+  - Binary: `loopia` | Agent Manual: [llms.txt](https://spacecorps.github.io/Loopia-Cli/llms.txt) | GitHub: [SpaceCorps/Loopia-Cli](https://github.com/SpaceCorps/Loopia-Cli)
+- [Namecheap CLI](https://github.com/SpaceCorps/namecheap-cli): Fast, ergonomic Rust CLI for Namecheap domain availability, multi-domain search, and DNS host records.
+  - Binary: `namecheap-cli` | GitHub: [SpaceCorps/namecheap-cli](https://github.com/SpaceCorps/namecheap-cli)
 
-### Projects & Servers
-- `sliplane projects list -a <account> --json`: List all projects.
-- `sliplane projects create --name <name> -a <account> --json`: Create a new project.
-- `sliplane servers list -a <account> --json`: List servers and their resource allocation.
-- `sliplane servers metrics --server-id <id> -a <account> --json`: Query CPU and memory metrics.
+### Social & Web Intelligence (Apify Engine)
+- [Reddit CLI](https://spacecorps.github.io/Reddit-Cli/): Reddit subreddits, posts, comments, and community scraping via Apify.
+  - Binary: `reddit` | Agent Manual: [llms.txt](https://spacecorps.github.io/Reddit-Cli/llms.txt) | GitHub: [SpaceCorps/Reddit-Cli](https://github.com/SpaceCorps/Reddit-Cli)
+- [Twitter CLI](https://spacecorps.github.io/Twitter-Cli/): Twitter / X tweets, user profiles, timelines, and conversation scraping via Apify.
+  - Binary: `twitter` | Agent Manual: [llms.txt](https://spacecorps.github.io/Twitter-Cli/llms.txt) | GitHub: [SpaceCorps/Twitter-Cli](https://github.com/SpaceCorps/Twitter-Cli)
+- [LinkedIn CLI](https://spacecorps.github.io/Linkedin-Cli/): LinkedIn company profiles, organizational details, and posts scraping via Apify.
+  - Binary: `linkedin` | Agent Manual: [llms.txt](https://spacecorps.github.io/Linkedin-Cli/llms.txt) | GitHub: [SpaceCorps/Linkedin-Cli](https://github.com/SpaceCorps/Linkedin-Cli)
+- [YouTube CLI](https://spacecorps.github.io/Youtube-Cli/): YouTube video search, channel analytics, playlists, and subtitles scraper via Apify.
+  - Binary: `youtube` | Agent Manual: [llms.txt](https://spacecorps.github.io/Youtube-Cli/llms.txt) | GitHub: [SpaceCorps/Youtube-Cli](https://github.com/SpaceCorps/Youtube-Cli)
+- [TikTok CLI](https://spacecorps.github.io/TikTok-Cli/): TikTok user profiles, videos, hashtags, and sound scraper via Apify.
+  - Binary: `tiktok` | Agent Manual: [llms.txt](https://spacecorps.github.io/TikTok-Cli/llms.txt) | GitHub: [SpaceCorps/TikTok-Cli](https://github.com/SpaceCorps/TikTok-Cli)
+- [Product Hunt CLI](https://spacecorps.github.io/Producthunt-Cli/): Product Hunt launches, daily products, makers, and topics scraping via Apify.
+  - Binary: `producthunt` | Agent Manual: [llms.txt](https://spacecorps.github.io/Producthunt-Cli/llms.txt) | GitHub: [SpaceCorps/Producthunt-Cli](https://github.com/SpaceCorps/Producthunt-Cli)
+- [Stack Overflow CLI](https://spacecorps.github.io/Stackoverflow-Cli/): Stack Overflow questions, tag search, accepted answers, and solutions via Apify.
+  - Binary: `stackoverflow` | Agent Manual: [llms.txt](https://spacecorps.github.io/Stackoverflow-Cli/llms.txt) | GitHub: [SpaceCorps/Stackoverflow-Cli](https://github.com/SpaceCorps/Stackoverflow-Cli)
 
-### Services & Deployments
-- `sliplane services list --project-id <id> -a <account> --json`: List services in a project.
-- `sliplane services deploy --project-id <p> --service-id <s> -a <account> --json`: Trigger a service deployment.
-- `sliplane services set-env --project-id <p> --service-id <s> --key <k> --value <v> -a <account>`: Safely set an environment variable.
-- `sliplane services logs --project-id <p> --service-id <s> -a <account>`: View container logs.
+### DevOps, Productivity & Observability
+- [Bugsink CLI](https://spacecorps.github.io/Bugsink-Cli/): Self-hosted Sentry-compatible error tracking and exception triage platform.
+  - Binary: `bugsink` | Agent Manual: [llms.txt](https://spacecorps.github.io/Bugsink-Cli/llms.txt) | GitHub: [SpaceCorps/Bugsink-Cli](https://github.com/SpaceCorps/Bugsink-Cli)
+- [HeyReach CLI](https://spacecorps.github.io/Heyreach-Cli/): LinkedIn B2B lead generation, sender accounts, and campaign automation API.
+  - Binary: `heyreach` | Agent Manual: [llms.txt](https://spacecorps.github.io/Heyreach-Cli/llms.txt) | GitHub: [SpaceCorps/Heyreach-Cli](https://github.com/SpaceCorps/Heyreach-Cli)
+- [Gmail CLI](https://spacecorps.github.io/Gmail-Cli/): Mailbox search, thread inspection, attachments download, and draft management.
+  - Binary: `gmail` | Agent Manual: [llms.txt](https://spacecorps.github.io/Gmail-Cli/llms.txt) | GitHub: [SpaceCorps/Gmail-Cli](https://github.com/SpaceCorps/Gmail-Cli)
+- [Notify CLI](https://spacecorps.github.io/Notify-Cli/): Multi-channel alerts across Slack incoming webhooks, SMTP email, system banners, and dialogs.
+  - Binary: `notify` | Agent Manual: [llms.txt](https://spacecorps.github.io/Notify-Cli/llms.txt) | GitHub: [SpaceCorps/Notify-Cli](https://github.com/SpaceCorps/Notify-Cli)
+- [GitHub Issue Importer](https://spacecorps.github.io/Github-Issue-Importer/): Idempotent bulk import of issues from YAML/JSON files into GitHub repositories.
+  - Binary: `gh-issue-import` | Agent Manual: [llms.txt](https://spacecorps.github.io/Github-Issue-Importer/llms.txt) | GitHub: [SpaceCorps/Github-Issue-Importer](https://github.com/SpaceCorps/Github-Issue-Importer)
 
-### Managed PostgreSQL & Storage
-- `sliplane postgres list -a <account> --json`: List managed Postgres instances.
-- `sliplane postgres get --postgres-id <id> -a <account> --json`: Fetch connection details and credentials.
-- `sliplane buckets list -a <account> --json`: List S3 object storage buckets.
-- `sliplane buckets keys create --server-id <s> --bucket-id <b> --name <key-name> -a <account> --json`: Generate S3 access keys.
+### Hardware & IoT
+- [Samsung ArtMode CLI](https://spacecorps.github.io/Samsung-Artmode-Cli/): Samsung The Frame TV Art Mode control, matte settings, photo uploads, and slideshows.
+  - Binary: `samsung-artmode` | Agent Manual: [llms.txt](https://spacecorps.github.io/Samsung-Artmode-Cli/llms.txt) | GitHub: [SpaceCorps/Samsung-Artmode-Cli](https://github.com/SpaceCorps/Samsung-Artmode-Cli)
 
-## API Specification & Documentation
-- Full Documentation: https://spacecorps.github.io/Sliplane-Cli/
-- Detailed Agent Manual: https://spacecorps.github.io/Sliplane-Cli/llms-full.txt
-- Sliplane OpenAPI Spec: https://ctrl.sliplane.io/spec.json
-- MCP Server: https://github.com/sliplane/mcp
+---
+
+## Universal Agent Usage Rules
+
+1. **Structured Invocation:** Always append `--json` when invoking commands within automated pipelines or agentic function calls.
+2. **Error Handling:** Standard exit codes:
+   - `0`: Success
+   - `1`: General runtime / connection error
+   - `2`: Invalid argument or usage
+   - `3`: Authentication failure / missing token
+   - `4`: Resource not found
+   - `5`: API rate limit reached
+   - `6`: Upstream service unavailable
+3. **Headless Keystore Storage:** In automated CI/CD runners, pipe tokens via standard input:
+   ```bash
+   echo "$API_KEY" | <binary> login [account] --api-key-stdin
+   ```
+4. **Autonomous Self-Discovery:** Query any binary directly for its complete instruction manual:
+   ```bash
+   <binary> agent-readme --json
+   ```

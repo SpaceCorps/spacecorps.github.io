@@ -1,40 +1,214 @@
-# Sliplane CLI - Comprehensive Agent Reference Manual
+# SpaceCorps CLI Suite — Full Autonomous Agent Manual
 
-> An exhaustive technical manual for autonomous agents driving the Sliplane CLI (`sliplane`). Covers all 65 endpoints of the Sliplane REST API v0 (spec 0.5.0).
+> Comprehensive system instructions, API command patterns, and execution blueprints for the entire SpaceCorps CLI suite (22 native Rust CLIs).
 
-## When To Use This Tool
-- Automated deployment of web applications, APIs, and background workers on Sliplane cloud infrastructure.
-- Programmable scaling, resource monitoring, and maintenance of cloud servers.
-- Automated creation and secret rotation for managed PostgreSQL databases.
-- Management of S3-compatible object storage, IAM access keys, and CORS rules.
-- Continuous delivery scripts and GitHub Actions workflows requiring programmatic cloud actions.
+## 1. SpaceCorps System Architecture
 
-## Exit Codes and Error Envelopes
+All SpaceCorps command-line tools are built in **Rust 2024** and share a single, unified execution standard:
+- **Zero Interpreter Latency:** Standalone native binaries with sub-3ms startup time.
+- **Predictable Output Streams:** Human-oriented YAML on `stdout` by default; machine-parseable JSON on `stdout` when `--json` is supplied; structured JSON-RPC / error envelopes on `stderr`.
+- **Operating System Keystores:** macOS Keychain (`security`), Linux Secret Service (`secret-tool`), and Windows DPAPI (`CryptProtectData`).
+- **Deterministic Exit Codes:**
+  - `0`: Success
+  - `1`: General Error / API request failed
+  - `2`: Bad Request / Invalid CLI argument
+  - `3`: Unauthorized / Missing API credentials
+  - `4`: Resource Not Found
+  - `5`: Rate Limited / Throttled
+  - `6`: Upstream Server Error (5xx)
+  - `7`: Network / DNS Resolution Failure
 
-Every error response on stderr conforms to the standard envelope structure:
-```json
-{
-  "code": "error_code_string",
-  "message": "Human readable summary",
-  "detail": "Extended debugging context",
-  "remediation": "Exact command or action needed to fix"
-}
+---
+
+## 2. CLI Tool Catalogs & Command Blueprints
+
+### 1. Sliplane CLI (`sliplane`)
+Cloud hosting, Docker services, managed PostgreSQL, and S3 object storage.
+- **Login:** `sliplane login [account] [--api-key-stdin]`
+- **Projects:** `sliplane projects list -a <acc> --json`
+- **Servers:** `sliplane servers list -a <acc> --json` | `sliplane servers metrics --server-id <id> -a <acc> --json`
+- **Services:** `sliplane services list --project-id <pid> -a <acc> --json` | `sliplane services deploy --project-id <pid> --service-id <sid> -a <acc> --json`
+- **Postgres:** `sliplane postgres list -a <acc> --json` | `sliplane postgres get --postgres-id <id> -a <acc> --json`
+- **S3 Storage:** `sliplane buckets list -a <acc> --json` | `sliplane buckets keys create --server-id <s> --bucket-id <b> --name <k> -a <acc> --json`
+- **Docs:** https://spacecorps.github.io/Sliplane-Cli/
+
+### 2. Exa CLI (`exa`)
+Exa AI neural search, semantic filtering, and web contents retrieval.
+- **Login:** `exa login [account] [--api-key-stdin]`
+- **Search:** `exa search "query" --num-results 10 --json`
+- **Neural Contents:** `exa contents "https://url1" "https://url2" --text --highlights --json`
+- **Find Similar:** `exa find-similar "https://url" --num-results 5 --json`
+- **Docs:** https://spacecorps.github.io/Exa-Cli/
+
+### 3. Firecrawl CLI (`firecrawl`)
+Firecrawl web scraping, URL crawling, and search API.
+- **Login:** `firecrawl login [account] [--api-key-stdin]`
+- **Scrape:** `firecrawl scrape "https://url" --formats markdown,html --json`
+- **Crawl:** `firecrawl crawl "https://domain.com" --limit 50 --json`
+- **Search:** `firecrawl search "query" --limit 10 --json`
+- **Docs:** https://spacecorps.github.io/Firecrawl-Cli/
+
+### 4. Cloudflare CLI (`cloudflare`)
+Cloudflare v4 API for DNS records, zones, page rules, and cache purging.
+- **Login:** `cloudflare login [account] [--api-token-stdin]`
+- **Zones:** `cloudflare zones list --json`
+- **DNS Records:** `cloudflare dns list --zone-id <zid> --json` | `cloudflare dns create --zone-id <zid> --type A --name "sub" --content "1.2.3.4" --json`
+- **Purge Cache:** `cloudflare cache purge --zone-id <zid> --everything --json`
+- **Docs:** https://spacecorps.github.io/Cloudflare-Cli/
+
+### 5. Spaceship CLI (`spaceship`)
+Spaceship domain registrar, DNS management, and hosting API.
+- **Login:** `spaceship login [account] [--api-key-stdin] [--api-secret-stdin]`
+- **Domains:** `spaceship domains list --json` | `spaceship domains get <domain> --json`
+- **DNS Records:** `spaceship dns list --domain <domain> --json` | `spaceship dns set --domain <domain> --type A --name @ --value 1.2.3.4 --json`
+- **Docs:** https://spacecorps.github.io/Spaceship-Cli/
+
+### 6. Reddit CLI (`reddit`)
+Reddit subreddits, posts, comments, and community scraping via Apify.
+- **Login:** `reddit login [account] [--api-key-stdin]`
+- **Subreddits:** `reddit posts "rust" --sort top --time-filter month --limit 25 --json`
+- **Comments:** `reddit comments "https://reddit.com/r/.../..." --limit 50 --json`
+- **Search:** `reddit search "autonomous agents" --limit 20 --json`
+- **Docs:** https://spacecorps.github.io/Reddit-Cli/
+
+### 7. Twitter CLI (`twitter`)
+Twitter / X tweets, user profiles, timelines, and conversation scraping via Apify.
+- **Login:** `twitter login [account] [--api-key-stdin]`
+- **Search:** `twitter search "RustLang" --limit 20 --json`
+- **Profile:** `twitter profile "rustlang" --json`
+- **Timeline:** `twitter user-tweets "rustlang" --limit 20 --json`
+- **Docs:** https://spacecorps.github.io/Twitter-Cli/
+
+### 8. LinkedIn CLI (`linkedin`)
+LinkedIn company profiles, organizational details, and posts scraping via Apify.
+- **Login:** `linkedin login [account] [--api-key-stdin]`
+- **Company Profile:** `linkedin company "google" --json`
+- **Company Posts:** `linkedin posts "https://linkedin.com/company/google" --limit 15 --json`
+- **Docs:** https://spacecorps.github.io/Linkedin-Cli/
+
+### 9. YouTube CLI (`youtube`)
+YouTube video search, channel analytics, playlists, and subtitles scraper via Apify.
+- **Login:** `youtube login [account] [--api-key-stdin]`
+- **Search:** `youtube search "Rust 2024 features" --limit 10 --json`
+- **Video Info:** `youtube video "https://youtube.com/watch?v=..." --json`
+- **Channel Videos:** `youtube channel "https://youtube.com/@RustVideos" --limit 20 --json`
+- **Docs:** https://spacecorps.github.io/Youtube-Cli/
+
+### 10. TikTok CLI (`tiktok`)
+TikTok user profiles, videos, hashtags, and sound scraper via Apify.
+- **Login:** `tiktok login [account] [--api-key-stdin]`
+- **User Profile:** `tiktok user "username" --json`
+- **Hashtag:** `tiktok hashtag "coding" --limit 20 --json`
+- **Search:** `tiktok search "rust programming" --limit 15 --json`
+- **Docs:** https://spacecorps.github.io/TikTok-Cli/
+
+### 11. Product Hunt CLI (`producthunt`)
+Product Hunt launches, daily products, makers, and topics scraping via Apify.
+- **Login:** `producthunt login [account] [--api-key-stdin]`
+- **Today's Launches:** `producthunt today --json`
+- **Search:** `producthunt search "AI Developer Tools" --limit 10 --json`
+- **Product Details:** `producthunt product "slug" --json`
+- **Docs:** https://spacecorps.github.io/Producthunt-Cli/
+
+### 12. Stack Overflow CLI (`stackoverflow`)
+Stack Overflow questions, tag search, accepted answers, and solutions via Apify.
+- **Login:** `stackoverflow login [account] [--api-key-stdin]`
+- **Search:** `stackoverflow search "tokio runtime in sync context" --limit 10 --json`
+- **Tag:** `stackoverflow tag "rust" --sort votes --limit 20 --json`
+- **Question:** `stackoverflow question 1234567 --json`
+- **Docs:** https://spacecorps.github.io/Stackoverflow-Cli/
+
+### 13. Loopia CLI (`loopia`)
+Loopia XML-RPC API for domain administration, subdomains, DNS records, and billing.
+- **Login:** `loopia login [account] [--username <user>] [--password-stdin]`
+- **Domains:** `loopia domains list --json` | `loopia domains get <domain> --json`
+- **Subdomains:** `loopia subdomains list --domain <domain> --json`
+- **DNS Records:** `loopia dns list --domain <domain> --json` | `loopia dns add --domain <domain> --subdomain "@" --type A --value "1.2.3.4" --ttl 3600 --json`
+- **Docs:** https://spacecorps.github.io/Loopia-Cli/
+
+### 14. Bugsink CLI (`bugsink`)
+Self-hosted Sentry-compatible error tracking and exception triage platform.
+- **Login:** `bugsink login [account] [--url <instance>] [--api-key-stdin]`
+- **Projects:** `bugsink projects list --json`
+- **Issues:** `bugsink issues list --project-id <pid> --json` | `bugsink issues get <issue-id> --json`
+- **Triage:** `bugsink issues resolve <issue-id> --json`
+- **Docs:** https://spacecorps.github.io/Bugsink-Cli/
+
+### 15. HeyReach CLI (`heyreach`)
+LinkedIn B2B lead generation, sender accounts, and campaign automation API.
+- **Login:** `heyreach login [account] [--api-key-stdin]`
+- **Campaigns:** `heyreach campaigns list --json`
+- **Senders:** `heyreach senders list --json`
+- **Leads:** `heyreach leads list --campaign-id <cid> --json`
+- **Docs:** https://spacecorps.github.io/Heyreach-Cli/
+
+### 16. Gmail CLI (`gmail`)
+Mailbox search, thread inspection, attachments download, and draft management.
+- **Login:** `gmail login [account] [--client-secret-file <path>]`
+- **Search:** `gmail search "is:unread label:inbox" --limit 15 --json`
+- **Threads:** `gmail threads get <thread-id> --json`
+- **Drafts:** `gmail drafts create --to "recipient@example.com" --subject "Status" --body "Complete" --json`
+- **Docs:** https://spacecorps.github.io/Gmail-Cli/
+
+### 17. Storage CLI (`storage`)
+Azure Blob Storage uploader with automated zip archiving and secure SAS token generation.
+- **Login:** `storage login [account] [--connection-string-stdin]`
+- **Upload File:** `storage upload --container <c> --file <path> --json`
+- **Upload Directory (Zip):** `storage upload --container <c> --dir <path> --zip --json`
+- **SAS Link:** `storage sas generate --container <c> --blob <name> --expiry 24h --json`
+- **Docs:** https://spacecorps.github.io/Storage-Cli/
+
+### 18. Notify CLI (`notify`)
+Multi-channel alerts across Slack incoming webhooks, SMTP email, system banners, and dialogs.
+- **Slack:** `notify slack --webhook-url "$SLACK_URL" --message "Deployment complete" --json`
+- **Email:** `notify email --to "ops@example.com" --subject "Alert" --body "Service OK" --json`
+- **System Notification:** `notify system --title "Build Success" --message "Binary ready" --json`
+- **Docs:** https://spacecorps.github.io/Notify-Cli/
+
+### 19. Samsung ArtMode CLI (`samsung-artmode`)
+Samsung The Frame TV Art Mode control, matte settings, photo uploads, and slideshows.
+- **Connect:** `samsung-artmode connect --tv-ip "192.168.1.50"`
+- **Art Status:** `samsung-artmode status --json`
+- **Upload Artwork:** `samsung-artmode upload --file "photo.jpg" --matte "modern_thin_warm" --json`
+- **Brightness:** `samsung-artmode set-brightness 7 --json`
+- **Docs:** https://spacecorps.github.io/Samsung-Artmode-Cli/
+
+### 20. TIC CLI (`tic`)
+TIC intelligence API for Swedish corporate registry, bankruptcy, vehicle, and debtor records.
+- **Login:** `tic login [account] [--api-key-stdin]`
+- **Company Search:** `tic company search "Volvo" --json`
+- **Financials:** `tic company financials "556012-5790" --json`
+- **Debtors:** `tic debtor search "556012-5790" --json`
+- **Vehicles:** `tic vehicle search --reg-nr "ABC123" --json`
+- **Docs:** https://spacecorps.github.io/Tic-Cli/
+
+### 21. GitHub Issue Importer (`gh-issue-import`)
+Idempotent bulk import of issues from YAML/JSON files into GitHub repositories.
+- **Login:** `gh-issue-import login [account] [--github-token-stdin]`
+- **Validate File:** `gh-issue-import validate --file issues.yaml --json`
+- **Import:** `gh-issue-import import --owner SpaceCorps --repo Sliplane-Cli --file issues.yaml --json`
+- **Docs:** https://spacecorps.github.io/Github-Issue-Importer/
+
+### 22. Namecheap CLI (`namecheap-cli`)
+Fast, ergonomic Rust CLI for Namecheap domain availability, multi-domain search, and DNS host records.
+- **Login:** `namecheap-cli login [account] [--api-key-stdin] [--api-user <user>]`
+- **Check Availability:** `namecheap-cli domains check "example.com" "example.org" --json`
+- **List Registered:** `namecheap-cli domains list --json`
+- **DNS Records:** `namecheap-cli dns list --domain "example.com" --json`
+- **Docs:** https://github.com/SpaceCorps/namecheap-cli
+
+---
+
+## 3. Autonomous Execution Recipes
+
+### Chaining Web Extraction and Deployment
+```bash
+# 1. Scrape competitor documentation or public spec
+firecrawl scrape "https://example.com/spec" --formats markdown --json > spec.md
+
+# 2. Deploy service on Sliplane
+sliplane services deploy --project-id prj_123 --service-id srv_456 -a prod --json
+
+# 3. Notify team via Slack
+notify slack --webhook-url "$SLACK_WEBHOOK" --message "Service srv_456 deployed successfully." --json
 ```
-
-Exit code numbers match the error code contract:
-- `0`: Success
-- `2`: Network / transport failure
-- `3`: `auth_required` - Token missing, expired, or revoked
-- `4`: `not_found` - Resource ID does not exist
-- `5`: `rate_limited` - API rate limit reached
-- `6`: `invalid_input` - Bad command flags, missing arguments, or invalid payload
-- `7`: `no_account` - `--account <name>` was not specified
-
-## Safety Guardrails
-
-1. **Environment Variables**:
-   Passing `--env` replaces the entire remote environment. The CLI will proactively reject any command that would cause secret deletion unless `--replace-env` or `--merge-env` is explicitly provided.
-2. **Account Scoping**:
-   There is intentionally no global default account fallback on mutating API commands. This ensures an agent never deploys or deletes in an unintended client workspace.
-3. **Secrets Isolation**:
-   API keys are stored in the host operating system's hardware-backed credential vault (macOS Keychain, Windows DPAPI, Linux Secret Service).

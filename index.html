@@ -3,37 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sliplane CLI | Fast Native CLI for Sliplane in Rust</title>
-  <meta name="description" content="A blazing fast native command-line tool and agent interface for the Sliplane cloud API, written in Rust. Manage servers, services, Postgres, S3 buckets, and deployments from your terminal.">
+  <title>SpaceCorps | High-Performance Native Rust CLIs & Autonomous Agent Tools</title>
+  <meta name="description" content="SpaceCorps engineers ultra-fast, zero-dependency native Rust command-line tools and autonomous AI agent interfaces for cloud hosting, web scraping, domain management, social intelligence, and DevOps.">
   <link rel="canonical" href="https://spacecorps.github.io/">
   <meta name="is-agentic-site-type" content="content">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="keywords" content="Sliplane, CLI, Rust, cloud hosting, Docker deployments, Postgres, S3 buckets, AI agents, DevOps">
+  <meta name="keywords" content="SpaceCorps, Rust, CLI, AI agents, command-line tools, LLMs, autonomous agents, Sliplane, Cloudflare, Exa, Firecrawl, DevOps, Apify">
   <meta name="author" content="SpaceCorps">
   <meta name="google-site-verification" content="dX8jgcKfEU3AXOW3neNUD97b_p3qFsha5k_UNPIL-fM" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://spacecorps.github.io/">
-  <meta property="og:title" content="Sliplane CLI | Fast Native CLI for Sliplane in Rust">
-  <meta property="og:description" content="A blazing fast native command-line tool and agent interface for the Sliplane API (65 endpoints), written in Rust.">
+  <meta property="og:title" content="SpaceCorps | High-Performance Native Rust CLIs & Autonomous Agent Tools">
+  <meta property="og:description" content="22 native Rust command-line tools with sub-3ms startup, zero runtime bloat, deterministic JSON/YAML outputs, and OS keystore security for developers and autonomous AI agents.">
   <meta property="og:image" content="https://spacecorps.github.io/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Sliplane CLI — Native Rust Command Line Tool">
-  <meta property="og:site_name" content="Sliplane CLI">
+  <meta property="og:image:alt" content="SpaceCorps — High-Performance Native Rust CLIs and Agent Infrastructure">
+  <meta property="og:site_name" content="SpaceCorps">
   <meta property="og:locale" content="en_US">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://spacecorps.github.io/">
-  <meta name="twitter:title" content="Sliplane CLI | Fast Native CLI for Sliplane in Rust">
-  <meta name="twitter:description" content="A blazing fast native command-line tool and agent interface for the Sliplane API (65 endpoints), written in Rust.">
+  <meta name="twitter:title" content="SpaceCorps | High-Performance Native Rust CLIs & Autonomous Agent Tools">
+  <meta name="twitter:description" content="22 native Rust command-line tools with sub-3ms startup, zero runtime bloat, deterministic JSON/YAML outputs, and OS keystore security for developers and autonomous AI agents.">
   <meta name="twitter:image" content="https://spacecorps.github.io/og-image.png">
 
   <!-- AI Agents & Discovery -->
   <link rel="alternate" type="text/markdown" href="https://spacecorps.github.io/index.md" title="Markdown Homepage">
   <link rel="alternate" type="text/markdown" href="https://spacecorps.github.io/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://spacecorps.github.io/llms-full.txt" title="LLMs Full Manual">
   <link rel="sitemap" type="application/xml" href="https://spacecorps.github.io/sitemap.xml" title="Sitemap">
   <script>
     if (new URLSearchParams(window.location.search).get('mode') === 'agent') {
@@ -50,47 +51,31 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
-        "name": "Sliplane CLI",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "macOS, Linux, Windows",
-        "url": "https://spacecorps.github.io/",
-        "description": "A blazing fast native command-line tool and agent interface for the Sliplane API (65 endpoints), written in Rust.",
-        "softwareVersion": "1.0.0",
-        "downloadUrl": "https://github.com/SpaceCorps/Sliplane-Cli/releases/tag/v1.0.0",
-        "license": "https://opensource.org/licenses/MIT",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "author": {
-          "@type": "Organization",
-          "name": "SpaceCorps",
-          "url": "https://github.com/SpaceCorps"
-        }
-      },
-      {
         "@type": "Organization",
         "name": "SpaceCorps",
-        "url": "https://github.com/SpaceCorps",
+        "url": "https://spacecorps.github.io/",
+        "logo": "https://spacecorps.github.io/og-image.png",
         "sameAs": [
-          "https://github.com/SpaceCorps/Sliplane-Cli",
           "https://github.com/SpaceCorps"
         ],
+        "description": "Open-source engineering collective building high-performance native Rust command-line tools, autonomous agent interfaces, and decentralized infrastructure.",
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "technical support",
-          "url": "https://github.com/SpaceCorps/Sliplane-Cli/issues"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "US"
+          "url": "https://spacecorps.github.io/contact.html",
+          "email": "contact@spacecorps.dev"
         }
+      },
+      {
+        "@type": "WebSite",
+        "url": "https://spacecorps.github.io/",
+        "name": "SpaceCorps Developer Portal",
+        "description": "Ecosystem registry and documentation for SpaceCorps native Rust CLIs and AI agent tools."
       }
     ]
   }
   </script>
+
   <style>
     :root {
       --bg: #090d16;
@@ -105,6 +90,7 @@
       --primary-hover: #4f46e5;
       --primary-glow: rgba(99, 102, 241, 0.25);
       --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.2);
       --success: #10b981;
       --code-bg: #0d1117;
       --radius: 12px;
@@ -130,7 +116,8 @@
       flex-direction: column;
       background-image: 
         radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent),
-        radial-gradient(circle 400px at 90% 20%, rgba(56, 189, 248, 0.08), transparent);
+        radial-gradient(circle 500px at 90% 20%, rgba(56, 189, 248, 0.08), transparent),
+        radial-gradient(circle 500px at 10% 70%, rgba(99, 102, 241, 0.07), transparent);
     }
 
     a {
@@ -142,688 +129,1359 @@
       color: #7dd3fc;
     }
 
-    /* Container */
     .container {
       width: 100%;
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
     /* Header */
     header {
-      padding: 20px 0;
       border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
       position: sticky;
       top: 0;
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(12px);
       z-index: 100;
+      background: rgba(9, 13, 22, 0.85);
     }
-
-    .nav {
+    .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 70px;
     }
-
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 700;
+      gap: 12px;
       font-size: 1.25rem;
+      font-weight: 700;
       color: #fff;
+      letter-spacing: -0.02em;
     }
     .logo-badge {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid var(--border-accent);
+      color: #a5b4fc;
+      padding: 3px 8px;
+      border-radius: 999px;
       font-weight: 600;
+      text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-
-    .nav-links {
+    nav {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       align-items: center;
-      list-style: none;
     }
-    .nav-links a {
+    nav a {
       color: var(--text-muted);
       font-size: 0.95rem;
       font-weight: 500;
+      transition: color 0.15s;
     }
-    .nav-links a:hover {
+    nav a:hover {
       color: #fff;
     }
-    .btn-github {
-      background: rgba(255, 255, 255, 0.08);
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border);
-      color: #fff !important;
+      color: #fff;
       padding: 8px 16px;
       border-radius: var(--radius-sm);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
     }
-    .btn-github:hover {
-      background: rgba(255, 255, 255, 0.15);
+    .github-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
       border-color: rgba(255, 255, 255, 0.25);
+      color: #fff;
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      padding: 80px 0 60px;
+      padding: 72px 0 48px;
       text-align: center;
     }
-
-    .pill {
+    .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
-      border-radius: 9999px;
+      padding: 6px 16px;
+      border-radius: 999px;
       background: rgba(99, 102, 241, 0.12);
       border: 1px solid var(--border-accent);
       color: #c7d2fe;
-      font-size: 0.85rem;
-      font-weight: 500;
+      font-size: 0.82rem;
+      font-weight: 600;
       margin-bottom: 24px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-
+    .hero-pill span {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: 3.2rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
       line-height: 1.15;
-      margin-bottom: 20px;
-      background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+      letter-spacing: -0.03em;
+      color: #fff;
+      max-width: 900px;
+      margin: 0 auto 20px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #fff 30%, #38bdf8 70%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      font-size: 1.2rem;
       color: var(--text-muted);
-      max-width: 680px;
+      max-width: 780px;
       margin: 0 auto 36px;
+      line-height: 1.6;
     }
 
-    /* Install Box */
-    .install-box {
-      max-width: 640px;
-      margin: 0 auto 40px;
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 18px;
+    .hero-actions {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border);
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
     }
-
-    .install-cmd {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      color: #e2e8f0;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding-right: 12px;
-    }
-    .install-cmd span.prefix {
-      color: var(--accent);
-      user-select: none;
-      margin-right: 8px;
-    }
-
-    .copy-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      font-weight: 500;
+    .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.15s ease;
+      border: none;
+      cursor: pointer;
     }
-    .copy-btn:hover {
-      background: rgba(255, 255, 255, 0.16);
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(22, 27, 46, 0.8);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      transition: all 0.15s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(30, 38, 66, 0.9);
+      border-color: rgba(255, 255, 255, 0.25);
       color: #fff;
     }
-    .copy-btn.copied {
-      background: rgba(16, 185, 129, 0.2);
-      border-color: rgba(16, 185, 129, 0.4);
-      color: #34d399;
-    }
 
-    /* Feature Grid */
-    .features {
+    /* Stats Bar */
+    .metrics-bar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-bottom: 70px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 64px;
     }
-
-    .feature-card {
+    .metric-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
-      transition: all 0.25s ease;
+      padding: 20px 16px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    .feature-card:hover {
-      background: var(--bg-card-hover);
+    .metric-card:hover {
       border-color: var(--border-accent);
       transform: translateY(-2px);
     }
-    .feature-icon {
-      font-size: 1.75rem;
-      margin-bottom: 12px;
-    }
-    .feature-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
+    .metric-val {
+      font-size: 2rem;
+      font-weight: 800;
       color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
     }
-    .feature-card p {
-      font-size: 0.92rem;
+    .metric-lbl {
+      font-size: 0.85rem;
       color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    /* Workflow Section */
+    /* Search & Filter Section */
+    .registry-section {
+      padding: 32px 0 64px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
     .section-title {
-      font-size: 1.85rem;
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 12px;
       color: #fff;
-      text-align: center;
+      letter-spacing: -0.02em;
     }
-    .section-sub {
-      text-align: center;
+    .section-subtitle {
       color: var(--text-muted);
-      margin-bottom: 40px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1rem;
+      margin-top: 4px;
     }
 
-    .steps-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 80px;
+    .filter-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
     }
-    .step-card {
+    .search-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(22, 27, 46, 0.8);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px 14px 48px;
+      color: #fff;
+      font-size: 1rem;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .category-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .category-pill:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .category-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 10px var(--primary-glow);
+    }
+
+    .results-count {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      font-family: var(--font-mono);
+      margin-bottom: 20px;
+    }
+
+    /* CLI Grid */
+    .cli-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+    }
+    .cli-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px;
       display: flex;
       flex-direction: column;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
-    .step-num {
-      width: 28px;
-      height: 28px;
-      background: var(--primary);
+    .cli-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+    .cli-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .cli-name {
+      font-size: 1.25rem;
+      font-weight: 700;
       color: #fff;
-      border-radius: 50%;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.85rem;
-      margin-bottom: 14px;
+      gap: 8px;
     }
-    .step-card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 8px;
+    .cli-category-tag {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .cat-cloud { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .cat-search { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .cat-social { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+    .cat-domains { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .cat-devops { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .cat-iot { background: rgba(14, 165, 233, 0.15); color: #38bdf8; border: 1px solid rgba(14, 165, 233, 0.3); }
+
+    .binary-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: var(--code-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      width: fit-content;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+    }
+    .binary-pill:hover {
+      border-color: var(--accent);
+    }
+    .cli-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .cli-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      margin-bottom: 18px;
+    }
+    .cli-meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+    }
+    .cli-card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .card-action-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 10px;
+      border-radius: 6px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: all 0.15s ease;
+    }
+    .card-action-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
       color: #fff;
     }
-    .step-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
+    .card-action-primary {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: var(--border-accent);
+      color: #a5b4fc;
     }
-    .step-code {
-      margin-top: auto;
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 12px;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: #38bdf8;
-      overflow-x: auto;
+    .card-action-primary:hover {
+      background: var(--primary);
+      color: #fff;
     }
 
-    /* Terminal Preview */
-    .terminal-window {
-      background: #0d1117;
+    /* Architecture Standards */
+    .standards-section {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .standard-box {
+      background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      margin-bottom: 80px;
+      padding: 28px;
+      backdrop-filter: blur(12px);
+    }
+    .standard-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .standard-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .standard-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Agent Quickstart Showcase */
+    .terminal-section {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+    .terminal-window {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      margin-top: 36px;
     }
     .terminal-header {
       background: #161b22;
-      padding: 10px 16px;
+      padding: 12px 18px;
       display: flex;
       align-items: center;
       gap: 8px;
       border-bottom: 1px solid var(--border);
     }
-    .dot {
-      width: 12px;
-      height: 12px;
+    .term-dot {
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
     }
-    .dot-red { background: #ff5f56; }
-    .dot-yellow { background: #ffbd2e; }
-    .dot-green { background: #27c93f; }
-    .terminal-title {
-      color: var(--text-dim);
-      font-size: 0.8rem;
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .term-title {
       font-family: var(--font-mono);
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-left: 12px;
     }
     .terminal-body {
       padding: 24px;
       font-family: var(--font-mono);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       line-height: 1.7;
-      overflow-x: auto;
       color: #e2e8f0;
-    }
-    .terminal-body .cmd {
-      color: #38bdf8;
-      font-weight: 600;
-    }
-    .terminal-body .comment {
-      color: #64748b;
-    }
-    .terminal-body .success {
-      color: #4ade80;
-    }
-    .terminal-body .key {
-      color: #c084fc;
-    }
-
-    /* Command Showcase Tabs */
-    .cmd-section {
-      margin-bottom: 80px;
-    }
-    .tab-nav {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-    .tab-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 8px 18px;
-      border-radius: 9999px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .tab-btn.active, .tab-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-
-    .tab-content {
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      color: #cbd5e1;
-      display: none;
       overflow-x: auto;
     }
-    .tab-content.active {
-      display: block;
-    }
+    .prompt-prefix { color: #38bdf8; }
+    .prompt-cmd { color: #fff; font-weight: 600; }
+    .term-comment { color: #64748b; }
+    .term-json-key { color: #7dd3fc; }
+    .term-json-str { color: #86efac; }
+    .term-json-num { color: #fde047; }
 
     /* Footer */
     footer {
-      margin-top: auto;
       border-top: 1px solid var(--border);
-      padding: 40px 0;
+      padding: 64px 0 32px;
       background: #060910;
-      text-align: center;
-      color: var(--text-dim);
-      font-size: 0.9rem;
+      margin-top: auto;
     }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 48px;
+    }
+    .footer-brand h3 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-size: 0.9rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       margin-bottom: 16px;
     }
-    .footer-links a {
-      color: var(--text-muted);
+    .footer-col ul {
+      list-style: none;
     }
-    .footer-links a:hover {
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer-col a:hover {
       color: #fff;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cli-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <div class="container nav">
-      <div class="logo">
-        <span>🚀 sliplane</span>
-        <span class="logo-badge">RUST CLI</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#quickstart">Quickstart</a></li>
-        <li><a href="#releases">Releases</a></li>
-        <li><a href="#commands">Commands</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="llms.txt">llms.txt</a></li>
-        <li>
-          <a class="btn-github" href="https://github.com/SpaceCorps/Sliplane-Cli" target="_blank" rel="noopener noreferrer">
-            <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-            </svg>
-            GitHub
-          </a>
-        </li>
-      </ul>
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        🚀 SpaceCorps
+        <span class="logo-badge">Rust 2024</span>
+      </a>
+      <nav>
+        <a href="#registry">CLI Fleet</a>
+        <a href="#standards">Standards</a>
+        <a href="#quickstart">Agent Docs</a>
+        <a href="about.html">About</a>
+        <a href="https://github.com/SpaceCorps" target="_blank" rel="noopener noreferrer" class="github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          SpaceCorps
+        </a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-pill">
+        <span></span> Native Rust 2024 Systems & Agentic Infrastructure
+      </div>
+      <h1>
+        Ultra-Fast Native CLIs &<br>
+        <span class="gradient-text">Autonomous Agent Tools</span>
+      </h1>
+      <p>
+        Sub-3ms startup times. Zero runtime dependencies. Deterministic YAML and structured JSON outputs for LLM function calling. Engineered by SpaceCorps in native Rust.
+      </p>
+      <div class="hero-actions">
+        <a href="#registry" class="btn-primary">
+          Explore All 22 CLIs &darr;
+        </a>
+        <a href="https://spacecorps.github.io/llms.txt" class="btn-secondary">
+          Agent llms.txt &rarr;
+        </a>
+        <a href="https://github.com/SpaceCorps" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          GitHub Organization
+        </a>
+      </div>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="pill">🚀 <strong>v1.0.0 Stable</strong> &bull; Native Rust &bull; Sliplane API 0.5.0 &bull; <a href="https://github.com/SpaceCorps/Sliplane-Cli/releases/tag/v1.0.0" style="color:#38bdf8;text-decoration:underline;">Release Notes &rarr;</a></div>
-      <h1>A Lightning Fast CLI for Sliplane</h1>
-      <p>Manage servers, services, managed Postgres, S3 buckets, and deployments directly from your terminal or AI workflows.</p>
-
-      <div class="install-box">
-        <div class="install-cmd">
-          <span class="prefix">$</span>cargo install --git https://github.com/SpaceCorps/Sliplane-Cli --locked
+      <!-- Metrics -->
+      <div class="metrics-bar">
+        <div class="metric-card">
+          <div class="metric-val">22</div>
+          <div class="metric-lbl">Native Rust CLIs</div>
         </div>
-        <button class="copy-btn" onclick="copyInstallCmd(this)">Copy</button>
+        <div class="metric-card">
+          <div class="metric-val">&lt; 3ms</div>
+          <div class="metric-lbl">Cold-Start Latency</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">330+</div>
+          <div class="metric-lbl">Offline Mock Tests</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">100%</div>
+          <div class="metric-lbl">MIT Open Source</div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features -->
-    <h2 class="section-title">Core Advantages</h2>
-    <section class="features">
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>1–3 ms Startup</h3>
-        <p>A single static binary that executes in milliseconds, eliminating runtime overhead and bloat.</p>
+  <!-- Registry Section -->
+  <section class="registry-section" id="registry">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">The SpaceCorps CLI Fleet</h2>
+          <p class="section-subtitle">Search, inspect, and invoke tools across Cloud, Search, Social Scraping, Domains, and DevOps.</p>
+        </div>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">🔐</div>
-        <h3>OS Keystore Security</h3>
-        <p>API keys are securely held in macOS Keychain, Windows DPAPI, or Linux Secret Service, never plain files.</p>
+      <!-- Filter Controls -->
+      <div class="filter-controls">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by tool name, binary, category, or command description (e.g. 'search', 'deploy', 'domain')...">
+        </div>
+        <div class="category-pills" id="categoryFilters">
+          <button class="category-pill active" data-category="all">All (22)</button>
+          <button class="category-pill" data-category="cloud">Cloud & Compute (3)</button>
+          <button class="category-pill" data-category="search">AI Search & Scraping (3)</button>
+          <button class="category-pill" data-category="social">Social Intelligence (7)</button>
+          <button class="category-pill" data-category="domains">Domains & DNS (3)</button>
+          <button class="category-pill" data-category="devops">DevOps & Alerting (5)</button>
+          <button class="category-pill" data-category="iot">Hardware & IoT (1)</button>
+        </div>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">🌐</div>
-        <h3>Full 65-Endpoint API</h3>
-        <p>Complete coverage of the Sliplane 0.5.0 specification for compute, databases, object storage, and keys.</p>
-      </div>
+      <div class="results-count" id="resultsCount">Showing 22 of 22 tools</div>
 
-      <div class="feature-card">
-        <div class="feature-icon">🤖</div>
-        <h3>Agent & Script Friendly</h3>
-        <p>Clean YAML stdout by default, raw JSON via <code>--json</code>, and machine-readable error codes.</p>
-      </div>
-    </section>
+      <!-- CLI Grid -->
+      <div class="cli-grid" id="cliGrid">
 
-    <!-- Terminal Demo -->
-    <section>
+        <!-- 1. Sliplane -->
+        <div class="cli-card" data-category="cloud" data-keywords="sliplane cloud hosting servers docker services postgres s3 compute deploy">
+          <div class="cli-card-header">
+            <div class="cli-name">Sliplane CLI</div>
+            <span class="cli-category-tag cat-cloud">Cloud</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('sliplane')">$ sliplane</div>
+          <p class="cli-desc">Native command-line interface and agent tool for Sliplane cloud hosting. Manage servers, Docker services, managed PostgreSQL instances, and S3 storage.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 13 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Sliplane-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Sliplane-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Sliplane-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 2. Cloudflare -->
+        <div class="cli-card" data-category="cloud" data-keywords="cloudflare dns zones cache purge page rules infrastructure devops">
+          <div class="cli-card-header">
+            <div class="cli-name">Cloudflare CLI</div>
+            <span class="cli-category-tag cat-cloud">Cloud</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('cloudflare')">$ cloudflare</div>
+          <p class="cli-desc">Native interface for Cloudflare v4 API. Manage DNS host records, zone configurations, page rules, and instant edge cache purging with zero dependencies.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 14 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Cloudflare-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Cloudflare-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Cloudflare-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 3. Storage -->
+        <div class="cli-card" data-category="cloud" data-keywords="storage azure blob storage sas tokens zip upload containers backups">
+          <div class="cli-card-header">
+            <div class="cli-name">Storage CLI</div>
+            <span class="cli-category-tag cat-cloud">Cloud</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('storage')">$ storage</div>
+          <p class="cli-desc">Azure Blob Storage file and folder uploader with automated streaming zip compression, container verification, and expiring SAS token generation.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 16 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Storage-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Storage-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Storage-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 4. Exa -->
+        <div class="cli-card" data-category="search" data-keywords="exa search neural semantic ai web retrieval contents llm rag">
+          <div class="cli-card-header">
+            <div class="cli-name">Exa CLI</div>
+            <span class="cli-category-tag cat-search">Search</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('exa')">$ exa</div>
+          <p class="cli-desc">Fast interface for Exa AI neural search and semantic web retrieval API. Extract full-text clean contents, highlights, and similar links for RAG pipelines.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 19 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Exa-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Exa-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Exa-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 5. Firecrawl -->
+        <div class="cli-card" data-category="search" data-keywords="firecrawl web scraping crawler markdown extraction search ai llm">
+          <div class="cli-card-header">
+            <div class="cli-name">Firecrawl CLI</div>
+            <span class="cli-category-tag cat-search">Scraping</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('firecrawl')">$ firecrawl</div>
+          <p class="cli-desc">Native tool for Firecrawl web scraping, URL crawling, and search API. Converts raw web pages into clean LLM-ready Markdown and structured JSON.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 17 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Firecrawl-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Firecrawl-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Firecrawl-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 6. TIC -->
+        <div class="cli-card" data-category="search" data-keywords="tic intelligence sweden business registry company bankruptcy vehicle debtors">
+          <div class="cli-card-header">
+            <div class="cli-name">TIC CLI</div>
+            <span class="cli-category-tag cat-search">Search</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('tic')">$ tic</div>
+          <p class="cli-desc">TIC corporate intelligence API interface. Query Swedish company registries, balance sheets, vehicle registrations, and bankruptcy databases.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 15 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Tic-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Tic-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Tic-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 7. Spaceship -->
+        <div class="cli-card" data-category="domains" data-keywords="spaceship domain registrar dns nameservers hosting">
+          <div class="cli-card-header">
+            <div class="cli-name">Spaceship CLI</div>
+            <span class="cli-category-tag cat-domains">Domains</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('spaceship')">$ spaceship</div>
+          <p class="cli-desc">Native interface for Spaceship domain registrar. Query domain statuses, update custom nameservers, configure DNS records, and automate renewals.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 13 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Spaceship-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Spaceship-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Spaceship-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 8. Loopia -->
+        <div class="cli-card" data-category="domains" data-keywords="loopia domain registrar dns xml-rpc subdomains billing sweden">
+          <div class="cli-card-header">
+            <div class="cli-name">Loopia CLI</div>
+            <span class="cli-category-tag cat-domains">Domains</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('loopia')">$ loopia</div>
+          <p class="cli-desc">Loopia XML-RPC API automation tool. Manage domain registrations, zone records, subdomains, and invoice billing records from terminal or scripts.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 17 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Loopia-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Loopia-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Loopia-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 9. Namecheap -->
+        <div class="cli-card" data-category="domains" data-keywords="namecheap domain availability registrar dns host records">
+          <div class="cli-card-header">
+            <div class="cli-name">Namecheap CLI</div>
+            <span class="cli-category-tag cat-domains">Domains</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('namecheap-cli')">$ namecheap-cli</div>
+          <p class="cli-desc">Fast Rust CLI for Namecheap. Check domain availability for multiple TLDs concurrently, list registered domains, and update DNS host records.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ Domain Check</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://github.com/SpaceCorps/namecheap-cli" target="_blank" rel="noopener noreferrer" class="card-action-btn card-action-primary">GitHub Repo</a>
+            <a href="https://github.com/SpaceCorps/namecheap-cli#readme" target="_blank" rel="noopener noreferrer" class="card-action-btn">README</a>
+            <a href="https://github.com/SpaceCorps/namecheap-cli/releases" target="_blank" rel="noopener noreferrer" class="card-action-btn">Releases</a>
+          </div>
+        </div>
+
+        <!-- 10. Reddit -->
+        <div class="cli-card" data-category="social" data-keywords="reddit apify scraping subreddits posts comments discussions sentiment">
+          <div class="cli-card-header">
+            <div class="cli-name">Reddit CLI</div>
+            <span class="cli-category-tag cat-social">Social</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('reddit')">$ reddit</div>
+          <p class="cli-desc">Native Reddit intelligence CLI via Apify. Extract subreddit top posts, user comment trees, keyword mentions, and discussion sentiment.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 8 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Reddit-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Reddit-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Reddit-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 11. Twitter -->
+        <div class="cli-card" data-category="social" data-keywords="twitter x apify scraping tweets profiles timelines threads social">
+          <div class="cli-card-header">
+            <div class="cli-name">Twitter CLI</div>
+            <span class="cli-category-tag cat-social">Social</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('twitter')">$ twitter</div>
+          <p class="cli-desc">Twitter / X intelligence CLI via Apify. Search tweets, extract user profile metadata, fetch user timelines, and scrape conversation threads.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 13 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Twitter-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Twitter-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Twitter-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 12. LinkedIn -->
+        <div class="cli-card" data-category="social" data-keywords="linkedin apify scraping company profiles posts b2b recruitment">
+          <div class="cli-card-header">
+            <div class="cli-name">LinkedIn CLI</div>
+            <span class="cli-category-tag cat-social">Social</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('linkedin')">$ linkedin</div>
+          <p class="cli-desc">LinkedIn organizational research CLI via Apify. Extract company profiles, headcount metrics, industry classifications, and public organizational posts.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 19 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Linkedin-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Linkedin-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Linkedin-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 13. YouTube -->
+        <div class="cli-card" data-category="social" data-keywords="youtube apify video scraping channel playlists search transcripts">
+          <div class="cli-card-header">
+            <div class="cli-name">YouTube CLI</div>
+            <span class="cli-category-tag cat-social">Social</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('youtube')">$ youtube</div>
+          <p class="cli-desc">YouTube scraping and search CLI via Apify. Scrape video details, view counts, creator channel analytics, playlists, and video transcripts.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 12 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Youtube-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Youtube-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Youtube-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 14. TikTok -->
+        <div class="cli-card" data-category="social" data-keywords="tiktok apify video scraping profiles hashtags trending creators">
+          <div class="cli-card-header">
+            <div class="cli-name">TikTok CLI</div>
+            <span class="cli-category-tag cat-social">Social</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('tiktok')">$ tiktok</div>
+          <p class="cli-desc">TikTok intelligence scraper via Apify. Extract user profiles, follower metrics, trending hashtag videos, sound metadata, and search queries.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 16 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/TikTok-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/TikTok-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/TikTok-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 15. Product Hunt -->
+        <div class="cli-card" data-category="social" data-keywords="producthunt apify startups launches products makers topics tech">
+          <div class="cli-card-header">
+            <div class="cli-name">Product Hunt CLI</div>
+            <span class="cli-category-tag cat-social">Social</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('producthunt')">$ producthunt</div>
+          <p class="cli-desc">Product Hunt launch tracker via Apify. Scrape daily top products, upvote totals, maker profiles, launch comments, and startup categories.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 16 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Producthunt-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Producthunt-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Producthunt-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 16. Stack Overflow -->
+        <div class="cli-card" data-category="social" data-keywords="stackoverflow apify questions answers tags solutions programming">
+          <div class="cli-card-header">
+            <div class="cli-name">Stack Overflow CLI</div>
+            <span class="cli-category-tag cat-social">Social</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('stackoverflow')">$ stackoverflow</div>
+          <p class="cli-desc">Stack Overflow developer research CLI via Apify. Search questions, retrieve accepted answers, inspect tag archives, and find coding solutions.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 21 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Stackoverflow-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Stackoverflow-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Stackoverflow-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 17. Bugsink -->
+        <div class="cli-card" data-category="devops" data-keywords="bugsink sentry error tracking observability triage exceptions devops">
+          <div class="cli-card-header">
+            <div class="cli-name">Bugsink CLI</div>
+            <span class="cli-category-tag cat-devops">DevOps</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('bugsink')">$ bugsink</div>
+          <p class="cli-desc">Native CLI for Bugsink self-hosted error tracking. Inspect exception clusters, query active issues, view stack traces, and manage project alerts.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 19 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Bugsink-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Bugsink-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Bugsink-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 18. HeyReach -->
+        <div class="cli-card" data-category="devops" data-keywords="heyreach linkedin b2b outreach campaigns leads automation">
+          <div class="cli-card-header">
+            <div class="cli-name">HeyReach CLI</div>
+            <span class="cli-category-tag cat-devops">DevOps</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('heyreach')">$ heyreach</div>
+          <p class="cli-desc">HeyReach LinkedIn B2B lead generation API interface. Inspect sender accounts, campaign delivery metrics, prospect lead lists, and automation flows.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 13 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Heyreach-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Heyreach-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Heyreach-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 19. Gmail -->
+        <div class="cli-card" data-category="devops" data-keywords="gmail email mailbox search threads drafts attachments oauth2">
+          <div class="cli-card-header">
+            <div class="cli-name">Gmail CLI</div>
+            <span class="cli-category-tag cat-devops">Productivity</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('gmail')">$ gmail</div>
+          <p class="cli-desc">Native Gmail mailbox search and thread manager. Query inbox messages, download attachments, compose drafts, and automate agent notifications.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 30 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Gmail-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Gmail-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Gmail-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 20. Notify -->
+        <div class="cli-card" data-category="devops" data-keywords="notify slack webhook email smtp alerts system notifications">
+          <div class="cli-card-header">
+            <div class="cli-name">Notify CLI</div>
+            <span class="cli-category-tag cat-devops">DevOps</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('notify')">$ notify</div>
+          <p class="cli-desc">Multi-channel alert dispatcher. Send critical notifications across Slack incoming webhooks, SMTP emails, native OS system banners, and dialog popups.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 10 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Notify-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Notify-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Notify-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 21. GitHub Issue Importer -->
+        <div class="cli-card" data-category="devops" data-keywords="github issue importer bulk yaml json milestones labels migration">
+          <div class="cli-card-header">
+            <div class="cli-name">GitHub Issue Importer</div>
+            <span class="cli-category-tag cat-devops">DevOps</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('gh-issue-import')">$ gh-issue-import</div>
+          <p class="cli-desc">Idempotent bulk import tool for GitHub issues. Validate and synchronize complex issue hierarchies, milestone assignments, and labels from YAML/JSON specs.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 15 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Github-Issue-Importer/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Github-Issue-Importer" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Github-Issue-Importer/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+        <!-- 22. Samsung ArtMode -->
+        <div class="cli-card" data-category="iot" data-keywords="samsung artmode the frame tv smart tv iot matte brightness artwork">
+          <div class="cli-card-header">
+            <div class="cli-name">Samsung ArtMode CLI</div>
+            <span class="cli-category-tag cat-iot">Hardware</span>
+          </div>
+          <div class="binary-pill" title="Click to copy invocation" onclick="navigator.clipboard.writeText('samsung-artmode')">$ samsung-artmode</div>
+          <p class="cli-desc">Native controller for Samsung The Frame TV Art Mode. Upload artwork, adjust matting colors and shadows, regulate display brightness, and schedule rotations.</p>
+          <div class="cli-meta-row">
+            <span class="cli-meta-badge">✓ 13 mock tests</span>
+            <span>•</span>
+            <span class="cli-meta-badge">v1.0.0</span>
+            <span>•</span>
+            <span class="cli-meta-badge">MIT</span>
+          </div>
+          <div class="cli-card-actions">
+            <a href="https://spacecorps.github.io/Samsung-Artmode-Cli/" class="card-action-btn card-action-primary">Docs Site</a>
+            <a href="https://github.com/SpaceCorps/Samsung-Artmode-Cli" target="_blank" rel="noopener noreferrer" class="card-action-btn">GitHub</a>
+            <a href="https://spacecorps.github.io/Samsung-Artmode-Cli/llms.txt" class="card-action-btn">llms.txt</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Standards -->
+  <section class="standards-section" id="standards">
+    <div class="container">
+      <h2 class="section-title">The SpaceCorps Standard</h2>
+      <p class="section-subtitle">Every tool in our suite conforms to a strict architectural blueprint for maximum performance and reliability.</p>
+      
+      <div class="standards-grid">
+        <div class="standard-box">
+          <div class="standard-icon">⚡</div>
+          <div class="standard-title">Native Rust 2024</div>
+          <p class="standard-desc">Compiled with fat LTO, symbol stripping, and strict optimization profiles. Yields static, self-contained binaries that start in under 3 milliseconds.</p>
+        </div>
+        <div class="standard-box">
+          <div class="standard-icon">🛡️</div>
+          <div class="standard-title">OS Keystores</div>
+          <p class="standard-desc">Zero plaintext tokens on disk. Integrated natively with macOS Keychain, Linux Secret Service, and Windows DPAPI with headless stdin piping for CI/CD.</p>
+        </div>
+        <div class="standard-box">
+          <div class="standard-icon">🤖</div>
+          <div class="standard-title">Agent Protocol</div>
+          <p class="standard-desc">Clean YAML on stdout by default; structured JSON with <code>--json</code> for agent function calling; machine-readable error envelopes on stderr with stable exit codes.</p>
+        </div>
+        <div class="standard-box">
+          <div class="standard-icon">🧪</div>
+          <div class="standard-title">100% Offline TCP Mocks</div>
+          <p class="standard-desc">Over 330 integration tests run against ephemeral in-process TCP servers. Zero network calls during tests ensures deterministic, non-flaky test runs.</p>
+        </div>
+        <div class="standard-box">
+          <div class="standard-icon">📦</div>
+          <div class="standard-title">Zero Async Bloat</div>
+          <p class="standard-desc">Built with synchronous blocking I/O (<code>ureq</code> and rustls) and scoped threads. Avoids massive async runtime dependencies and keeps RSS memory below 15MB.</p>
+        </div>
+        <div class="standard-box">
+          <div class="standard-icon">📖</div>
+          <div class="standard-title">Autonomous Discovery</div>
+          <p class="standard-desc">Every binary includes an embedded <code>&lt;bin&gt; agent-readme [--json]</code> manual and deploys dedicated <code>llms.txt</code> and Schema.org structured data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Quickstart Terminal -->
+  <section class="terminal-section" id="quickstart">
+    <div class="container">
+      <h2 class="section-title">Autonomous Agent Quickstart</h2>
+      <p class="section-subtitle">How human operators and AI agents invoke SpaceCorps CLIs in automated loops.</p>
+
       <div class="terminal-window">
         <div class="terminal-header">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-          <span class="terminal-title">zsh - sliplane</span>
+          <div class="term-dot dot-red"></div>
+          <div class="term-dot dot-yellow"></div>
+          <div class="term-dot dot-green"></div>
+          <div class="term-title">bash — spacecorps-agent-session</div>
         </div>
         <div class="terminal-body">
-          <p><span class="cmd">$ sliplane login</span></p>
-          <p class="comment">Opening https://sliplane.io/app/team/api in your browser...</p>
-          <p>Paste your Sliplane API token: <span class="comment">[hidden]</span></p>
-          <p class="success">✓ Successfully logged in as dev@example.com (prod-team) to account 'default'.</p>
-          <br>
-          <p><span class="cmd">$ sliplane projects list -a default</span></p>
-          <p><span class="key">count:</span> 2</p>
-          <p><span class="key">projects:</span></p>
-          <p>&nbsp;&nbsp;- <span class="key">id:</span> proj_api_backend</p>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">name:</span> API Backend Service</p>
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">servicesCount:</span> 3</p>
-          <br>
-          <p><span class="cmd">$ sliplane services deploy --project-id proj_api_backend --service-id srv_web -a default</span></p>
-          <p><span class="key">status:</span> deploying</p>
-          <p><span class="key">serviceId:</span> srv_web</p>
+<span class="term-comment"># 1. Non-interactive keystore login in CI/CD or Docker container</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">echo "$SLIPLANE_API_KEY" | sliplane login prod --api-key-stdin</span>
+<span class="term-comment">✓ Saved credentials for 'prod' to system keystore</span>
+
+<span class="term-comment"># 2. Query resources with structured JSON for agent parsing</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">sliplane services list -a prod --json</span>
+[
+  {
+    <span class="term-json-key">"id"</span>: <span class="term-json-str">"srv_4891b01c"</span>,
+    <span class="term-json-key">"name"</span>: <span class="term-json-str">"api-gateway"</span>,
+    <span class="term-json-key">"status"</span>: <span class="term-json-str">"healthy"</span>,
+    <span class="term-json-key">"image"</span>: <span class="term-json-str">"registry.spacecorps.dev/gateway:v1.0"</span>,
+    <span class="term-json-key">"port"</span>: <span class="term-json-num">8080</span>
+  }
+]
+
+<span class="term-comment"># 3. Retrieve autonomous instructions directly from any binary</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">firecrawl agent-readme --json</span>
+{
+  <span class="term-json-key">"binary"</span>: <span class="term-json-str">"firecrawl"</span>,
+  <span class="term-json-key">"version"</span>: <span class="term-json-str">"1.0.0"</span>,
+  <span class="term-json-key">"tools"</span>: [<span class="term-json-str">"scrape"</span>, <span class="term-json-str">"crawl"</span>, <span class="term-json-str">"search"</span>],
+  <span class="term-json-key">"flags"</span>: { <span class="term-json-key">"--json"</span>: <span class="term-json-str">"machine readable stdout"</span> }
+}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- When to Use -->
-    <section style="margin-bottom: 70px;">
-      <h2 class="section-title">When To Use Sliplane CLI</h2>
-      <p class="section-sub">Guidance for engineers, automated pipelines, and autonomous AI agents.</p>
-      
-      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; max-width: 900px; margin: 0 auto;">
-        <h3 style="color: #38bdf8; font-size: 1.15rem; margin-bottom: 12px;">Best-Fit Scenarios</h3>
-        <ul style="margin-left: 20px; margin-bottom: 24px; color: var(--text-muted); line-height: 1.8;">
-          <li><strong>Automated CI/CD Deployments:</strong> Trigger zero-downtime service deployments from GitHub Actions, GitLab CI, or terminal scripts.</li>
-          <li><strong>Autonomous AI Agents:</strong> Drive infrastructure changes deterministically using the built-in <code>--json</code> mode, structured error envelopes, and <code>sliplane agent-readme</code>.</li>
-          <li><strong>Database & Storage Management:</strong> Rapidly provision managed Postgres clusters, manage backups, create S3 buckets, and rotate access keys.</li>
-          <li><strong>Server Monitoring & Disk Rescaling:</strong> Monitor compute memory and CPU load, attach persistent storage volumes, and rescale data disks on the fly.</li>
-        </ul>
-
-        <h3 style="color: #c084fc; font-size: 1.15rem; margin-bottom: 12px;">When Not to Use</h3>
-        <ul style="margin-left: 20px; color: var(--text-muted); line-height: 1.8;">
-          <li>When you need visual drag-and-drop dashboard controls (use <a href="https://sliplane.io">sliplane.io</a>).</li>
-          <li>When interacting with other cloud vendors (Sliplane CLI targets the Sliplane OpenAPI 0.5.0 specification exclusively).</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Quickstart Workflow -->
-    <section id="quickstart">
-      <h2 class="section-title">Quickstart Workflow</h2>
-      <p class="section-sub">Get up and running in less than two minutes.</p>
-
-      <div class="steps-container">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <h3>Install</h3>
-          <p>Install the CLI using Cargo or download prebuilt binaries from the GitHub releases page.</p>
-          <div class="step-code">cargo install --git https://github.com/SpaceCorps/Sliplane-Cli</div>
-        </div>
-
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <h3>Login</h3>
-          <p>Run <code>sliplane login</code> to open your dashboard, copy your token, and save it in your OS keystore.</p>
-          <div class="step-code">sliplane login</div>
-        </div>
-
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <h3>Deploy & Manage</h3>
-          <p>Manage your projects, compute servers, Postgres instances, and S3 storage with safety guardrails.</p>
-          <div class="step-code">sliplane projects list -a default</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Release & Downloads -->
-    <section id="releases" class="releases-section">
-      <h2 class="section-title">v1.0.0 Stable Release</h2>
-      <p class="section-sub">Download pre-compiled standalone binaries for macOS, Linux, and Windows.</p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 30px 0;">
-        <a href="https://github.com/SpaceCorps/Sliplane-Cli/releases/download/v1.0.0/sliplane-v1.0.0-aarch64-apple-darwin.tar.gz" style="background: rgba(22, 27, 46, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
-          <div style="font-weight: 600; color: #fff; font-size: 1.05rem;">🍎 macOS (Apple Silicon)</div>
-          <div style="color: #94a3b8; font-size: 0.85rem;">aarch64-apple-darwin &bull; .tar.gz</div>
-          <div style="color: #38bdf8; font-size: 0.9rem; margin-top: auto;">Download &darr;</div>
-        </a>
-        <a href="https://github.com/SpaceCorps/Sliplane-Cli/releases/download/v1.0.0/sliplane-v1.0.0-x86_64-apple-darwin.tar.gz" style="background: rgba(22, 27, 46, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
-          <div style="font-weight: 600; color: #fff; font-size: 1.05rem;">🍏 macOS (Intel)</div>
-          <div style="color: #94a3b8; font-size: 0.85rem;">x86_64-apple-darwin &bull; .tar.gz</div>
-          <div style="color: #38bdf8; font-size: 0.9rem; margin-top: auto;">Download &darr;</div>
-        </a>
-        <a href="https://github.com/SpaceCorps/Sliplane-Cli/releases/download/v1.0.0/sliplane-v1.0.0-x86_64-unknown-linux-musl.tar.gz" style="background: rgba(22, 27, 46, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
-          <div style="font-weight: 600; color: #fff; font-size: 1.05rem;">🐧 Linux (x86_64)</div>
-          <div style="color: #94a3b8; font-size: 0.85rem;">musl static binary &bull; .tar.gz</div>
-          <div style="color: #38bdf8; font-size: 0.9rem; margin-top: auto;">Download &darr;</div>
-        </a>
-        <a href="https://github.com/SpaceCorps/Sliplane-Cli/releases/download/v1.0.0/sliplane-v1.0.0-x86_64-pc-windows-msvc.zip" style="background: rgba(22, 27, 46, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s;">
-          <div style="font-weight: 600; color: #fff; font-size: 1.05rem;">🪟 Windows (x64)</div>
-          <div style="color: #94a3b8; font-size: 0.85rem;">x86_64-pc-windows-msvc &bull; .zip</div>
-          <div style="color: #38bdf8; font-size: 0.9rem; margin-top: auto;">Download &darr;</div>
-        </a>
-      </div>
-
-      <p style="text-align: center; color: #94a3b8; font-size: 0.95rem;">
-        View full changelog and SHA256 checksums on <a href="https://github.com/SpaceCorps/Sliplane-Cli/releases/tag/v1.0.0" style="color: #38bdf8; text-decoration: underline;">GitHub Releases</a>.
-      </p>
-    </section>
-
-    <!-- Command Tabs -->
-    <section id="commands" class="cmd-section">
-      <h2 class="section-title">Command Reference</h2>
-      <p class="section-sub">Organized by resource category.</p>
-
-      <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab('auth')">Auth & Accounts</button>
-        <button class="tab-btn" onclick="switchTab('projects')">Projects & Servers</button>
-        <button class="tab-btn" onclick="switchTab('services')">Services & Deploy</button>
-        <button class="tab-btn" onclick="switchTab('storage')">Postgres & Buckets</button>
-      </div>
-
-      <div id="tab-auth" class="tab-content active">
-<pre># Interactive browser-assisted login (saves as 'default')
-sliplane login
-
-# Log in with a specific account name
-sliplane login work
-
-# Scripted login via stdin (no echo or shell history)
-pbpaste | sliplane login ci --api-key-stdin
-
-# List configured accounts and test credentials
-sliplane accounts list --check
-sliplane accounts test work
-
-# Remove an account from this machine
-sliplane accounts remove work --yes</pre>
-      </div>
-
-      <div id="tab-projects" class="tab-content">
-<pre># List projects
-sliplane projects list -a default
-
-# Create a new project
-sliplane projects create --name "Production" -a default
-
-# List all servers
-sliplane servers list -a default
-
-# Rescale a server's data disk
-sliplane servers rescale-disk --server-id srv_123 --disk-size-gb 50 -a default</pre>
-      </div>
-
-      <div id="tab-services" class="tab-content">
-<pre># List services in a project (or across all projects)
-sliplane services list --project-id proj_1 -a default
-
-# Update a service branch without resetting Dockerfile or context
-sliplane services update --project-id proj_1 --service-id srv_1 --branch main -a default
-
-# Set an environment variable safely without dropping existing ones
-sliplane services set-env --project-id proj_1 --service-id srv_1 --key DATABASE_URL --value secret -a default
-
-# Deploy service
-sliplane services deploy --project-id proj_1 --service-id srv_1 -a default</pre>
-      </div>
-
-      <div id="tab-storage" class="tab-content">
-<pre># Create a managed Postgres database
-sliplane postgres create --server-id srv_1 --name my-db --pg-version 18 -a default
-
-# Get database connection string & credentials
-sliplane postgres get --postgres-id pg_123 -a default
-
-# Create S3-compatible bucket & access key
-sliplane buckets create --server-id srv_1 --name assets -a default
-sliplane buckets keys create --server-id srv_1 --bucket-id bkt_1 --name app-key -a default</pre>
-      </div>
-    </section>
-
-  </main>
-
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="llms.txt">llms.txt</a>
-        <a href="sitemap.xml">Sitemap</a>
-        <a href="https://github.com/SpaceCorps/Sliplane-Cli" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://sliplane.io" target="_blank" rel="noopener noreferrer">Sliplane</a>
-        <a href="https://ctrl.sliplane.io/spec.json" target="_blank" rel="noopener noreferrer">OpenAPI Spec (0.5.0)</a>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>🚀 SpaceCorps</h3>
+          <p>
+            An open-source engineering collective building high-performance native systems, autonomous agent tooling, and decentralized cloud primitives.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>CLI Registry</h4>
+          <ul>
+            <li><a href="https://spacecorps.github.io/Sliplane-Cli/">Sliplane CLI</a></li>
+            <li><a href="https://spacecorps.github.io/Cloudflare-Cli/">Cloudflare CLI</a></li>
+            <li><a href="https://spacecorps.github.io/Exa-Cli/">Exa CLI</a></li>
+            <li><a href="https://spacecorps.github.io/Firecrawl-Cli/">Firecrawl CLI</a></li>
+            <li><a href="https://spacecorps.github.io/Spaceship-Cli/">Spaceship CLI</a></li>
+            <li><a href="#registry">View All 22 CLIs &rarr;</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Agent Specs</h4>
+          <ul>
+            <li><a href="llms.txt">llms.txt (Curated)</a></li>
+            <li><a href="llms-full.txt">llms-full.txt (Manual)</a></li>
+            <li><a href=".well-known/agent-card.json">Agent Card JSON</a></li>
+            <li><a href=".well-known/agent-skills/index.json">Agent Skills Index</a></li>
+            <li><a href="auth.md">Auth & Keystore Guide</a></li>
+            <li><a href="index.md">Markdown Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About SpaceCorps</a></li>
+            <li><a href="contact.html">Contact & Support</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="pricing.html" onclick="location.href='pricing.md';return false;">Pricing & License</a></li>
+            <li><a href="https://github.com/SpaceCorps" target="_blank" rel="noopener noreferrer">GitHub Profile</a></li>
+          </ul>
+        </div>
       </div>
-      <p>Sliplane CLI &bull; Maintained under SpaceCorps &bull; Licensed under MIT</p>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 SpaceCorps. All command-line tools released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+        </div>
+        <div>
+          Native Rust 2024 • Sub-3ms Cold Starts • Zero Telemetry
+        </div>
+      </div>
     </div>
   </footer>
 
+  <!-- Real-time Filter & Search JavaScript -->
   <script>
-    function copyInstallCmd(btn) {
-      const cmd = "cargo install --git https://github.com/SpaceCorps/Sliplane-Cli --locked";
-      navigator.clipboard.writeText(cmd).then(() => {
-        btn.textContent = "Copied!";
-        btn.classList.add("copied");
-        setTimeout(() => {
-          btn.textContent = "Copy";
-          btn.classList.remove("copied");
-        }, 2000);
-      });
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      const categoryPills = document.querySelectorAll('.category-pill');
+      const cards = document.querySelectorAll('.cli-card');
+      const resultsCount = document.getElementById('resultsCount');
 
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-      
-      const activeContent = document.getElementById('tab-' + tabId);
-      if (activeContent) activeContent.classList.add('active');
-      
-      event.target.classList.add('active');
-    }
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      function filterCards() {
+        let visibleCount = 0;
+        const query = currentQuery.toLowerCase().trim();
+
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+          const textContent = card.textContent.toLowerCase();
+
+          const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory;
+          const matchesQuery = query === '' || keywords.includes(query) || textContent.includes(query);
+
+          if (matchesCategory && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        resultsCount.textContent = `Showing ${visibleCount} of ${cards.length} tools`;
+      }
+
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = e.target.value;
+        filterCards();
+      });
+
+      categoryPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          categoryPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentCategory = pill.getAttribute('data-category');
+          filterCards();
+        });
+      });
+    });
   </script>
 </body>
 </html>

@@ -1,13 +1,127 @@
 {
   "name": "SpaceCorps Agent Hub",
-  "description": "Autonomous cloud infrastructure and developer tooling ecosystem by SpaceCorps.",
+  "description": "Next-generation native Rust command-line tools and autonomous agent interfaces by SpaceCorps.",
   "url": "https://spacecorps.github.io/",
   "version": "1.0.0",
-  "capabilities": ["deploy", "compute", "database", "storage", "agentic-automation"],
+  "capabilities": [
+    "cloud-infrastructure",
+    "web-scraping",
+    "neural-search",
+    "dns-domain-management",
+    "social-intelligence",
+    "devops-automation",
+    "hardware-control"
+  ],
   "skills": [
     {
       "name": "sliplane-cli",
-      "url": "https://spacecorps.github.io/llms.txt"
+      "description": "Deploy web services, provision managed Postgres databases, and manage S3 storage on Sliplane.",
+      "url": "https://spacecorps.github.io/Sliplane-Cli/llms.txt"
+    },
+    {
+      "name": "exa-cli",
+      "description": "Exa AI neural search, semantic search, and web retrieval API.",
+      "url": "https://spacecorps.github.io/Exa-Cli/llms.txt"
+    },
+    {
+      "name": "firecrawl-cli",
+      "description": "Firecrawl web scraping, crawling, structured data extraction, and search API.",
+      "url": "https://spacecorps.github.io/Firecrawl-Cli/llms.txt"
+    },
+    {
+      "name": "cloudflare-cli",
+      "description": "Cloudflare v4 API for DNS records, zones, page rules, and cache purging.",
+      "url": "https://spacecorps.github.io/Cloudflare-Cli/llms.txt"
+    },
+    {
+      "name": "spaceship-cli",
+      "description": "Spaceship domain registrar, DNS management, and hosting API.",
+      "url": "https://spacecorps.github.io/Spaceship-Cli/llms.txt"
+    },
+    {
+      "name": "reddit-cli",
+      "description": "Reddit communities, posts, comments, and keyword scraping via Apify.",
+      "url": "https://spacecorps.github.io/Reddit-Cli/llms.txt"
+    },
+    {
+      "name": "twitter-cli",
+      "description": "Twitter / X tweets, profiles, and conversation thread scraping via Apify.",
+      "url": "https://spacecorps.github.io/Twitter-Cli/llms.txt"
+    },
+    {
+      "name": "linkedin-cli",
+      "description": "LinkedIn company profiles, employee insights, and post extraction via Apify.",
+      "url": "https://spacecorps.github.io/Linkedin-Cli/llms.txt"
+    },
+    {
+      "name": "youtube-cli",
+      "description": "YouTube videos, channel analytics, playlists, and search scraper via Apify.",
+      "url": "https://spacecorps.github.io/Youtube-Cli/llms.txt"
+    },
+    {
+      "name": "tiktok-cli",
+      "description": "TikTok user profiles, trending videos, hashtags, and sound scraper via Apify.",
+      "url": "https://spacecorps.github.io/TikTok-Cli/llms.txt"
+    },
+    {
+      "name": "producthunt-cli",
+      "description": "Product Hunt launches, daily products, maker profiles, and topic scraping via Apify.",
+      "url": "https://spacecorps.github.io/Producthunt-Cli/llms.txt"
+    },
+    {
+      "name": "stackoverflow-cli",
+      "description": "Stack Overflow questions, tag search, accepted answers, and developer discussions via Apify.",
+      "url": "https://spacecorps.github.io/Stackoverflow-Cli/llms.txt"
+    },
+    {
+      "name": "loopia-cli",
+      "description": "Loopia XML-RPC API for domain registrations, subdomains, DNS records, and billing.",
+      "url": "https://spacecorps.github.io/Loopia-Cli/llms.txt"
+    },
+    {
+      "name": "bugsink-cli",
+      "description": "Self-hosted Sentry-compatible error tracking and exception triage platform.",
+      "url": "https://spacecorps.github.io/Bugsink-Cli/llms.txt"
+    },
+    {
+      "name": "heyreach-cli",
+      "description": "HeyReach LinkedIn B2B lead generation, sender accounts, and campaign automation API.",
+      "url": "https://spacecorps.github.io/Heyreach-Cli/llms.txt"
+    },
+    {
+      "name": "gmail-cli",
+      "description": "Mailbox search, thread inspection, attachments download, and draft management.",
+      "url": "https://spacecorps.github.io/Gmail-Cli/llms.txt"
+    },
+    {
+      "name": "storage-cli",
+      "description": "Azure Blob Storage manager with automated zip compression and secure SAS link generation.",
+      "url": "https://spacecorps.github.io/Storage-Cli/llms.txt"
+    },
+    {
+      "name": "notify-cli",
+      "description": "Multi-channel notifications across Slack webhooks, email, system alerts, and message boxes.",
+      "url": "https://spacecorps.github.io/Notify-Cli/llms.txt"
+    },
+    {
+      "name": "samsung-artmode-cli",
+      "description": "Samsung The Frame TV Art Mode control, matte settings, brightness, and photo uploads.",
+      "url": "https://spacecorps.github.io/Samsung-Artmode-Cli/llms.txt"
+    },
+    {
+      "name": "tic-cli",
+      "description": "TIC business intelligence API for Swedish company, debtor, vehicle, and bankruptcy records.",
+      "url": "https://spacecorps.github.io/Tic-Cli/llms.txt"
+    },
+    {
+      "name": "github-issue-importer",
+      "description": "Idempotent bulk import of issues from YAML/JSON files into GitHub repositories.",
+      "url": "https://spacecorps.github.io/Github-Issue-Importer/llms.txt"
+    },
+    {
+      "name": "namecheap-cli",
+      "description": "Namecheap domain availability, multi-domain check, and DNS host records management.",
+      "url": "https://github.com/SpaceCorps/namecheap-cli"
     }
   ],
   "contact": {

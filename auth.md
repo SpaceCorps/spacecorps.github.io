@@ -1,66 +1,32 @@
 ---
-title: "Authentication Guide"
-description: "Authentication methods, credential storage, and error handling for developers and AI agents using the Sliplane CLI."
+title: "SpaceCorps Universal Authentication Standard"
+description: "Authentication flows, OS keystore integration, headless CI/CD piping, and multi-account security across all SpaceCorps CLI tools."
 author: "SpaceCorps"
-date: "2026-09-23"
+date: "2026-09-24"
 ---
 
-# Authentication Guide for Sliplane CLI
+# SpaceCorps Universal Authentication Standard
 
-This document outlines authentication methods, credential storage, and error handling for developers and AI agents using the Sliplane CLI.
+All tools in the SpaceCorps CLI fleet share a unified credential architecture designed for security, developer ergonomics, and autonomous agent orchestration.
 
-## Overview
-The Sliplane CLI interfaces directly with the Sliplane REST API (v0). Authentication is token-based, using API tokens issued through your Sliplane organization dashboard. Tokens can be stored in the host operating system's native keychain or supplied directly via environment variables and standard input.
+## Core Authentication Principles
 
-## Prerequisites
-- A Sliplane account ([sliplane.io](https://sliplane.io))
-- A valid API key generated from the team settings page (`https://sliplane.io/app/team/api`)
-- Sliplane CLI installed on your machine (`cargo install --git https://github.com/SpaceCorps/Sliplane-Cli --locked`)
+1. **Native OS Keystores:** By default, credentials (API tokens, passwords, secrets) are stored in your platform's native keyring:
+   - **macOS:** macOS Keychain Services (`security add-generic-password`)
+   - **Linux:** freedesktop.org Secret Service daemon (`secret-tool`)
+   - **Windows:** Windows DPAPI (`CryptProtectData`)
+2. **Headless Stdin Piping:** In automated CI/CD runners, containerized agent runners, or scripts, pass tokens without shell history leakage:
+   ```bash
+   echo "$API_TOKEN" | <binary> login [account_alias] --api-key-stdin
+   ```
+3. **Multi-Account Scoping:** Manage multiple staging, production, or customer accounts safely using `--account <name>` (short `-a <name>`):
+   ```bash
+   sliplane services list --account staging
+   sliplane services list --account prod
+   ```
+4. **Environment Variable Fallback:** Each CLI supports an environment variable fallback (e.g. `SLIPLANE_API_KEY`, `EXA_API_KEY`, `FIRECRAWL_API_KEY`, `APIFY_TOKEN`, `CLOUDFLARE_API_TOKEN`) for zero-configuration transient execution.
 
-## Authentication Flow
+## Standard Exit Codes for Auth
 
-### Interactive Browser Login (`sliplane login`)
-The recommended flow for local developer machines:
-```bash
-sliplane login [account_name]
-```
-1. The CLI launches your system browser to `https://sliplane.io/app/team/api`.
-2. You copy or generate your personal/team API token.
-3. Paste the token into the CLI prompt (input characters are masked).
-4. The CLI validates the key with a live request to `GET /v0/me`.
-5. Upon confirmation, the key is securely saved to the native OS keyring under the account name (defaults to `default`).
-
-### Non-Interactive / Headless Login
-For headless CI/CD environments, Docker containers, or autonomous agent runners:
-```bash
-echo "$SLIPLANE_API_KEY" | sliplane login [account_name] --api-key-stdin
-```
-Or pass the token directly as a CLI flag:
-```bash
-sliplane login [account_name] --api-key "$SLIPLANE_API_KEY"
-```
-
-## Environment Variables
-The CLI checks the environment for credentials when no keychain account is specified:
-- `SLIPLANE_API_KEY`: Fallback API key used if no keystore account is explicitly selected.
-- `SLIPLANE_ACCOUNT`: Default account name to use for operations when `--account` is omitted.
-
-## Multi-Account Management
-Switch or verify accounts using:
-```bash
-sliplane accounts list --check
-sliplane accounts test [account_name]
-```
-
-## Error Handling
-When authentication fails, commands exit with non-zero exit codes and output standardized JSON error payloads:
-- `auth_required`: No token provided or token expired.
-- `no_account`: Specified account does not exist in keystore.
-- `invalid_input`: Key format rejected by validation check.
-- `rate_limited`: Sliplane API rate limits reached.
-
-## Security Best Practices
-1. **Never Commit Tokens**: Keep `.env` or plaintext token files out of version control.
-2. **Use OS Keystore**: The CLI automatically utilizes macOS Keychain, Windows Credential Manager, or Linux Secret Service / Keyutils.
-3. **Scoped Tokens**: For automated CI/CD runners, issue dedicated automation tokens with limited organizational scope.
-4. **Machine Verification**: When writing agent automation scripts, always pass `--json` to reliably capture error codes.
+- `3` (`Unauthorized / auth_required`): Credentials missing or rejected by upstream service.
+- `2` (`Bad Request / invalid_input`): Malformed token syntax or missing required argument.

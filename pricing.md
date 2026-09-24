@@ -1,17 +1,12 @@
-# Sliplane CLI Pricing & Licensing
+# SpaceCorps Pricing & Open Source License
 
-Sliplane CLI is free, open-source software maintained by SpaceCorps.
+All SpaceCorps command-line tools, agent skill manifests, and developer portals are **100% free and open source**.
 
-## CLI Licensing
-- **License**: Apache 2.0 and MIT dual-license.
-- **Cost**: \$0.00 / Free forever.
-- **Source Code**: [GitHub](https://github.com/SpaceCorps/Sliplane-Cli)
+## Open Source Commitment
+- **License:** Permissive [MIT License](https://opensource.org/licenses/MIT).
+- **Cost:** \$0.00 / Free forever.
+- **Redistribution:** You are free to bundle, distribute, modify, and incorporate SpaceCorps tools into personal, enterprise, and commercial agent pipelines without royalty.
+- **Source Repositories:** Available on GitHub under the [SpaceCorps Organization](https://github.com/SpaceCorps).
 
-## Sliplane Cloud Platform Hosting
-The CLI interacts with the official Sliplane cloud hosting service ([sliplane.io](https://sliplane.io)). Platform pricing is managed directly by Sliplane:
-- **Free Tier / Trial**: Available for initial setup and prototyping.
-- **Paid Compute**: Hourly / monthly billing based on dedicated server resources (RAM, vCPU, NVMe storage).
-- **Managed PostgreSQL**: Add-on pricing based on instance size.
-- **Object Storage**: S3-compatible storage billed per gigabyte stored and network egress.
-
-For official platform subscription details and current hosting rates, visit [https://sliplane.io](https://sliplane.io).
+## Upstream Platform Services
+While SpaceCorps binaries and agent interfaces are completely free, any third-party infrastructure or SaaS services they interface with (such as Sliplane compute, Cloudflare plans, Spaceship domain purchases, Apify scraping compute units, or Exa API queries) are billed directly by their respective providers.

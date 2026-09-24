@@ -3,43 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About · Sliplane CLI</title>
-  <meta name="description" content="About Sliplane CLI: An open source native Rust command-line tool and agent interface for the Sliplane cloud hosting platform.">
+  <title>About SpaceCorps | High-Performance Native Rust Systems & Agentic Infrastructure</title>
+  <meta name="description" content="About SpaceCorps: An open-source engineering collective dedicated to building ultra-fast native Rust command-line tools, autonomous agent interfaces, and decentralized systems.">
   <link rel="canonical" href="https://spacecorps.github.io/about.html">
-  <meta property="og:title" content="About · Sliplane CLI">
-  <meta property="og:description" content="About Sliplane CLI: An open source native Rust command-line tool and agent interface for the Sliplane cloud hosting platform.">
-  <meta property="og:url" content="https://spacecorps.github.io/about.html">
+  <meta property="og:title" content="About SpaceCorps | High-Performance Native Rust Systems & Agentic Infrastructure">
+  <meta property="og:description" content="About SpaceCorps: An open-source engineering collective dedicated to building ultra-fast native Rust command-line tools, autonomous agent interfaces, and decentralized systems.">
+  <link rel="canonical" href="https://spacecorps.github.io/about.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://spacecorps.github.io/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="is-agentic-site-type" content="content">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
   <style>
-    body { background: #090d16; color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; padding: 40px 20px; }
-    .content-box { max-width: 800px; margin: 0 auto; background: rgba(22, 27, 46, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 40px; }
-    h1 { font-size: 2.2rem; margin-bottom: 20px; color: #fff; }
-    h2 { font-size: 1.4rem; margin-top: 30px; margin-bottom: 12px; color: #38bdf8; }
-    p { margin-bottom: 16px; color: #94a3b8; }
-    a { color: #38bdf8; text-decoration: none; }
+    :root {
+      --bg: #090d16;
+      --bg-card: rgba(22, 27, 46, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #6366f1;
+      --accent: #38bdf8;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      padding: 40px 20px;
+      margin: 0;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent),
+        radial-gradient(circle 400px at 90% 20%, rgba(56, 189, 248, 0.08), transparent);
+    }
+    .content-box {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 48px;
+      backdrop-filter: blur(12px);
+    }
+    h1 { font-size: 2.4rem; margin-bottom: 24px; color: #fff; line-height: 1.2; }
+    h2 { font-size: 1.5rem; margin-top: 36px; margin-bottom: 14px; color: var(--accent); }
+    p { margin-bottom: 18px; color: var(--text-muted); font-size: 1.05rem; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back { display: inline-block; margin-bottom: 24px; color: #6366f1; font-weight: 500; }
+    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 28px; color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+    ul { margin-left: 24px; margin-bottom: 24px; color: var(--text-muted); }
+    li { margin-bottom: 10px; font-size: 1.02rem; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .stat-card {
+      background: rgba(13, 17, 23, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+    .stat-val { font-size: 1.8rem; font-weight: 700; color: #fff; }
+    .stat-lbl { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
   </style>
 </head>
 <body>
   <div class="content-box">
-    <a href="./" class="back">&larr; Back to Sliplane CLI</a>
-    <h1>About Sliplane CLI</h1>
+    <a href="./" class="back">&larr; Back to SpaceCorps Hub</a>
+    <h1>About SpaceCorps</h1>
     
-    <p>Sliplane CLI is a high-performance, open-source command-line tool and programmatic automation interface designed specifically for the Sliplane cloud infrastructure platform. Maintained under the SpaceCorps open-source engineering collective, the project originated to provide developers and autonomous AI agents with a single, standalone binary capable of operating seamlessly across macOS, Linux, and Windows without runtime dependencies or heavy interpreter overhead.</p>
+    <p><strong>SpaceCorps</strong> is an open-source engineering collective dedicated to building ultra-fast native systems, autonomous agent tooling, and cloud infrastructure primitives. Our primary focus is delivering production-ready, zero-dependency command-line tools that bridge human operators and autonomous AI coding agents.</p>
 
-    <h2>Project Mission & Origins</h2>
-    <p>Modern cloud development demands rapid feedback loops and secure automation. The original prototype CLI was implemented as a .NET global tool by Niels Bosma. While functional, modern deployment pipelines and autonomous coding assistants benefit immensely from static binaries that start in 1 to 3 milliseconds rather than incurring the multi-millisecond startup latencies of managed runtimes. In 2026, the CLI was completely re-architected in Rust to achieve native speed, predictable memory usage, and zero runtime dependencies.</p>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-val">22</div>
+        <div class="stat-lbl">Native Rust CLIs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">&lt; 3ms</div>
+        <div class="stat-lbl">Cold Start Latency</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">330+</div>
+        <div class="stat-lbl">Offline Mock Tests</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">100%</div>
+        <div class="stat-lbl">MIT Open Source</div>
+      </div>
+    </div>
 
-    <h2>Architectural Principles</h2>
-    <p>Sliplane CLI is built around three uncompromising tenets: safety, determinism, and speed. Unlike conventional tools that quietly store plain-text secrets in home directories, Sliplane CLI integrates natively with host operating system credential vaults—such as macOS Keychain, Windows DPAPI, and the Linux Secret Service daemon. Furthermore, to prevent catastrophic accidental actions in multi-tenant or multi-account configurations, mutating API commands strictly enforce account scoping, ensuring that autonomous agents and scripts always operate on the intended environment.</p>
+    <h2>Mission & Origins</h2>
+    <p>Developer tooling has grown needlessly complex and slow. Managed runtime interpreters (.NET, Python, Node.js) add hundreds of megabytes of disk overhead and hundreds of milliseconds of initialization latency. When autonomous AI agents fan out and invoke dozens of CLI commands concurrently to research, deploy, and verify infrastructure, these startup delays compound into sluggish agent performance.</p>
+    <p>Originally prototyped as .NET global tools by developer <strong>Niels Bosma</strong>, the entire fleet was acquired and completely re-architected in 2026 into native <strong>Rust 2024</strong> binaries under the SpaceCorps organization. Each tool preserves the full original git history while upgrading the implementation to modern systems engineering standards: single static binaries, blocking HTTP with rustls, native operating system keystore encryption, and structured YAML/JSON outputs.</p>
 
-    <h2>Specification & Compatibility</h2>
-    <p>Every command and flag in the CLI is grounded directly in the official Sliplane OpenAPI specification (v0, API version 0.5.0), ensuring 100% parity across all 65 public endpoints. This includes end-to-end support for virtual servers, application services, managed PostgreSQL databases, S3-compatible object storage, registry credentials, and OAuth clients.</p>
+    <h2>The SpaceCorps Engineering Tenets</h2>
+    <ul>
+      <li><strong>Native Rust 2024:</strong> Zero garbage collection pauses, memory safety guarantees, and sub-3ms execution startup for instantaneous terminal response.</li>
+      <li><strong>Deterministic Agent Protocols:</strong> Human-readable YAML on standard output by default, strict structured JSON when passed <code>--json</code>, and machine-readable error envelopes on standard error with stable exit codes (1 to 7).</li>
+      <li><strong>Cryptographic OS Keystores:</strong> No unencrypted tokens or plaintext credentials in home directories. Keys are securely stored via macOS Keychain Services, Linux Secret Service, or Windows DPAPI.</li>
+      <li><strong>100% Offline TCP Mock Integration Testing:</strong> Every CLI command is verified by in-process TCP mock servers, ensuring zero flaky network tests and rock-solid deterministic CI/CD pipelines.</li>
+      <li><strong>Autonomous Agent Discovery:</strong> Every tool publishes dedicated <code>llms.txt</code> manifests, agent cards, and embedded <code>&lt;binary&gt; agent-readme</code> commands so AI agents can self-configure and operate independently.</li>
+    </ul>
+
+    <h2>Open Source & Governance</h2>
+    <p>All SpaceCorps software is released under the permissive <strong>MIT License</strong>. We believe critical developer infrastructure should be auditable, freely redistributable, and accessible to developers and autonomous software agents worldwide.</p>
   </div>
 </body>
 </html>
