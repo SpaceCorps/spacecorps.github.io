@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +14,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="is-agentic-site-type" content="content">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="stylesheet" href="tokens.css">
   <style>
     :root {
-      --bg: #090d16;
-      --bg-card: rgba(22, 27, 46, 0.7);
-      --border: rgba(255, 255, 255, 0.1);
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --primary: #6366f1;
-      --accent: #38bdf8;
+      --bg: var(--background);
+      --bg-card: rgba(18, 18, 21, 0.75);
+      --border: var(--border);
+      --text: var(--foreground);
+      --text-muted: var(--muted-foreground);
+      --primary: var(--ivy-green);
+      --accent: var(--cyan);
     }
     body {
       background: var(--bg);
