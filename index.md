@@ -1,6 +1,6 @@
 ---
 title: "SpaceCorps Developer Portal, Systems & Simulation Registry"
-description: "High-performance native Rust systems: 23 autonomous AI agent CLIs, the cross-platform Space3d game engine, and Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics)."
+description: "High-performance native Rust systems: 24 autonomous AI agent CLIs, the cross-platform Space3d game engine, and Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics)."
 author: "SpaceCorps"
 date: "2026-09-25"
 canonical: "https://spacecorps.github.io/index.md"
@@ -17,6 +17,7 @@ SpaceCorps engineers high-performance native Rust systems, cross-platform 3D gra
 | **Space3d-Molecular**     | `spacemd` / `spaceemit` | Simulation & Physics | [Overview](https://github.com/SpaceCorps/Space3d-Molecular) | [GitHub](https://github.com/SpaceCorps/Space3d-Molecular)     | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
 | **Space3d Engine**        | `space3d`               | 3D Graphics & Games  | [Showcase](https://spacecorps.github.io/#space3d)           | [SpaceCorps](https://github.com/SpaceCorps)                   | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
 | **Sliplane CLI**          | `sliplane`              | Cloud & Hosting      | [Docs](https://spacecorps.github.io/Sliplane-Cli/)          | [GitHub](https://github.com/SpaceCorps/Sliplane-Cli)          | [llms.txt](https://spacecorps.github.io/Sliplane-Cli/llms.txt)          |
+| **Claude Sessions CLI**   | `claude-sessions`       | DevOps & Migration   | [Docs](https://spacecorps.github.io/Claude-Sessions-Cli/)   | [GitHub](https://github.com/SpaceCorps/Claude-Sessions-Cli)   | [llms.txt](https://spacecorps.github.io/Claude-Sessions-Cli/llms.txt)   |
 | **Cloudflare CLI**        | `cloudflare`            | Cloud & Hosting      | [Docs](https://spacecorps.github.io/Cloudflare-Cli/)        | [GitHub](https://github.com/SpaceCorps/Cloudflare-Cli)        | [llms.txt](https://spacecorps.github.io/Cloudflare-Cli/llms.txt)        |
 | **Storage CLI**           | `storage`               | Cloud & Hosting      | [Docs](https://spacecorps.github.io/Storage-Cli/)           | [GitHub](https://github.com/SpaceCorps/Storage-Cli)           | [llms.txt](https://spacecorps.github.io/Storage-Cli/llms.txt)           |
 | **Exa CLI**               | `exa`                   | Search & Scraping    | [Docs](https://spacecorps.github.io/Exa-Cli/)               | [GitHub](https://github.com/SpaceCorps/Exa-Cli)               | [llms.txt](https://spacecorps.github.io/Exa-Cli/llms.txt)               |
