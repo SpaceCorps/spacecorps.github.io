@@ -10,7 +10,10 @@
     "dns-domain-management",
     "social-intelligence",
     "devops-automation",
-    "hardware-control"
+    "hardware-control",
+    "molecular-dynamics",
+    "electron-emission-physics",
+    "3d-graphics-simulation"
   ],
   "skills": [
     {
@@ -122,6 +125,16 @@
       "name": "namecheap-cli",
       "description": "Namecheap domain availability, multi-domain check, and DNS host records management.",
       "url": "https://github.com/SpaceCorps/namecheap-cli"
+    },
+    {
+      "name": "space3d-molecular",
+      "description": "Atomistic molecular dynamics (spacemd) and thermal-field electron emission physics (spaceemit) in pure Rust with live 3D visualizer and OpenAPI server.",
+      "url": "https://spacecorps.github.io/llms.txt"
+    },
+    {
+      "name": "space3d-engine",
+      "description": "Cross-platform 3D game and simulation engine in pure Rust with wgpu GPU indirect rendering and deterministic 60Hz ECS.",
+      "url": "https://spacecorps.github.io/#space3d"
     }
   ],
   "contact": {

@@ -1,19 +1,36 @@
-# SpaceCorps CLI Suite & Agent Hub
+# SpaceCorps Systems, Simulation & Agent Hub
 
-> High-performance native Rust command-line tools and autonomous AI agent interfaces engineered by SpaceCorps. Sub-3ms cold starts, zero runtime dependencies, structured YAML/JSON outputs, OS keystore security, and 100% offline TCP mock tested.
+> High-performance native Rust systems engineered by SpaceCorps: autonomous AI agent interfaces, the cross-platform Space3d game engine, and Space3d-Molecular scientific computing (atomistic molecular dynamics and thermal-field electron emission physics).
 
 ## Organization & Architecture Overview
 
-SpaceCorps builds native Rust developer tools and autonomous agent infrastructure. All tools in the SpaceCorps CLI suite adhere to the **SpaceCorps Standard**:
-1. **Native Rust 2024:** Single static binary with zero GC and sub-3ms startup latency.
-2. **Blocking I/O (`ureq`):** Zero asynchronous runtime bloat, minimal memory footprint (< 15MB RSS).
-3. **Dual Agent Output:** Clean human-friendly YAML on `stdout` by default; strict JSON with `--json` for LLM tool-calling; structured error envelopes on `stderr` with stable exit codes (1 to 7).
-4. **OS Keystore Integration:** Sensitive credentials encrypted in macOS Keychain, Linux Secret Service, or Windows DPAPI.
-5. **Self-Documenting Agent Manual:** Run `<binary> agent-readme [--json]` in any CLI for full autonomous self-configuration.
+SpaceCorps builds native Rust systems, scientific simulation engines, and autonomous agent infrastructure:
+1. **Native Rust 2024:** Single static binaries and pure-Rust libraries with zero interpreter overhead, sub-3ms CLI startup latency, and no C/C++/Fortran/Python dependencies.
+2. **Space3d Simulation Ecosystem:** High-throughput atomistic molecular dynamics (`spacemd`) at 74M–108M atom-steps/s, thermal-field electron emission (`spaceemit`) solved in 14 µs per point, and GPU-driven indirect 3D rendering drawing 1,000,000+ instances in a few draw calls.
+3. **Blocking I/O (`ureq` & rustls):** Developer CLIs avoid massive async runtime dependencies and keep RSS memory below 15MB.
+4. **Dual Agent Output:** Clean human-friendly YAML on `stdout` by default; strict JSON with `--json` for LLM tool-calling; structured error envelopes on `stderr` with stable exit codes (1 to 7).
+5. **OS Keystore Integration:** Sensitive credentials encrypted in macOS Keychain, Linux Secret Service, or Windows DPAPI.
+6. **Package Registry:** Custom Sliplane-hosted Cargo sparse registry and binary store at `https://spacecorps-registry.sliplane.app` (public read, zero auth required).
 
 ---
 
-## CLI Tools Registry
+## Systems & Tools Registry
+
+### Scientific Simulation & 3D Engines (Space3d Ecosystem)
+
+- [Space3d-Molecular](https://github.com/SpaceCorps/Space3d-Molecular): Pure-Rust molecular dynamics (`spacemd`) and thermal-field electron emission physics (`spaceemit`) with real-time 3D simulation viewer (`molviewer`).
+  - **spacemd Engine:** Atomistic simulation of crystals, liquids, and ionic solids. Potentials: Lennard-Jones, Morse, Buckingham, Ewald Coulomb, and EAM (LAMMPS setfl/funcfl). Ensembles: NVE, NVT (Langevin, Nosé-Hoover, Berendsen), NPT (Berendsen), FIRE minimization. Throughput: 74M–108M atom-steps/s on Apple M4 Max. Generates CSV, JSON, Markdown, and XYZ trajectories.
+  - **spaceemit Engine:** Thermal-field electron emission physics. Solves current density, Nottingham heat, energy spectra (total, normal, parallel), barrier profiles, and transmission in 14 µs per point. Exposes an OpenAPI 3.1 REST API server on port 8741 (`/v1/emission`) and CLI commands (`compute`, `bench`).
+  - **molviewer:** GPU-instanced 3D simulation viewer built on the Space3d engine with live thermodynamic energy plots and thermostat controls.
+  - **Cargo Registry:** Add `index = "sparse+https://spacecorps-registry.sliplane.app/index/"` to `~/.cargo/config.toml`. Run `cargo add spacemd --registry spacecorps` or `cargo install spacemd-cli --registry spacecorps`.
+  - **Prebuilt Binaries:** Available at `https://spacecorps-registry.sliplane.app/bin/spacemd` and `https://spacecorps-registry.sliplane.app/bin/spaceemit` for macOS (`aarch64`, `x86_64`) and Linux musl (`x86_64`, `aarch64`).
+  - **License:** PolyForm Shield 1.0.0 (crates/binaries) / MIT (docs & examples).
+  - GitHub: [SpaceCorps/Space3d-Molecular](https://github.com/SpaceCorps/Space3d-Molecular) | OpenAPI: [openapi.yaml](https://github.com/SpaceCorps/Space3d-Molecular/blob/main/docs/openapi.yaml)
+
+- [Space3d Engine](https://spacecorps.github.io/#space3d): Cross-platform 3D game and simulation engine in pure Rust (Desktop, WebAssembly, iOS, Android).
+  - **Renderer:** Built on `wgpu 30` with GPU-driven indirect drawing (multi-draw indirect) capable of rendering 1,000,000+ instances in a handful of draw calls, GPU frustum culling, and WebGL2 fallback.
+  - **Architecture:** Deterministic 60 Hz fixed tick decoupled from frame rate, `hecs` ECS, non-blocking async asset streaming (glTF/GLB, OBJ, PNG/WebP with runtime texture/mesh editing), SQLite persistence worker, Rapier physics, and built-in golden screenshot testing in `cargo test`.
+  - Binary: `space3d` (scaffolding, multi-platform builds, storybook, and release publishing).
 
 ### Cloud & Compute Infrastructure
 - [Sliplane CLI](https://spacecorps.github.io/Sliplane-Cli/): Cloud hosting, servers, Docker services, managed PostgreSQL, and S3 object storage.
@@ -86,8 +103,9 @@ SpaceCorps builds native Rust developer tools and autonomous agent infrastructur
    - `2`: Invalid argument or usage
    - `3`: Authentication failure / missing token
    - `4`: Resource not found
-   - `5`: API rate limit reached
+   - `5`: Rate limited / throttled
    - `6`: Upstream service unavailable
+   - `7`: Network / DNS failure
 3. **Headless Keystore Storage:** In automated CI/CD runners, pipe tokens via standard input:
    ```bash
    echo "$API_KEY" | <binary> login [account] --api-key-stdin
@@ -95,4 +113,14 @@ SpaceCorps builds native Rust developer tools and autonomous agent infrastructur
 4. **Autonomous Self-Discovery:** Query any binary directly for its complete instruction manual:
    ```bash
    <binary> agent-readme --json
+   ```
+5. **Scientific Engine Installation (Cargo Sparse Registry):**
+   ```toml
+   # ~/.cargo/config.toml
+   [registries.spacecorps]
+   index = "sparse+https://spacecorps-registry.sliplane.app/index/"
+   ```
+   ```bash
+   cargo add spacemd --registry spacecorps
+   cargo add spaceemit --registry spacecorps
    ```

@@ -2,8 +2,8 @@
   "name": "spacecorps.github.io",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "description": "SpaceCorps Developer Portal and Agentic Registry, powered by Vite+",
+  "type": "module",
   "scripts": {
     "dev": "vp dev",
     "build": "vp build",

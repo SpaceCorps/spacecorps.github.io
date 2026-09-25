@@ -1,91 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact & Support · SpaceCorps</title>
-  <meta name="description" content="Contact and support channels for the SpaceCorps organization and native Rust CLI suite: GitHub issues, technical discussions, security reporting, and community links.">
-  <link rel="canonical" href="https://spacecorps.github.io/contact.html">
-  <meta property="og:title" content="Contact & Support · SpaceCorps">
-  <meta property="og:description" content="Contact and support channels for the SpaceCorps organization and native Rust CLI suite: GitHub issues, technical discussions, security reporting, and community links.">
-  <link rel="canonical" href="https://spacecorps.github.io/contact.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://spacecorps.github.io/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="is-agentic-site-type" content="content">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tokens.css">
-  <style>
-    :root {
-      --bg: var(--background);
-      --bg-card: rgba(18, 18, 21, 0.75);
-      --border: var(--border);
-      --text: var(--foreground);
-      --text-muted: var(--muted-foreground);
-      --primary: var(--ivy-green);
-      --accent: var(--cyan);
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.7;
-      padding: 40px 20px;
-      margin: 0;
-      background-image: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent),
-        radial-gradient(circle 400px at 90% 20%, rgba(56, 189, 248, 0.08), transparent);
-    }
-    .content-box {
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 48px;
-      backdrop-filter: blur(12px);
-    }
-    h1 { font-size: 2.4rem; margin-bottom: 24px; color: #fff; line-height: 1.2; }
-    h2 { font-size: 1.5rem; margin-top: 36px; margin-bottom: 14px; color: var(--accent); }
-    p { margin-bottom: 18px; color: var(--text-muted); font-size: 1.05rem; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 28px; color: var(--primary); font-weight: 600; font-size: 0.95rem; }
-    ul { margin-left: 24px; margin-bottom: 24px; color: var(--text-muted); }
-    li { margin-bottom: 12px; font-size: 1.02rem; }
-  </style>
-</head>
-<body>
-  <div class="content-box">
-    <a href="./" class="back">&larr; Back to SpaceCorps Hub</a>
-    <h1>Contact & Support</h1>
-    
-    <p>We welcome bug reports, pull requests, agent integration feedback, and architectural discussions across our entire portfolio of native Rust tools. Below are the official communication channels for SpaceCorps.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact & Support · SpaceCorps</title>
+    <meta
+      name="description"
+      content="Contact and support channels for the SpaceCorps organization and native Rust CLI suite: GitHub issues, technical discussions, security reporting, and community links."
+    />
+    <link rel="canonical" href="https://spacecorps.github.io/contact.html" />
+    <meta property="og:title" content="Contact & Support · SpaceCorps" />
+    <meta
+      property="og:description"
+      content="Contact and support channels for the SpaceCorps organization and native Rust CLI suite: GitHub issues, technical discussions, security reporting, and community links."
+    />
+    <link rel="canonical" href="https://spacecorps.github.io/contact.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://spacecorps.github.io/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="is-agentic-site-type" content="content" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      :root {
+        --bg: var(--background);
+        --bg-card: rgba(18, 18, 21, 0.75);
+        --border: var(--border);
+        --text: var(--foreground);
+        --text-muted: var(--muted-foreground);
+        --primary: var(--ivy-green);
+        --accent: var(--cyan);
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.7;
+        padding: 40px 20px;
+        margin: 0;
+        background-image:
+          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent),
+          radial-gradient(circle 400px at 90% 20%, rgba(56, 189, 248, 0.08), transparent);
+      }
+      .content-box {
+        max-width: 860px;
+        margin: 0 auto;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 48px;
+        backdrop-filter: blur(12px);
+      }
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 24px;
+        color: #fff;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 36px;
+        margin-bottom: 14px;
+        color: var(--accent);
+      }
+      p {
+        margin-bottom: 18px;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 28px;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      ul {
+        margin-left: 24px;
+        margin-bottom: 24px;
+        color: var(--text-muted);
+      }
+      li {
+        margin-bottom: 12px;
+        font-size: 1.02rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-box">
+      <a href="./" class="back">&larr; Back to SpaceCorps Hub</a>
+      <h1>Contact & Support</h1>
 
-    <h2>Support & Issue Tracking</h2>
-    <ul>
-      <li><strong>GitHub Organization:</strong> Explore repositories, open issues, and check out releases at <a href="https://github.com/SpaceCorps" target="_blank" rel="noopener noreferrer">github.com/SpaceCorps</a>.</li>
-      <li><strong>Repository Issue Trackers:</strong> For tool-specific bug reports or feature requests, open an issue directly in the respective repository:
-        <ul>
-          <li><a href="https://github.com/SpaceCorps/Sliplane-Cli/issues">Sliplane CLI Issues</a></li>
-          <li><a href="https://github.com/SpaceCorps/Exa-Cli/issues">Exa CLI Issues</a></li>
-          <li><a href="https://github.com/SpaceCorps/Firecrawl-Cli/issues">Firecrawl CLI Issues</a></li>
-          <li><a href="https://github.com/SpaceCorps/Cloudflare-Cli/issues">Cloudflare CLI Issues</a></li>
-          <li><a href="https://github.com/SpaceCorps/Spaceship-Cli/issues">Spaceship CLI Issues</a></li>
-          <li><em>Or any of our 22 project repositories on GitHub</em></li>
-        </ul>
-      </li>
-      <li><strong>Direct Contact:</strong> Reach out via email at <a href="mailto:contact@spacecorps.dev">contact@spacecorps.dev</a>.</li>
-    </ul>
+      <p>
+        We welcome bug reports, pull requests, agent integration feedback, and architectural
+        discussions across our entire portfolio of native Rust tools. Below are the official
+        communication channels for SpaceCorps.
+      </p>
 
-    <h2>Security Reporting</h2>
-    <p>If you discover a security vulnerability in credential handling, OS keystore integration, or networking code in any SpaceCorps CLI binary, please report it responsibly via GitHub Private Vulnerability Reporting on the target repository or by emailing <a href="mailto:security@spacecorps.dev">security@spacecorps.dev</a>.</p>
+      <h2>Support & Issue Tracking</h2>
+      <ul>
+        <li>
+          <strong>GitHub Organization:</strong> Explore repositories, open issues, and check out
+          releases at
+          <a href="https://github.com/SpaceCorps" target="_blank" rel="noopener noreferrer"
+            >github.com/SpaceCorps</a
+          >.
+        </li>
+        <li>
+          <strong>Repository Issue Trackers:</strong> For tool-specific bug reports or feature
+          requests, open an issue directly in the respective repository:
+          <ul>
+            <li>
+              <a href="https://github.com/SpaceCorps/Sliplane-Cli/issues">Sliplane CLI Issues</a>
+            </li>
+            <li><a href="https://github.com/SpaceCorps/Exa-Cli/issues">Exa CLI Issues</a></li>
+            <li>
+              <a href="https://github.com/SpaceCorps/Firecrawl-Cli/issues">Firecrawl CLI Issues</a>
+            </li>
+            <li>
+              <a href="https://github.com/SpaceCorps/Cloudflare-Cli/issues"
+                >Cloudflare CLI Issues</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/SpaceCorps/Spaceship-Cli/issues">Spaceship CLI Issues</a>
+            </li>
+            <li><em>Or any of our 22 project repositories on GitHub</em></li>
+          </ul>
+        </li>
+        <li>
+          <strong>Direct Contact:</strong> Reach out via email at
+          <a href="mailto:contact@spacecorps.dev">contact@spacecorps.dev</a>.
+        </li>
+      </ul>
 
-    <h2>Upstream Service Disclaimers</h2>
-    <p>SpaceCorps CLI tools interface with third-party cloud platforms and APIs (such as Sliplane, Cloudflare, Spaceship, Apify, Exa, Firecrawl, Loopia, and Bugsink). For issues related to third-party API availability, service outages, billing, or account status, please consult the respective platform's status page and official documentation.</p>
-  </div>
-</body>
+      <h2>Security Reporting</h2>
+      <p>
+        If you discover a security vulnerability in credential handling, OS keystore integration, or
+        networking code in any SpaceCorps CLI binary, please report it responsibly via GitHub
+        Private Vulnerability Reporting on the target repository or by emailing
+        <a href="mailto:security@spacecorps.dev">security@spacecorps.dev</a>.
+      </p>
+
+      <h2>Upstream Service Disclaimers</h2>
+      <p>
+        SpaceCorps CLI tools interface with third-party cloud platforms and APIs (such as Sliplane,
+        Cloudflare, Spaceship, Apify, Exa, Firecrawl, Loopia, and Bugsink). For issues related to
+        third-party API availability, service outages, billing, or account status, please consult
+        the respective platform's status page and official documentation.
+      </p>
+    </div>
+  </body>
 </html>

@@ -1,84 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy · SpaceCorps</title>
-  <meta name="description" content="Privacy policy and data protection principles for SpaceCorps tools: Zero telemetry, cryptographic OS keystores, and complete user sovereignty.">
-  <link rel="canonical" href="https://spacecorps.github.io/privacy.html">
-  <meta property="og:title" content="Privacy Policy · SpaceCorps">
-  <meta property="og:description" content="Privacy policy and data protection principles for SpaceCorps tools: Zero telemetry, cryptographic OS keystores, and complete user sovereignty.">
-  <link rel="canonical" href="https://spacecorps.github.io/privacy.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://spacecorps.github.io/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="is-agentic-site-type" content="content">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tokens.css">
-  <style>
-    :root {
-      --bg: var(--background);
-      --bg-card: rgba(18, 18, 21, 0.75);
-      --border: var(--border);
-      --text: var(--foreground);
-      --text-muted: var(--muted-foreground);
-      --primary: var(--ivy-green);
-      --accent: var(--cyan);
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.7;
-      padding: 40px 20px;
-      margin: 0;
-      background-image: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent),
-        radial-gradient(circle 400px at 90% 20%, rgba(56, 189, 248, 0.08), transparent);
-    }
-    .content-box {
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 48px;
-      backdrop-filter: blur(12px);
-    }
-    h1 { font-size: 2.4rem; margin-bottom: 24px; color: #fff; line-height: 1.2; }
-    h2 { font-size: 1.5rem; margin-top: 36px; margin-bottom: 14px; color: var(--accent); }
-    p { margin-bottom: 18px; color: var(--text-muted); font-size: 1.05rem; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 28px; color: var(--primary); font-weight: 600; font-size: 0.95rem; }
-  </style>
-</head>
-<body>
-  <div class="content-box">
-    <a href="./" class="back">&larr; Back to SpaceCorps Hub</a>
-    <h1>Privacy Policy & Security Standard</h1>
-    
-    <p>Last updated: September 24, 2026. This Privacy Policy details the data protection practices, telemetry posture, and credential handling mechanisms enforced across all software released by <strong>SpaceCorps</strong>.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy · SpaceCorps</title>
+    <meta
+      name="description"
+      content="Privacy policy and data protection principles for SpaceCorps tools: Zero telemetry, cryptographic OS keystores, and complete user sovereignty."
+    />
+    <link rel="canonical" href="https://spacecorps.github.io/privacy.html" />
+    <meta property="og:title" content="Privacy Policy · SpaceCorps" />
+    <meta
+      property="og:description"
+      content="Privacy policy and data protection principles for SpaceCorps tools: Zero telemetry, cryptographic OS keystores, and complete user sovereignty."
+    />
+    <link rel="canonical" href="https://spacecorps.github.io/privacy.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://spacecorps.github.io/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="is-agentic-site-type" content="content" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      :root {
+        --bg: var(--background);
+        --bg-card: rgba(18, 18, 21, 0.75);
+        --border: var(--border);
+        --text: var(--foreground);
+        --text-muted: var(--muted-foreground);
+        --primary: var(--ivy-green);
+        --accent: var(--cyan);
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.7;
+        padding: 40px 20px;
+        margin: 0;
+        background-image:
+          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent),
+          radial-gradient(circle 400px at 90% 20%, rgba(56, 189, 248, 0.08), transparent);
+      }
+      .content-box {
+        max-width: 860px;
+        margin: 0 auto;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 48px;
+        backdrop-filter: blur(12px);
+      }
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 24px;
+        color: #fff;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 36px;
+        margin-bottom: 14px;
+        color: var(--accent);
+      }
+      p {
+        margin-bottom: 18px;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 28px;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-box">
+      <a href="./" class="back">&larr; Back to SpaceCorps Hub</a>
+      <h1>Privacy Policy & Security Standard</h1>
 
-    <h2>1. Strict Zero-Telemetry Commitment</h2>
-    <p>Every binary published by SpaceCorps contains <strong>zero telemetry</strong>, zero usage tracking, and zero analytical beacons. We firmly believe that developers' terminal commands and autonomous agent tool calls are private. SpaceCorps operates no tracking servers and collects no IP addresses, logs, execution counts, or device identifiers from any of our CLI tools.</p>
+      <p>
+        Last updated: September 24, 2026. This Privacy Policy details the data protection practices,
+        telemetry posture, and credential handling mechanisms enforced across all software released
+        by <strong>SpaceCorps</strong>.
+      </p>
 
-    <h2>2. Cryptographic Local Keystores</h2>
-    <p>API keys, bearer tokens, and credentials are never stored in plaintext configuration files by default. Each SpaceCorps CLI integrates natively with host operating system credential vaults:</p>
-    <ul>
-      <li><strong>macOS:</strong> Native Apple Keychain Services API via <code>/usr/bin/security</code>.</li>
-      <li><strong>Linux:</strong> freedesktop.org Secret Service API via <code>secret-tool</code> and DBus.</li>
-      <li><strong>Windows:</strong> Microsoft Data Protection API (DPAPI) encrypted under user credentials.</li>
-    </ul>
+      <h2>1. Strict Zero-Telemetry Commitment</h2>
+      <p>
+        Every binary published by SpaceCorps contains <strong>zero telemetry</strong>, zero usage
+        tracking, and zero analytical beacons. We firmly believe that developers' terminal commands
+        and autonomous agent tool calls are private. SpaceCorps operates no tracking servers and
+        collects no IP addresses, logs, execution counts, or device identifiers from any of our CLI
+        tools.
+      </p>
 
-    <h2>3. Direct Outbound Communications</h2>
-    <p>When you run a command against an upstream provider (e.g. Sliplane, Cloudflare, Apify, Exa, Firecrawl), the binary makes direct HTTPS requests from your local machine to the official target provider's API. No proxy or relay infrastructure is operated or inserted by SpaceCorps.</p>
+      <h2>2. Cryptographic Local Keystores</h2>
+      <p>
+        API keys, bearer tokens, and credentials are never stored in plaintext configuration files
+        by default. Each SpaceCorps CLI integrates natively with host operating system credential
+        vaults:
+      </p>
+      <ul>
+        <li>
+          <strong>macOS:</strong> Native Apple Keychain Services API via
+          <code>/usr/bin/security</code>.
+        </li>
+        <li>
+          <strong>Linux:</strong> freedesktop.org Secret Service API via
+          <code>secret-tool</code> and DBus.
+        </li>
+        <li>
+          <strong>Windows:</strong> Microsoft Data Protection API (DPAPI) encrypted under user
+          credentials.
+        </li>
+      </ul>
 
-    <h2>4. Website Privacy</h2>
-    <p>The <code>spacecorps.github.io</code> domain and documentation pages are statically hosted on GitHub Pages. They contain no tracking pixels, analytics cookies, or external surveillance scripts. Standard server access logs are handled directly by GitHub in accordance with the GitHub Privacy Statement.</p>
-  </div>
-</body>
+      <h2>3. Direct Outbound Communications</h2>
+      <p>
+        When you run a command against an upstream provider (e.g. Sliplane, Cloudflare, Apify, Exa,
+        Firecrawl), the binary makes direct HTTPS requests from your local machine to the official
+        target provider's API. No proxy or relay infrastructure is operated or inserted by
+        SpaceCorps.
+      </p>
+
+      <h2>4. Website Privacy</h2>
+      <p>
+        The <code>spacecorps.github.io</code> domain and documentation pages are statically hosted
+        on GitHub Pages. They contain no tracking pixels, analytics cookies, or external
+        surveillance scripts. Standard server access logs are handled directly by GitHub in
+        accordance with the GitHub Privacy Statement.
+      </p>
+    </div>
+  </body>
 </html>

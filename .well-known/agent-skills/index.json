@@ -132,6 +132,18 @@
       "description": "Check domain availability, query registered domains, and update DNS host records via Namecheap API.",
       "type": "skill-md",
       "url": "https://github.com/SpaceCorps/namecheap-cli"
+    },
+    {
+      "name": "space3d-molecular",
+      "description": "Run pure-Rust molecular dynamics (spacemd) and query thermal-field electron emission physics (spaceemit) with OpenAPI 3.1 REST server.",
+      "type": "skill-md",
+      "url": "https://spacecorps.github.io/llms.txt"
+    },
+    {
+      "name": "space3d-engine",
+      "description": "Scaffold, build, and test cross-platform games and simulations using the Space3d Rust engine with wgpu GPU indirect rendering.",
+      "type": "skill-md",
+      "url": "https://spacecorps.github.io/#space3d"
     }
   ]
 }

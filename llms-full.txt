@@ -1,13 +1,15 @@
-# SpaceCorps CLI Suite — Full Autonomous Agent Manual
+# SpaceCorps Systems & Simulation Suite — Full Autonomous Agent Manual
 
-> Comprehensive system instructions, API command patterns, and execution blueprints for the entire SpaceCorps CLI suite (23 high-performance tools and CLIs).
+> Comprehensive system instructions, API command patterns, and execution blueprints for the entire SpaceCorps ecosystem (25 high-performance systems: 23 agent CLIs, Space3d engine, and Space3d-Molecular simulation physics).
 
 ## 1. SpaceCorps System Architecture
 
-All SpaceCorps command-line tools are built in **Rust 2024** and share a single, unified execution standard:
-- **Zero Interpreter Latency:** Standalone native binaries with sub-3ms startup time.
-- **Predictable Output Streams:** Human-oriented YAML on `stdout` by default; machine-parseable JSON on `stdout` when `--json` is supplied; structured JSON-RPC / error envelopes on `stderr`.
+All SpaceCorps tools, engines, and runtimes are built in **Rust 2024** and share unified execution tenets:
+- **Zero Interpreter Latency:** Standalone native binaries and pure-Rust libraries with sub-3ms startup time and zero C/C++/Fortran dependencies.
+- **Scientific Simulation Throughput:** 74M–108M atom-steps/s in molecular dynamics (`spacemd`); 14 µs exact transmission solves in electron emission (`spaceemit`); 1M+ GPU instances in `Space3d`.
+- **Predictable Output Streams:** Human-oriented YAML on `stdout` by default; machine-parseable JSON on `stdout` when `--json` is supplied; structured error envelopes on `stderr`.
 - **Operating System Keystores:** macOS Keychain (`security`), Linux Secret Service (`secret-tool`), and Windows DPAPI (`CryptProtectData`).
+- **Package Registry Infrastructure:** Dedicated Sliplane-hosted Cargo sparse registry and binary store at `https://spacecorps-registry.sliplane.app` (public read).
 - **Deterministic Exit Codes:**
   - `0`: Success
   - `1`: General Error / API request failed
@@ -205,6 +207,37 @@ Deterministic tool calling, autonomous agent loops, episodic NPC memory, and loc
 - **JSON-RPC Bridge (Unity/Godot):** `oam bridge --stdio`
 - **Docs:** https://spacecorps.github.io/open-apple-models/
 
+### 24. Space3d-Molecular (`spacemd` & `spaceemit`)
+High-performance pure-Rust molecular dynamics (74M-108M atom-steps/s) and thermal-field electron emission physics (14µs solve) built on Space3d with live 3D visualizer and OpenAPI server.
+- **Cargo Sparse Registry Setup:**
+  ```toml
+  # ~/.cargo/config.toml
+  [registries.spacecorps]
+  index = "sparse+https://spacecorps-registry.sliplane.app/index/"
+  ```
+- **Install Crates:** `cargo add spacemd --registry spacecorps` | `cargo add spaceemit --registry spacecorps`
+- **Install Binaries:** `cargo install spacemd-cli --registry spacecorps` | `cargo install spaceemit-server --registry spacecorps`
+- **spacemd Simulation:**
+  - Generate template: `spacemd example argon > argon.json` (systems: `argon`, `cu`, `nacl`, `water`)
+  - Execute simulation: `spacemd run argon.json [--json]` (generates `thermo.csv`, `report.json`, `summary.md`, `trajectory.xyz`)
+  - Run benchmark: `spacemd bench --system cu`
+- **spaceemit API Server & Physics:**
+  - Start OpenAPI server: `spaceemit --port 8741 --threads 8`
+  - Compute emission: `spaceemit compute --field 5 --radius 50 --work-function 4.5 --temperature 1000 --json`
+  - REST query: `curl -s localhost:8741/v1/emission -H 'content-type: application/json' -d '{"field": 5, "radius": 50, "workFunction": 4.5, "temperature": 1000}'`
+- **Prebuilt Binaries:** Available at `https://spacecorps-registry.sliplane.app/bin/spacemd` and `https://spacecorps-registry.sliplane.app/bin/spaceemit`
+- **Docs:** https://github.com/SpaceCorps/Space3d-Molecular
+
+### 25. Space3d Engine (`space3d`)
+Modular cross-platform 3D game and simulation engine in pure Rust built on `wgpu 30` and `winit`.
+- **Scaffold New Game/Simulation:** `space3d new <project-name>`
+- **Build Multi-Platform:** `space3d build --platform desktop|web|ios|android`
+- **Run Development Server:** `space3d serve`
+- **Interactive Storybook Testing:** `space3d storybook`
+- **Automated Visual Regression:** `cargo test` (golden screenshot comparisons)
+- **Features:** 1M+ GPU instances via multi-draw indirect, deterministic 60Hz fixed tick ECS (`hecs`), non-blocking async asset streaming (glTF, OBJ, PNG/WebP with runtime texture/mesh editing), SQLite persistence.
+- **Docs:** https://spacecorps.github.io/#space3d
+
 ---
 
 ## 3. Autonomous Execution Recipes
@@ -219,4 +252,19 @@ sliplane services deploy --project-id prj_123 --service-id srv_456 -a prod --jso
 
 # 3. Notify team via Slack
 notify slack --webhook-url "$SLACK_WEBHOOK" --message "Service srv_456 deployed successfully." --json
+```
+
+### High-Throughput Atomistic Simulation & Physics Analysis
+```bash
+# 1. Generate liquid argon benchmark system (2,048 atoms)
+spacemd example argon > argon.json
+
+# 2. Run molecular dynamics simulation with thermodynamics reporting
+spacemd run argon.json
+
+# 3. Query thermal-field electron emission physics service for current density and Nottingham heat
+curl -s localhost:8741/v1/emission \
+  -H 'content-type: application/json' \
+  -d '{"field": [3, 5, 8], "radius": 50, "workFunction": 4.5, "temperature": [300, 1000, 2000]}' \
+  | jq .
 ```
