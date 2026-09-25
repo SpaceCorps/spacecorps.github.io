@@ -143,7 +143,6 @@
   },
   "links": {
     "agentInstructions": "https://spacecorps.github.io/.well-known/agent-instructions.md",
-    "mcpServerCard": "https://spacecorps.github.io/.well-known/mcp",
     "llms": "https://spacecorps.github.io/llms.txt",
     "sitemap": "https://spacecorps.github.io/sitemap.xml"
   }
