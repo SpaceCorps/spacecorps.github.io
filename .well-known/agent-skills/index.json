@@ -2,6 +2,12 @@
   "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
   "skills": [
     {
+      "name": "spacecorps",
+      "description": "Orchestrate SpaceCorps CLI tools, execute pure-Rust molecular dynamics (spacemd), and calculate thermal-field electron emission (spaceemit).",
+      "type": "skill-md",
+      "url": "https://spacecorps.github.io/.well-known/agent-instructions.md"
+    },
+    {
       "name": "sliplane-cli",
       "description": "Deploy web services, provision managed Postgres databases, query compute metrics, and manage S3 storage on Sliplane via Rust CLI.",
       "type": "skill-md",

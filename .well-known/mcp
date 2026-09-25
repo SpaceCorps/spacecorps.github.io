@@ -23,13 +23,6 @@
   "capabilities": {
     "tools": {
       "listChanged": false
-    },
-    "resources": {
-      "subscribe": false,
-      "listChanged": false
-    },
-    "prompts": {
-      "listChanged": false
     }
   }
 }
