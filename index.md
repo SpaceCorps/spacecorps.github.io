@@ -10,7 +10,7 @@ canonical: "https://spacecorps.github.io/index.md"
 
 SpaceCorps engineers high-performance native Rust systems, cross-platform 3D graphics engines, atomistic physics simulations, and autonomous agent infrastructure. Every CLI and engine in our portfolio is built with pure Rust 2024, featuring sub-3ms cold starts, GPU-driven indirect drawing, rigorous physics validation (74M–108M atom-steps/s in molecular dynamics, 14 µs emission solves), and structured machine-readable outputs.
 
-The exceptions to pure Rust are the two MIT-licensed on-device game-AI libraries: OpenAppleModels (Swift, Apple Foundation Models) and the pre-release OpenAndroidModels (Kotlin, Gemini Nano). They give games NPC dialogue with tool calls, AI decisions and content generation, and they speak the same JSON-RPC 2.0 protocol (v1.0), so a game engine such as Space3d can implement the protocol once and inject the Apple backend (C ABI) or the Android backend (JNI) per platform.
+The exceptions to pure Rust are the two MIT-licensed, pre-release on-device game-AI libraries: OpenAppleModels (Swift, Apple Foundation Models) and OpenAndroidModels (Kotlin, Gemini Nano; not yet run on a Gemini Nano device). They are built to give games NPC dialogue with tool calls, AI decisions and content generation, and they speak the same JSON-RPC 2.0 protocol (v1.0), so a game engine such as Space3d can implement the protocol once and inject the Apple backend (C ABI) or the Android backend (JNI) per platform.
 
 ## Flagship Systems & The SpaceCorps Fleet
 

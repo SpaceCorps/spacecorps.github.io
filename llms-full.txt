@@ -252,12 +252,13 @@ Real tool calling for Apple's on-device Foundation Models (iOS, iPadOS, macOS, v
 - **Respond (grounded tool choice):** `oam respond "query" --tool-json '<spec>' --tool-choice required`
 - **OpenAI-compatible local server:** `oam serve --port 8080 --host 127.0.0.1` (without `--port` it listens on `http://127.0.0.1:1976/v1`)
 - **Interactive RPG tavern demo:** `oam demo tavern`
+- **Exit codes (oam's own, not the Rust CLIs' table above):** 0 success, 1 failure, 2 usage, 3 model unavailable, 4 guardrail or refusal, 5 context exceeded, 6 rate limited, 10 tool calls pending (a tool without a command is external: run it, then `oam respond --resume <transcript> --tool-output <id>=<json>`), 130 interrupted.
 - **JSON-RPC bridge for game engines:** `oam stdio` (newline-delimited JSON-RPC 2.0), or the C ABI in `bindings/c/open_apple_models.h`; bindings ship for C, Python and Unity C#, with Godot and Unreal integration notes.
-- **Status:** no tagged release yet (depend on `branch: "main"`). 333 Swift tests: 312 run offline without Apple Intelligence (model-driven ones on the deterministic `ScriptedLanguageModel`); 21 live-model tests opt in with `OAM_LIVE_TESTS=1`. The real model needs Apple Intelligence on a supported device.
+- **Status:** pre-release, no tagged release yet (depend on `branch: "main"`); all measurements come from macOS 27. 333 Swift tests: 312 run offline without Apple Intelligence (model-driven ones on the deterministic `ScriptedLanguageModel`); 21 are opt-in: 20 live-model tests with `OAM_LIVE_TESTS=1`, and one that keeps a live server up for manual testing (`OAM_SERVE_SECONDS`). The real model needs Apple Intelligence on a supported device.
 - **Docs:** https://spacecorps.github.io/open-apple-models/ | Agent manual: https://spacecorps.github.io/open-apple-models/llms.txt | GitHub: https://github.com/SpaceCorps/open-apple-models
 
 ### 24. OpenAndroidModels (Gradle group `com.spacecorps.oam`)
-Pre-release (0.1.0-SNAPSHOT, MIT) Android sibling of OpenAppleModels on Gemini Nano, through AICore and the ML Kit GenAI Prompt API (`com.google.mlkit:genai-prompt` 1.0.0-beta4). Kotlin; not published to Maven yet.
+Pre-release (0.1.0-SNAPSHOT, MIT) Android sibling of OpenAppleModels on Gemini Nano, through AICore and the ML Kit GenAI Prompt API (`com.google.mlkit:genai-prompt` 1.0.0-beta4). Kotlin; not published to a remote Maven repository yet (build from source).
 - **Modules:** `oam-core` (agent, tool loop, `ToolPolicy`, JSON Schema validation, scripted model; plain JVM), `oam-game` (`NPC`, `Persona`, `WorldState`, `DecisionEngine`, `ContentGenerator`), `oam-bridge` (`BridgeEngine`, JSON-RPC protocol v1.0 as in open-apple-models), `oam-mlkit` (AAR: `GeminiNanoModel` and the `OamJni` JNI entry for native hosts), `sample` (Mira the innkeeper).
 - **Tool calls:** Gemini Nano has no native tool calling yet, so each step is a validated prompt envelope: `{"action": "<tool name>" | "respond", "arguments": {...}}`.
 - **Devices and limits:** AICore devices only (Pixel 9, 10 and 11; Galaxy S26, Z Flip8 and Fold8; some others). minSdk 26, foreground only, about 4K input tokens, no emulator support.
