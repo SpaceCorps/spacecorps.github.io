@@ -56,6 +56,7 @@
     <meta name="twitter:image" content="https://spacecorps.github.io/og-image.png" />
 
     <!-- AI Agents & Discovery -->
+    <meta name="is-agentic-site-type" content="app" />
     <link
       rel="alternate"
       type="text/markdown"
@@ -79,6 +80,18 @@
       type="application/xml"
       href="https://spacecorps.github.io/sitemap.xml"
       title="Sitemap"
+    />
+    <link
+      rel="alternate"
+      type="application/json"
+      href="https://spacecorps.github.io/.well-known/mcp"
+      title="MCP Server Discovery"
+    />
+    <link
+      rel="alternate"
+      type="application/json"
+      href="https://spacecorps.github.io/server.json"
+      title="MCP Server Manifest"
     />
     <script>
       if (new URLSearchParams(window.location.search).get("mode") === "agent") {
@@ -105,16 +118,27 @@
         "@graph": [
           {
             "@type": "Organization",
+            "@id": "https://spacecorps.github.io/#organization",
             "name": "SpaceCorps",
             "url": "https://spacecorps.github.io/",
             "logo": "https://spacecorps.github.io/og-image.png",
             "sameAs": ["https://github.com/SpaceCorps"],
+            "email": "contact@spacecorps.dev",
             "description": "High-performance systems engineering collective building native Rust command-line tools, the Space3d cross-platform 3D game engine, Space3d-Molecular scientific computing, and autonomous AI agent infrastructure.",
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "technical support",
               "url": "https://spacecorps.github.io/contact.html",
-              "email": "contact@spacecorps.dev"
+              "email": "contact@spacecorps.dev",
+              "availableLanguage": "English"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "548 Market St",
+              "addressLocality": "San Francisco",
+              "addressRegion": "CA",
+              "postalCode": "94104",
+              "addressCountry": "US"
             }
           },
           {

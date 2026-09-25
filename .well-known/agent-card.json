@@ -140,5 +140,12 @@
   "contact": {
     "email": "contact@spacecorps.dev",
     "url": "https://spacecorps.github.io/contact.html"
+  },
+  "links": {
+    "agentInstructions": "https://spacecorps.github.io/.well-known/agent-instructions.md",
+    "mcpServerCard": "https://spacecorps.github.io/.well-known/mcp",
+    "mcpRegistryManifest": "https://spacecorps.github.io/server.json",
+    "llms": "https://spacecorps.github.io/llms.txt",
+    "sitemap": "https://spacecorps.github.io/sitemap.xml"
   }
 }

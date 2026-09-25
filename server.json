@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.spacecorps/mcp",
+  "title": "SpaceCorps Agent Hub",
+  "description": "Model Context Protocol server for SpaceCorps native CLI tools, molecular dynamics (spacemd), thermal-field electron emission (spaceemit), and cloud automation.",
+  "version": "1.0.0",
+  "websiteUrl": "https://spacecorps.github.io/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://spacecorps.github.io/.well-known/mcp"
+    }
+  ]
+}
