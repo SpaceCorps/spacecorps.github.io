@@ -1,10 +1,10 @@
 # SpaceCorps Systems & Simulation Suite — Full Autonomous Agent Manual
 
-> Comprehensive system instructions, API command patterns, and execution blueprints for the entire SpaceCorps ecosystem (25 high-performance systems: 23 agent CLIs, Space3d engine, and Space3d-Molecular simulation physics).
+> Comprehensive system instructions, API command patterns, and execution blueprints for the SpaceCorps ecosystem: native Rust agent CLIs, the Space3d engine, Space3d-Molecular simulation physics, and the OpenAppleModels / OpenAndroidModels on-device game-AI libraries.
 
 ## 1. SpaceCorps System Architecture
 
-All SpaceCorps tools, engines, and runtimes are built in **Rust 2024** and share unified execution tenets:
+All SpaceCorps CLIs and engines are built in **Rust 2024** and share unified execution tenets (the on-device game-AI libraries are the exception: OpenAppleModels is Swift, OpenAndroidModels is Kotlin):
 - **Zero Interpreter Latency:** Standalone native binaries and pure-Rust libraries with sub-3ms startup time and zero C/C++/Fortran dependencies.
 - **Scientific Simulation Throughput:** 74M–108M atom-steps/s in molecular dynamics (`spacemd`); 14 µs exact transmission solves in electron emission (`spaceemit`); 1M+ GPU instances in `Space3d`.
 - **Predictable Output Streams:** Human-oriented YAML on `stdout` by default; machine-parseable JSON on `stdout` when `--json` is supplied; structured error envelopes on `stderr`.
@@ -248,14 +248,25 @@ Fast, ergonomic Rust CLI for Namecheap domain availability, multi-domain search,
 - **Docs:** https://github.com/SpaceCorps/namecheap-cli
 
 ### 23. OpenAppleModels (`oam`)
-Deterministic tool calling, autonomous agent loops, episodic NPC memory, and local OpenAI-compatible server for Apple Foundation Models (iOS/macOS 27).
-- **Respond (Grounded Tool Choice):** `oam respond "query" --tool-json '<spec>' --tool-choice required`
-- **OpenAI Local Server:** `oam serve --port 8080 --host 127.0.0.1`
-- **Interactive RPG Tavern Demo:** `oam demo tavern`
-- **JSON-RPC Bridge (Unity/Godot):** `oam bridge --stdio`
-- **Docs:** https://spacecorps.github.io/open-apple-models/
+Real tool calling for Apple's on-device Foundation Models (iOS, iPadOS, macOS, visionOS 27; Swift package, MIT). Per-step tool steering (`ToolChoice`: auto, none, required, explicit, a named tool), runtime JSON-Schema tools (local closures or external tools your host executes), a game layer (`NPC`, `Persona`, `WorldState`, `DecisionEngine`, `ContentGenerator`), an OpenAI-compatible server that returns real `tool_calls`, and a JSON-RPC 2.0 protocol (v1.0) over stdio or a C ABI (`OpenAppleModelsFFI`).
+- **Respond (grounded tool choice):** `oam respond "query" --tool-json '<spec>' --tool-choice required`
+- **OpenAI-compatible local server:** `oam serve --port 8080 --host 127.0.0.1` (default `http://127.0.0.1:1976/v1`)
+- **Interactive RPG tavern demo:** `oam demo tavern`
+- **JSON-RPC bridge for game engines:** `oam stdio` (newline-delimited JSON-RPC 2.0), or the C ABI in `bindings/c/open_apple_models.h`; bindings ship for C, Python and Unity C#, with Godot and Unreal integration notes.
+- **Status:** no tagged release yet (depend on `branch: "main"`). 333 Swift tests: 312 run offline against a scripted model, 21 live-model tests opt in with `OAM_LIVE_TESTS=1`. The real model needs Apple Intelligence on a supported device.
+- **Docs:** https://spacecorps.github.io/open-apple-models/ | Agent manual: https://spacecorps.github.io/open-apple-models/llms.txt | GitHub: https://github.com/SpaceCorps/open-apple-models
 
-### 24. Space3d-Molecular (`spacemd` & `spaceemit`)
+### 24. OpenAndroidModels (Gradle group `com.spacecorps.oam`)
+Pre-release (0.1.0-SNAPSHOT, MIT) Android sibling of OpenAppleModels on Gemini Nano, through AICore and the ML Kit GenAI Prompt API (`com.google.mlkit:genai-prompt` 1.0.0-beta4). Kotlin; not published to Maven yet.
+- **Modules:** `oam-core` (agent, tool loop, `ToolPolicy`, JSON Schema validation, scripted model; plain JVM), `oam-game` (`NPC`, `Persona`, `WorldState`, `DecisionEngine`, `ContentGenerator`), `oam-bridge` (`BridgeEngine`, JSON-RPC protocol v1.0 as in open-apple-models), `oam-mlkit` (AAR: `GeminiNanoModel` and the `OamJni` JNI entry for native hosts), `sample` (Mira the innkeeper).
+- **Tool calls:** Gemini Nano has no native tool calling yet, so each step is a validated prompt envelope: `{"action": "<tool name>" | "respond", "arguments": {...}}`.
+- **Devices and limits:** AICore devices only (Pixel 9, 10 and 11; Galaxy S26, Z Flip8 and Fold8; some others). minSdk 26, foreground only, about 4K input tokens, no emulator support.
+- **Status:** tested on the JVM with a scripted model and live against Apple's ~3B on-device model as a proxy. Not yet run on a Gemini Nano device.
+- **Terms:** Google's ML Kit GenAI terms restrict services likely to be accessed by under-18s: https://developers.google.com/ml-kit/genai-terms
+- **Engine integration:** an engine implements the JSON-RPC protocol once and injects the Apple backend (C ABI or `oam stdio`) or this one (`OamJni`) per platform.
+- **Docs:** https://github.com/SpaceCorps/open-android-models | Design: https://github.com/SpaceCorps/open-android-models/blob/main/docs/DESIGN.md | Android protocol differences: https://github.com/SpaceCorps/open-android-models/blob/main/docs/PROTOCOL.md
+
+### 25. Space3d-Molecular (`spacemd` & `spaceemit`)
 High-performance pure-Rust molecular dynamics (74M-108M atom-steps/s) and thermal-field electron emission physics (14µs solve) built on Space3d with live 3D visualizer and OpenAPI server.
 - **Cargo Sparse Registry Setup:**
   ```toml
@@ -276,7 +287,7 @@ High-performance pure-Rust molecular dynamics (74M-108M atom-steps/s) and therma
 - **Prebuilt Binaries:** Available at `https://spacecorps-registry.sliplane.app/bin/spacemd` and `https://spacecorps-registry.sliplane.app/bin/spaceemit`
 - **Docs:** https://github.com/SpaceCorps/Space3d-Molecular
 
-### 25. Space3d Engine (`space3d`)
+### 26. Space3d Engine (`space3d`)
 Modular cross-platform 3D game and simulation engine in pure Rust built on `wgpu 30` and `winit`.
 - **Scaffold New Game/Simulation:** `space3d new <project-name>`
 - **Build Multi-Platform:** `space3d build --platform desktop|web|ios|android`

@@ -16,7 +16,7 @@
     />
     <meta
       name="keywords"
-      content="SpaceCorps, Rust 2024, Space3d, Space3d-Molecular, spacemd, spaceemit, molviewer, molecular dynamics, electron emission, atomistic simulation, 3D engine, game engine, wgpu, CLI, AI agents, Sliplane, Cloudflare, scientific computing, Cargo registry"
+      content="SpaceCorps, Rust 2024, Space3d, Space3d-Molecular, spacemd, spaceemit, molviewer, molecular dynamics, electron emission, atomistic simulation, 3D engine, game engine, wgpu, CLI, AI agents, on-device AI, Apple Foundation Models, Gemini Nano, NPC dialogue, Sliplane, Cloudflare, scientific computing, Cargo registry"
     />
     <meta name="author" content="SpaceCorps" />
     <meta name="google-site-verification" content="dX8jgcKfEU3AXOW3neNUD97b_p3qFsha5k_UNPIL-fM" />
@@ -30,7 +30,7 @@
     />
     <meta
       property="og:description"
-      content="26+ high-performance native Rust systems: 24 autonomous AI agent CLIs, the cross-platform Space3d game engine, and Space3d-Molecular simulation physics."
+      content="27 systems: 23 native Rust agent CLIs, the cross-platform Space3d game engine, Space3d-Molecular simulation physics, and open-source on-device game-AI libraries for Apple and Android."
     />
     <meta property="og:image" content="https://spacecorps.github.io/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -51,7 +51,7 @@
     />
     <meta
       name="twitter:description"
-      content="26+ high-performance native Rust systems: 24 autonomous AI agent CLIs, the cross-platform Space3d game engine, and Space3d-Molecular simulation physics."
+      content="27 systems: 23 native Rust agent CLIs, the cross-platform Space3d game engine, Space3d-Molecular simulation physics, and open-source on-device game-AI libraries for Apple and Android."
     />
     <meta name="twitter:image" content="https://spacecorps.github.io/og-image.png" />
 
@@ -158,6 +158,37 @@
             "description": "Cross-platform 3D game and simulation engine in pure Rust with wgpu GPU-driven indirect rendering, deterministic 60Hz ECS, and async assets.",
             "operatingSystem": "Desktop, Web, iOS, Android",
             "applicationCategory": "VideoGameEngine",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "OpenAppleModels",
+            "url": "https://spacecorps.github.io/open-apple-models/",
+            "codeRepository": "https://github.com/SpaceCorps/open-apple-models",
+            "description": "Swift package, oam CLI and C ABI for real tool calling on Apple's on-device Foundation Models: per-step tool steering, game NPC dialogue, decisions, content generation, an OpenAI-compatible server, and a JSON-RPC 2.0 protocol for game engines.",
+            "operatingSystem": "iOS 27, iPadOS 27, macOS 27, visionOS 27",
+            "applicationCategory": "DeveloperApplication",
+            "license": "https://opensource.org/licenses/MIT",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "OpenAndroidModels",
+            "url": "https://github.com/SpaceCorps/open-android-models",
+            "codeRepository": "https://github.com/SpaceCorps/open-android-models",
+            "description": "Pre-release Kotlin libraries for agentic game AI on Android's on-device Gemini Nano (ML Kit GenAI Prompt API), speaking the same JSON-RPC 2.0 protocol as OpenAppleModels over JNI.",
+            "operatingSystem": "Android (AICore devices with Gemini Nano)",
+            "applicationCategory": "DeveloperApplication",
+            "softwareVersion": "0.1.0-SNAPSHOT",
+            "license": "https://opensource.org/licenses/MIT",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -1139,7 +1170,7 @@
         </p>
         <div class="hero-actions">
           <a href="#space3d" class="btn-primary"> Explore Space3d &amp; Physics &darr; </a>
-          <a href="#registry" class="btn-secondary"> Browse All 26 Systems &darr; </a>
+          <a href="#registry" class="btn-secondary"> Browse All 27 Systems &darr; </a>
           <a href="https://spacecorps.github.io/llms.txt" class="btn-secondary">
             Agent llms.txt &rarr;
           </a>
@@ -1156,7 +1187,7 @@
         <!-- Metrics -->
         <div class="metrics-bar">
           <div class="metric-card">
-            <div class="metric-val">26+</div>
+            <div class="metric-val">27+</div>
             <div class="metric-lbl">Systems &amp; Engines</div>
           </div>
           <div class="metric-card">
@@ -1384,7 +1415,7 @@
             <h2 class="section-title">The SpaceCorps Systems &amp; CLI Fleet</h2>
             <p class="section-subtitle">
               Search, inspect, and invoke engines and tools across Simulation &amp; 3D, Cloud,
-              Search, Social, Domains, and DevOps.
+              Search, Social, Domains, DevOps, and AI &amp; Games.
             </p>
           </div>
         </div>
@@ -1401,7 +1432,7 @@
             />
           </div>
           <div class="category-pills" id="categoryFilters">
-            <button class="category-pill active" data-category="all">All (26)</button>
+            <button class="category-pill active" data-category="all">All (27)</button>
             <button class="category-pill" data-category="simulation">
               Simulation &amp; 3D (2)
             </button>
@@ -1413,11 +1444,11 @@
             <button class="category-pill" data-category="domains">Domains &amp; DNS (3)</button>
             <button class="category-pill" data-category="devops">DevOps &amp; Alerting (6)</button>
             <button class="category-pill" data-category="iot">Hardware &amp; IoT (1)</button>
-            <button class="category-pill" data-category="ai">AI &amp; Games (1)</button>
+            <button class="category-pill" data-category="ai">AI &amp; Games (2)</button>
           </div>
         </div>
 
-        <div class="results-count" id="resultsCount">Showing 26 of 26 systems</div>
+        <div class="results-count" id="resultsCount">Showing 27 of 27 systems</div>
 
         <!-- CLI Grid -->
         <div class="cli-grid" id="cliGrid">
@@ -2518,11 +2549,11 @@
             </div>
           </div>
 
-          <!-- 23. OpenAppleModels -->
+          <!-- 24. OpenAppleModels -->
           <div
             class="cli-card"
             data-category="ai"
-            data-keywords="open-apple-models oam apple foundation models tool calling agent loops npc dialogue unity godot unreal swift on-device intelligence ai"
+            data-keywords="open-apple-models oam apple foundation models apple intelligence tool calling tool steering agent npc dialogue decisions content generation game ai unity python c abi json-rpc openai-compatible server swift ios ipados macos visionos on-device"
           >
             <div class="cli-card-header">
               <div class="cli-name">OpenAppleModels</div>
@@ -2536,13 +2567,14 @@
               $ oam
             </div>
             <p class="cli-desc">
-              Deterministic tool calling, autonomous agent loops, episodic NPC memory, and an
-              OpenAI-compatible local server for Apple Foundation Models on iOS/macOS 27.
+              Real tool calls on Apple's on-device Foundation Models (iOS, iPadOS, macOS, visionOS
+              27): per-step tool steering, NPC dialogue, decisions, an OpenAI-compatible server, and
+              a JSON-RPC protocol over stdio or a C ABI.
             </p>
             <div class="cli-meta-row">
-              <span class="cli-meta-badge">✓ 245+ unit tests</span>
+              <span class="cli-meta-badge">✓ 333 Swift tests</span>
               <span>•</span>
-              <span class="cli-meta-badge">v1.0.0</span>
+              <span class="cli-meta-badge">Protocol v1.0</span>
               <span>•</span>
               <span class="cli-meta-badge">MIT</span>
             </div>
@@ -2567,7 +2599,62 @@
             </div>
           </div>
 
-          <!-- 24. Space3d-Molecular -->
+          <!-- 25. OpenAndroidModels -->
+          <div
+            class="cli-card"
+            data-category="ai"
+            data-keywords="open-android-models oam android gemini nano aicore ml kit genai prompt api kotlin jni json-rpc tool calling npc dialogue decisions content generation game ai pixel galaxy on-device pre-release"
+          >
+            <div class="cli-card-header">
+              <div class="cli-name">OpenAndroidModels</div>
+              <span class="cli-category-tag cat-ai">AI &amp; Games</span>
+            </div>
+            <div
+              class="binary-pill"
+              title="Click to copy Gradle group"
+              onclick="navigator.clipboard.writeText('com.spacecorps.oam')"
+            >
+              com.spacecorps.oam
+            </div>
+            <p class="cli-desc">
+              Pre-release Kotlin sibling of OpenAppleModels for Gemini Nano (ML Kit GenAI Prompt
+              API; Pixel 9+, Galaxy S26 and other AICore phones): the same game API and JSON-RPC
+              protocol, over JNI. Not yet run on a Gemini Nano device. Google's terms exclude apps
+              likely used by under-18s.
+            </p>
+            <div class="cli-meta-row">
+              <span class="cli-meta-badge">Pre-release</span>
+              <span>•</span>
+              <span class="cli-meta-badge">Protocol v1.0</span>
+              <span>•</span>
+              <span class="cli-meta-badge">MIT</span>
+            </div>
+            <div class="cli-card-actions">
+              <a
+                href="https://github.com/SpaceCorps/open-android-models"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-action-btn card-action-primary"
+                >GitHub Repo</a
+              >
+              <a
+                href="https://github.com/SpaceCorps/open-android-models/blob/main/docs/DESIGN.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-action-btn"
+                >Design</a
+              >
+              <a
+                href="https://developers.google.com/ml-kit/genai-terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-action-btn"
+                >ML Kit Terms</a
+              >
+            </div>
+          </div>
+
+          <!-- 26. Space3d-Molecular -->
           <div
             class="cli-card"
             data-category="simulation"
@@ -2621,7 +2708,7 @@
             </div>
           </div>
 
-          <!-- 25. Space3d Engine -->
+          <!-- 27. Space3d Engine -->
           <div
             class="cli-card"
             data-category="simulation"
@@ -2853,11 +2940,13 @@
                 >
               </li>
               <li><a href="https://spacecorps.github.io/Sliplane-Cli/">Sliplane CLI</a></li>
-              <li><a href="https://spacecorps.github.io/Claude-Sessions-Cli/">Claude Sessions CLI</a></li>
+              <li>
+                <a href="https://spacecorps.github.io/Claude-Sessions-Cli/">Claude Sessions CLI</a>
+              </li>
               <li><a href="https://spacecorps.github.io/Cloudflare-Cli/">Cloudflare CLI</a></li>
               <li><a href="https://spacecorps.github.io/Exa-Cli/">Exa CLI</a></li>
               <li><a href="https://spacecorps.github.io/Firecrawl-Cli/">Firecrawl CLI</a></li>
-              <li><a href="#registry">View All 26 Systems &rarr;</a></li>
+              <li><a href="#registry">View All 27 Systems &rarr;</a></li>
             </ul>
           </div>
           <div class="footer-col">

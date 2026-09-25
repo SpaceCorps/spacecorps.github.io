@@ -1,6 +1,6 @@
 ---
 title: "SpaceCorps Developer Portal, Systems & Simulation Registry"
-description: "High-performance native Rust systems: 24 autonomous AI agent CLIs, the cross-platform Space3d game engine, and Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics)."
+description: "27 systems: 23 native Rust agent CLIs, the cross-platform Space3d game engine, Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics), and open-source on-device game-AI libraries for Apple and Android."
 author: "SpaceCorps"
 date: "2026-09-25"
 canonical: "https://spacecorps.github.io/index.md"
@@ -9,6 +9,8 @@ canonical: "https://spacecorps.github.io/index.md"
 # SpaceCorps Developer Portal & Systems Registry
 
 SpaceCorps engineers high-performance native Rust systems, cross-platform 3D graphics engines, atomistic physics simulations, and autonomous agent infrastructure. Every CLI and engine in our portfolio is built with pure Rust 2024, featuring sub-3ms cold starts, GPU-driven indirect drawing, rigorous physics validation (74M–108M atom-steps/s in molecular dynamics, 14 µs emission solves), and structured machine-readable outputs.
+
+The exceptions to pure Rust are the two MIT-licensed on-device game-AI libraries: OpenAppleModels (Swift, Apple Foundation Models) and the pre-release OpenAndroidModels (Kotlin, Gemini Nano). They give games NPC dialogue with tool calls, AI decisions and content generation, and they speak the same JSON-RPC 2.0 protocol (v1.0), so a game engine such as Space3d can implement the protocol once and inject the Apple backend (C ABI) or the Android backend (JNI) per platform.
 
 ## Flagship Systems & The SpaceCorps Fleet
 
@@ -40,6 +42,7 @@ SpaceCorps engineers high-performance native Rust systems, cross-platform 3D gra
 | **GitHub Issue Importer** | `gh-issue-import`       | DevOps & Alerting    | [Docs](https://spacecorps.github.io/Github-Issue-Importer/) | [GitHub](https://github.com/SpaceCorps/Github-Issue-Importer) | [llms.txt](https://spacecorps.github.io/Github-Issue-Importer/llms.txt) |
 | **Samsung ArtMode CLI**   | `samsung-artmode`       | Hardware & IoT       | [Docs](https://spacecorps.github.io/Samsung-Artmode-Cli/)   | [GitHub](https://github.com/SpaceCorps/Samsung-Artmode-Cli)   | [llms.txt](https://spacecorps.github.io/Samsung-Artmode-Cli/llms.txt)   |
 | **OpenAppleModels**       | `oam`                   | AI & Game Engines    | [Docs](https://spacecorps.github.io/open-apple-models/)     | [GitHub](https://github.com/SpaceCorps/open-apple-models)     | [llms.txt](https://spacecorps.github.io/open-apple-models/llms.txt)     |
+| **OpenAndroidModels**     | `com.spacecorps.oam`    | AI & Game Engines    | [Repo](https://github.com/SpaceCorps/open-android-models)   | [GitHub](https://github.com/SpaceCorps/open-android-models)   | —                                                                       |
 
 ## Universal Engineering Standards
 

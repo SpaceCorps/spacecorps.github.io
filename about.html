@@ -189,7 +189,7 @@
 
       <div class="stat-grid">
         <div class="stat-card">
-          <div class="stat-val">25+</div>
+          <div class="stat-val">27+</div>
           <div class="stat-lbl">Systems &amp; Engines</div>
         </div>
         <div class="stat-card">
@@ -259,6 +259,22 @@
         </li>
       </ul>
 
+      <p>
+        <strong>On-device game AI:</strong> two MIT-licensed libraries outside the Rust codebase,
+        <a href="https://spacecorps.github.io/open-apple-models/">OpenAppleModels</a> (Swift, Apple
+        Foundation Models) and the pre-release
+        <a
+          href="https://github.com/SpaceCorps/open-android-models"
+          target="_blank"
+          rel="noopener noreferrer"
+          >OpenAndroidModels</a
+        >
+        (Kotlin, Gemini Nano), give games NPC dialogue with tool calls, AI decisions and content
+        generation without a server. Both speak the same JSON-RPC 2.0 protocol (v1.0), so a game
+        engine such as Space3d can implement it once and inject the Apple backend (C ABI) or the
+        Android backend (JNI) per platform.
+      </p>
+
       <div class="callout">
         <p>
           <strong>Package Registry Infrastructure:</strong> SpaceCorps distributes its scientific
@@ -309,6 +325,12 @@
       <ul>
         <li>
           <strong>CLI Fleet, Documentation &amp; Examples:</strong> Released under the permissive
+          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer"
+            >MIT License</a
+          >.
+        </li>
+        <li>
+          <strong>OpenAppleModels and OpenAndroidModels:</strong> Released under the
           <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer"
             >MIT License</a
           >.
