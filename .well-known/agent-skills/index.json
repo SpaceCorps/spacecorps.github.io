@@ -53,7 +53,7 @@
       "name": "linkedin-cli",
       "description": "Fetch LinkedIn company profiles, organizational details, and posts via Apify.",
       "type": "skill-md",
-      "url": "https://spacecorps.github.io/Linkedin-Cli/llms.txt"
+      "url": "https://spacecorps.github.io/.well-known/agent-instructions.md"
     },
     {
       "name": "youtube-cli",
@@ -137,7 +137,7 @@
       "name": "namecheap-cli",
       "description": "Check domain availability, query registered domains, and update DNS host records via Namecheap API.",
       "type": "skill-md",
-      "url": "https://github.com/SpaceCorps/namecheap-cli"
+      "url": "https://spacecorps.github.io/.well-known/agent-instructions.md"
     },
     {
       "name": "space3d-molecular",
@@ -149,7 +149,7 @@
       "name": "space3d-engine",
       "description": "Scaffold, build, and test cross-platform games and simulations using the Space3d Rust engine with wgpu GPU indirect rendering.",
       "type": "skill-md",
-      "url": "https://spacecorps.github.io/#space3d"
+      "url": "https://spacecorps.github.io/.well-known/agent-instructions.md"
     }
   ]
 }
