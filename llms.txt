@@ -1,6 +1,6 @@
 # SpaceCorps Systems, Simulation & Agent Hub
 
-> High-performance native Rust systems engineered by SpaceCorps: autonomous AI agent interfaces, the cross-platform Space3d game engine, and Space3d-Molecular scientific computing (atomistic molecular dynamics and thermal-field electron emission physics).
+> High-performance native Rust systems engineered by SpaceCorps: autonomous AI agent interfaces, the cross-platform Space3d game engine, and Space3d-Molecular scientific computing (atomistic molecular dynamics and thermal-field electron emission physics), plus two on-device game-AI libraries in Swift and Kotlin (OpenAppleModels, OpenAndroidModels).
 
 ## Organization & Architecture Overview
 

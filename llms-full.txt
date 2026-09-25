@@ -250,10 +250,10 @@ Fast, ergonomic Rust CLI for Namecheap domain availability, multi-domain search,
 ### 23. OpenAppleModels (`oam`)
 Real tool calling for Apple's on-device Foundation Models (iOS, iPadOS, macOS, visionOS 27; Swift package, MIT). Per-step tool steering (`ToolChoice`: auto, none, required, explicit, a named tool), runtime JSON-Schema tools (local closures or external tools your host executes), a game layer (`NPC`, `Persona`, `WorldState`, `DecisionEngine`, `ContentGenerator`), an OpenAI-compatible server that returns real `tool_calls`, and a JSON-RPC 2.0 protocol (v1.0) over stdio or a C ABI (`OpenAppleModelsFFI`).
 - **Respond (grounded tool choice):** `oam respond "query" --tool-json '<spec>' --tool-choice required`
-- **OpenAI-compatible local server:** `oam serve --port 8080 --host 127.0.0.1` (default `http://127.0.0.1:1976/v1`)
+- **OpenAI-compatible local server:** `oam serve --port 8080 --host 127.0.0.1` (without `--port` it listens on `http://127.0.0.1:1976/v1`)
 - **Interactive RPG tavern demo:** `oam demo tavern`
 - **JSON-RPC bridge for game engines:** `oam stdio` (newline-delimited JSON-RPC 2.0), or the C ABI in `bindings/c/open_apple_models.h`; bindings ship for C, Python and Unity C#, with Godot and Unreal integration notes.
-- **Status:** no tagged release yet (depend on `branch: "main"`). 333 Swift tests: 312 run offline against a scripted model, 21 live-model tests opt in with `OAM_LIVE_TESTS=1`. The real model needs Apple Intelligence on a supported device.
+- **Status:** no tagged release yet (depend on `branch: "main"`). 333 Swift tests: 312 run offline without Apple Intelligence (model-driven ones on the deterministic `ScriptedLanguageModel`); 21 live-model tests opt in with `OAM_LIVE_TESTS=1`. The real model needs Apple Intelligence on a supported device.
 - **Docs:** https://spacecorps.github.io/open-apple-models/ | Agent manual: https://spacecorps.github.io/open-apple-models/llms.txt | GitHub: https://github.com/SpaceCorps/open-apple-models
 
 ### 24. OpenAndroidModels (Gradle group `com.spacecorps.oam`)
