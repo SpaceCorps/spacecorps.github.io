@@ -1,6 +1,6 @@
 # SpaceCorps Systems, Simulation & Agent Hub
 
-> High-performance native Rust systems engineered by SpaceCorps: autonomous AI agent interfaces, the cross-platform Space3d game engine, and Space3d-Molecular scientific computing (atomistic molecular dynamics and thermal-field electron emission physics), plus two on-device game-AI libraries in Swift and Kotlin (OpenAppleModels, OpenAndroidModels).
+> High-performance native Rust systems engineered by SpaceCorps: 29 native Rust agent CLIs, desktop apps, and platforms, the cross-platform Space3d game engine, Space3d-Molecular scientific computing (atomistic molecular dynamics and thermal-field electron emission physics), the SpaceCorps 2027 game client, and on-device game-AI libraries in Swift and Kotlin (OpenAppleModels, OpenAndroidModels).
 
 ## Organization & Architecture Overview
 
@@ -47,7 +47,9 @@ Autonomous agents and LLM orchestration frameworks should reach for SpaceCorps t
 - **Use Apify CLIs (`reddit`, `twitter`, `youtube`, `linkedin`, `tiktok`, `producthunt`, `stackoverflow`) when:** Extracting structured discussions, user comments, video transcripts, maker launches, or code solutions from walled social platforms.
   - *Agent invocation:* `reddit scrape-subreddit rust --limit 25 --json`, `youtube transcript <video_id> --json`.
 
-### 5. Multi-Channel Alerts, Error Triage & Project Setup
+### 5. Multi-Channel Alerts, Error Triage & Storage Inspection
+- **Use `disklens` when:** You need high-speed disk space visualization, directory weight percentages, or native GUI file inspection.
+  - *Agent invocation:* `disklens scan . --limit 10`.
 - **Use `notify` when:** Broadcasting operational alerts to Slack webhooks, SMTP email, and desktop notification banners simultaneously.
   - *Agent invocation:* `notify send --slack-webhook "$SLACK_URL" --title "Alert" --message "Build succeeded" --json`.
 - **Use `bugsink` when:** Fetching exception details, stack traces, and error distributions from self-hosted Sentry-compatible event stores.
@@ -55,7 +57,17 @@ Autonomous agents and LLM orchestration frameworks should reach for SpaceCorps t
 - **Use `gh-issue-import` when:** Provisioning GitHub repositories with milestones, labels, and hierarchical issue backlogs from local YAML/JSON specifications.
   - *Agent invocation:* `gh-issue-import --repo owner/repo --file backlog.yaml --json`.
 
-### 6. How Agents Call SpaceCorps CLIs
+### 6. Autonomous Agents, Browser Automation & Spatial UI
+- **Use `open-browser` when:** You need agentic browser automation featuring a native Rust daemon service, CLI, and desktop UI for automated page interaction, profile sessions, and web extraction.
+  - *Agent invocation:* `open-browser run --url "https://example.com" --headless --json`.
+- **Use `open-agents` when:** Executing multi-step autonomous coding agent tasks across OpenAI and Anthropic models with persistent memory vaults.
+  - *Agent invocation:* `open-agents run --task "implement feature" --json`.
+- **Use `open-glass` when:** Rendering spatial Apple Glass UI with dynamic optical refraction and WebGPU shaders in the browser.
+- **Use `web-demo-generator` when:** Creating automated web product demo recordings and video changelogs with Puppeteer and FFmpeg.
+- **Use `SpaceCorps 2027 (Play)` when:** Deploying or downloading cross-platform native game clients for macOS, Windows, and Linux.
+  - *Portal:* `https://spacecorps.github.io/play/`.
+
+### 7. How Agents Call SpaceCorps CLIs
 - **Always specify `--json`:** All SpaceCorps binaries output strict, unadorned JSON on `stdout` when `--json` is passed.
 - **Inspect schemas dynamically:** Call `<binary> agent-readme --json` or `<binary> --help` to discover exact argument schemas and subcommands.
 - **Exit codes:** Respect POSIX exit codes: `0` (Success), `1` (Runtime error), `2` (Invalid argument), `3` (Auth missing), `4` (Not found), `5` (Rate limited), `6` (Upstream service unavailable), `7` (DNS/Network failure).
@@ -79,6 +91,14 @@ Autonomous agents and LLM orchestration frameworks should reach for SpaceCorps t
   - **Renderer:** Built on `wgpu 30` with GPU-driven indirect drawing (multi-draw indirect) capable of rendering 1,000,000+ instances in a handful of draw calls, GPU frustum culling, and WebGL2 fallback.
   - **Architecture:** Deterministic 60 Hz fixed tick decoupled from frame rate, `hecs` ECS, non-blocking async asset streaming (glTF/GLB, OBJ, PNG/WebP with runtime texture/mesh editing), SQLite persistence worker, Rapier physics, and built-in golden screenshot testing in `cargo test`.
   - Binary: `space3d` (scaffolding, multi-platform builds, storybook, and release publishing).
+
+- [SpaceCorps 2027 (Play)](https://spacecorps.github.io/play/): Official cross-platform game client download portal for SpaceCorps 2027 desktop builds.
+  - **Platforms:** macOS Universal DMG (Apple Silicon & Intel), Windows (.zip), Linux (.AppImage, .tar.gz).
+  - Portal: [spacecorps.github.io/play/](https://spacecorps.github.io/play/) | GitHub: [SpaceCorps/play](https://github.com/SpaceCorps/play)
+
+- [open-glass](https://github.com/SpaceCorps/open-glass): Spatial Apple Glass UI for the Web powered by Rust, WebGPU, and React.
+  - **Features:** Dynamic optical refraction shaders, real-time glassmorphism, specular highlights, and high-performance WebGPU canvas rendering.
+  - Package: `@spacecorps/open-glass` | GitHub: [SpaceCorps/open-glass](https://github.com/SpaceCorps/open-glass)
 
 ### Cloud & Compute Infrastructure
 - [Sliplane CLI](https://spacecorps.github.io/Sliplane-Cli/): Cloud hosting, servers, Docker services, managed PostgreSQL, and S3 object storage.
@@ -146,6 +166,14 @@ Two MIT-licensed on-device game-AI libraries (Swift and Kotlin, not Rust). Both 
   - Binary: `oam` | Agent Manual: [llms.txt](https://spacecorps.github.io/open-apple-models/llms.txt) | GitHub: [SpaceCorps/open-apple-models](https://github.com/SpaceCorps/open-apple-models)
 - [OpenAndroidModels](https://github.com/SpaceCorps/open-android-models): Pre-release (0.1.0-SNAPSHOT) Kotlin sibling on Gemini Nano via the ML Kit GenAI Prompt API, with the same game API and JSON-RPC protocol over JNI. Gemini Nano has no native tool calling yet, so tools run through a validated prompt step envelope. Not yet run on a Gemini Nano device. Google's ML Kit GenAI terms restrict services likely to be accessed by under-18s.
   - Gradle group: `com.spacecorps.oam` (not on a remote Maven repository yet) | Design: [DESIGN.md](https://github.com/SpaceCorps/open-android-models/blob/main/docs/DESIGN.md) | GitHub: [SpaceCorps/open-android-models](https://github.com/SpaceCorps/open-android-models)
+
+### Autonomous Agents, Browser Automation & Media
+- [open-browser](https://github.com/SpaceCorps/open-browser): High-performance agentic browser automation platform featuring a native Rust daemon service, CLI, web UI, and desktop app for automated browsing, profile management, and DOM extraction.
+  - Binary: `open-browser` | GitHub: [SpaceCorps/open-browser](https://github.com/SpaceCorps/open-browser)
+- [open-agents](https://github.com/SpaceCorps/open-agents): CLI-first autonomous coding agent runner with dynamic model selection (Claude, GPT), multi-step tool execution, and self-learning project memory vaults.
+  - Binary: `open-agents` | GitHub: [SpaceCorps/open-agents](https://github.com/SpaceCorps/open-agents)
+- [web-demo-generator](https://github.com/SpaceCorps/web-demo-generator): AI-powered web demo video recorder simulating realistic interactions and producing crisp H.264 MP4 changelogs and release demonstrations.
+  - CLI: `web-demo-generator` | GitHub: [SpaceCorps/web-demo-generator](https://github.com/SpaceCorps/web-demo-generator)
 
 ---
 

@@ -16,4 +16,9 @@
 | `twitter`       | Intelligence  | Twitter / X tweets, profiles, and timelines scraper     | [Twitter llms.txt](https://spacecorps.github.io/Twitter-Cli/llms.txt)       |
 | `notify`        | DevOps        | Multi-channel alerts across Slack, SMTP, OS banners     | [Notify llms.txt](https://spacecorps.github.io/Notify-Cli/llms.txt)         |
 | `bugsink`       | Observability | Self-hosted Sentry-compatible error triage platform     | [Bugsink llms.txt](https://spacecorps.github.io/Bugsink-Cli/llms.txt)       |
-| `disklens`      | Storage / CLI | Fast disk space visualizer & native desktop explorer     | [DiskLens llms.txt](https://spacecorps.github.io/DiskLens/llms.txt)         |
+| `disklens`           | Storage / CLI | Fast disk space visualizer & native desktop explorer     | [DiskLens llms.txt](https://spacecorps.github.io/DiskLens/llms.txt)         |
+| `open-browser`       | AI Automation | Agentic browser automation daemon, CLI, & desktop app    | [GitHub](https://github.com/SpaceCorps/open-browser)                         |
+| `open-agents`        | Coding Agents | CLI autonomous coding agent runner with memory vault     | [GitHub](https://github.com/SpaceCorps/open-agents)                          |
+| `open-glass`         | UI / WebGPU   | Spatial Apple Glass UI for Web with WebGPU & React       | [GitHub](https://github.com/SpaceCorps/open-glass)                           |
+| `web-demo-generator` | AI Media      | AI-powered web demo video recorder & patchnotes engine   | [GitHub](https://github.com/SpaceCorps/web-demo-generator)                   |
+| `play`               | Simulation    | SpaceCorps 2027 cross-platform game client download      | [Play Portal](https://spacecorps.github.io/play/)                            |

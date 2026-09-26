@@ -1,6 +1,6 @@
 ---
 title: "SpaceCorps Developer Portal, Systems & Simulation Registry"
-description: "28 systems: 24 native Rust agent CLIs and desktop apps, the cross-platform Space3d game engine, Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics), and open-source on-device game-AI libraries for Apple and Android."
+description: "33 systems: 29 native Rust agent CLIs, desktop apps, and platforms, the cross-platform Space3d game engine, Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics), the SpaceCorps 2027 game client, and open-source on-device game-AI libraries for Apple and Android."
 author: "SpaceCorps"
 date: "2026-09-26"
 canonical: "https://spacecorps.github.io/index.md"
@@ -44,6 +44,11 @@ The exceptions to pure Rust are the two MIT-licensed, pre-release on-device game
 | **Samsung ArtMode CLI**   | `samsung-artmode`       | Hardware & IoT       | [Docs](https://spacecorps.github.io/Samsung-Artmode-Cli/)                            | [GitHub](https://github.com/SpaceCorps/Samsung-Artmode-Cli)   | [llms.txt](https://spacecorps.github.io/Samsung-Artmode-Cli/llms.txt)   |
 | **OpenAppleModels**       | `oam`                   | AI & Game Engines    | [Docs](https://spacecorps.github.io/open-apple-models/)                              | [GitHub](https://github.com/SpaceCorps/open-apple-models)     | [llms.txt](https://spacecorps.github.io/open-apple-models/llms.txt)     |
 | **OpenAndroidModels**     | `com.spacecorps.oam`    | AI & Game Engines    | [Design](https://github.com/SpaceCorps/open-android-models/blob/main/docs/DESIGN.md) | [GitHub](https://github.com/SpaceCorps/open-android-models)   | —                                                                       |
+| **open-browser**          | `open-browser`          | AI & Automation      | [Docs](https://github.com/SpaceCorps/open-browser)                                   | [GitHub](https://github.com/SpaceCorps/open-browser)          | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
+| **open-agents**           | `open-agents`           | AI & Coding Agents   | [Docs](https://github.com/SpaceCorps/open-agents)                                    | [GitHub](https://github.com/SpaceCorps/open-agents)           | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
+| **open-glass**            | `open-glass`            | UI & WebGPU          | [Docs](https://github.com/SpaceCorps/open-glass)                                     | [GitHub](https://github.com/SpaceCorps/open-glass)            | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
+| **web-demo-generator**    | `web-demo-generator`    | AI & Media           | [Docs](https://github.com/SpaceCorps/web-demo-generator)                             | [GitHub](https://github.com/SpaceCorps/web-demo-generator)     | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
+| **SpaceCorps 2027 (Play)**| `play`                  | Simulation & Games   | [Portal](https://spacecorps.github.io/play/)                                         | [GitHub](https://github.com/SpaceCorps/play)                  | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
 
 ## Universal Engineering Standards
 
