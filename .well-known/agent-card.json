@@ -17,6 +17,11 @@
   ],
   "skills": [
     {
+      "name": "spacecorps-2027",
+      "description": "Download, verify SHA-256 integrity, install, and orchestrate the SpaceCorps 2027 cross-platform MMO game client and verify server telemetry.",
+      "url": "https://spacecorps.github.io/play/llms.txt"
+    },
+    {
       "name": "sliplane-cli",
       "description": "Deploy web services, provision managed Postgres databases, and manage S3 storage on Sliplane.",
       "url": "https://spacecorps.github.io/Sliplane-Cli/llms.txt"

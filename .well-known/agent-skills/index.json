@@ -8,6 +8,12 @@
       "url": "https://spacecorps.github.io/.well-known/agent-instructions.md"
     },
     {
+      "name": "spacecorps-2027",
+      "description": "Download, verify SHA-256 integrity, install, and orchestrate the SpaceCorps 2027 cross-platform MMO game client and verify server telemetry.",
+      "type": "skill-md",
+      "url": "https://spacecorps.github.io/play/llms.txt"
+    },
+    {
       "name": "sliplane-cli",
       "description": "Deploy web services, provision managed Postgres databases, query compute metrics, and manage S3 storage on Sliplane via Rust CLI.",
       "type": "skill-md",
