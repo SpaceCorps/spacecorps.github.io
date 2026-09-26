@@ -16,4 +16,4 @@
 | `twitter`       | Intelligence  | Twitter / X tweets, profiles, and timelines scraper     | [Twitter llms.txt](https://spacecorps.github.io/Twitter-Cli/llms.txt)       |
 | `notify`        | DevOps        | Multi-channel alerts across Slack, SMTP, OS banners     | [Notify llms.txt](https://spacecorps.github.io/Notify-Cli/llms.txt)         |
 | `bugsink`       | Observability | Self-hosted Sentry-compatible error triage platform     | [Bugsink llms.txt](https://spacecorps.github.io/Bugsink-Cli/llms.txt)       |
-| `disklens`      | Storage / GUI | Native desktop file explorer with real-time disk % fill | [DiskLens llms.txt](https://spacecorps.github.io/DiskLens/llms.txt)         |
+| `disklens`      | Storage / CLI | Fast disk space visualizer & native desktop explorer     | [DiskLens llms.txt](https://spacecorps.github.io/DiskLens/llms.txt)         |
