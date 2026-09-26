@@ -1,8 +1,8 @@
 ---
 title: "SpaceCorps Developer Portal, Systems & Simulation Registry"
-description: "27 systems: 23 native Rust agent CLIs, the cross-platform Space3d game engine, Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics), and open-source on-device game-AI libraries for Apple and Android."
+description: "28 systems: 24 native Rust agent CLIs and desktop apps, the cross-platform Space3d game engine, Space3d-Molecular scientific computing (atomistic molecular dynamics and electron-emission physics), and open-source on-device game-AI libraries for Apple and Android."
 author: "SpaceCorps"
-date: "2026-09-25"
+date: "2026-09-26"
 canonical: "https://spacecorps.github.io/index.md"
 ---
 
@@ -18,6 +18,7 @@ The exceptions to pure Rust are the two MIT-licensed, pre-release on-device game
 | ------------------------- | ----------------------- | -------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **Space3d-Molecular**     | `spacemd` / `spaceemit` | Simulation & Physics | [Overview](https://github.com/SpaceCorps/Space3d-Molecular)                          | [GitHub](https://github.com/SpaceCorps/Space3d-Molecular)     | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
 | **Space3d Engine**        | `space3d`               | 3D Graphics & Games  | [Showcase](https://spacecorps.github.io/#space3d)                                    | [SpaceCorps](https://github.com/SpaceCorps)                   | [llms.txt](https://spacecorps.github.io/llms.txt)                       |
+| **DiskLens**              | `disklens`              | Desktop & Storage    | [Docs](https://spacecorps.github.io/DiskLens/)                                       | [GitHub](https://github.com/SpaceCorps/DiskLens)              | [llms.txt](https://spacecorps.github.io/DiskLens/llms.txt)              |
 | **Sliplane CLI**          | `sliplane`              | Cloud & Hosting      | [Docs](https://spacecorps.github.io/Sliplane-Cli/)                                   | [GitHub](https://github.com/SpaceCorps/Sliplane-Cli)          | [llms.txt](https://spacecorps.github.io/Sliplane-Cli/llms.txt)          |
 | **Claude Sessions CLI**   | `claude-sessions`       | DevOps & Migration   | [Docs](https://spacecorps.github.io/Claude-Sessions-Cli/)                            | [GitHub](https://github.com/SpaceCorps/Claude-Sessions-Cli)   | [llms.txt](https://spacecorps.github.io/Claude-Sessions-Cli/llms.txt)   |
 | **Cloudflare CLI**        | `cloudflare`            | Cloud & Hosting      | [Docs](https://spacecorps.github.io/Cloudflare-Cli/)                                 | [GitHub](https://github.com/SpaceCorps/Cloudflare-Cli)        | [llms.txt](https://spacecorps.github.io/Cloudflare-Cli/llms.txt)        |
