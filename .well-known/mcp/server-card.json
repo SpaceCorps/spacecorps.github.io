@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://spacecorps-game.sliplane.app/mcp",
+      "url": "https://spaceemit-api.sliplane.app/mcp",
       "supportedProtocolVersions": [
         "2026-07-28",
         "2025-11-25",

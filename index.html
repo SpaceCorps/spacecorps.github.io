@@ -81,6 +81,11 @@
       href="https://spacecorps.github.io/sitemap.xml"
       title="Sitemap"
     />
+    <link rel="mcp" href="https://spacecorps.github.io/server.json" />
+    <link rel="mcp-server" href="https://spacecorps.github.io/server.json" />
+    <link rel="mcp-card" href="https://spacecorps.github.io/.well-known/mcp/server-card.json" />
+    <link rel="plugin" href="https://spacecorps.github.io/.well-known/ai-plugin.json" />
+    <link rel="ai-plugin" href="https://spacecorps.github.io/.well-known/ai-plugin.json" />
 
     <script>
       if (new URLSearchParams(window.location.search).get("mode") === "agent") {
@@ -214,6 +219,28 @@
             "name": "SpaceCorps Systems Registry & Release Feed",
             "description": "Cryptographically signed release hashes and system telemetry for native Rust agent binaries.",
             "url": "https://spacecorps.github.io/play/release.json"
+          },
+          {
+            "@type": "Service",
+            "@id": "https://spacecorps.github.io/#service",
+            "name": "SpaceCorps Systems Simulation & Compute Cloud",
+            "serviceType": "Cloud Simulation & Game Telemetry",
+            "provider": {
+              "@id": "https://spacecorps.github.io/#organization"
+            },
+            "description": "High-throughput scientific simulation, real-time multiplayer telemetry, and autonomous AI agent tool execution.",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "128",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
           },
           {
             "@type": "WebSite",

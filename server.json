@@ -8,7 +8,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://spacecorps-game.sliplane.app/mcp"
+      "url": "https://spaceemit-api.sliplane.app/mcp"
     }
   ]
 }
