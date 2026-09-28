@@ -2,6 +2,17 @@
 
 > High-performance native Rust systems engineered by SpaceCorps: 29 native Rust agent CLIs, desktop apps, and platforms, the cross-platform Space3d game engine, Space3d-Molecular scientific computing (atomistic molecular dynamics and thermal-field electron emission physics), the SpaceCorps 2027 game client, and on-device game-AI libraries in Swift and Kotlin (OpenAppleModels, OpenAndroidModels).
 
+- Canonical URL: https://spacecorps.github.io/
+- Markdown Representation: https://spacecorps.github.io/index.md
+- Full Technical Manual: https://spacecorps.github.io/llms-full.txt
+- Model Context Protocol (MCP Server): https://spacecorps.github.io/server.json
+- MCP Server Card: https://spacecorps.github.io/.well-known/mcp/server-card.json
+- MCP Streamable HTTP: https://spaceemit-api.sliplane.app/mcp
+- OpenAPI Specification: https://spacecorps.github.io/openapi.json
+- Pricing & Free Tier: https://spacecorps.github.io/pricing.md
+- Authentication: https://spacecorps.github.io/auth.md
+- SpaceCorps 2027 Game: https://spacecorps.github.io/play/
+
 ## Organization & Architecture Overview
 
 SpaceCorps builds native Rust systems, scientific simulation engines, and autonomous agent infrastructure:
