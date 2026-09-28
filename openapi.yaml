@@ -23,7 +23,7 @@ paths:
     get:
       summary: Liveness
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -33,25 +33,37 @@ paths:
                   status:
                     type: string
                     const: ok
-        "400":
-          $ref: "#/components/responses/BadRequest"
-        "500":
-          $ref: "#/components/responses/InternalServerError"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        default:
+          $ref: '#/components/responses/Error'
       operationId: getHealth
   /v1/info:
     get:
       summary: Version, defaults, units, endpoints, models and citations
       responses:
-        "200":
+        '200':
           description: Service description
           content:
             application/json:
               schema:
                 type: object
-        "400":
-          $ref: "#/components/responses/BadRequest"
-        "500":
-          $ref: "#/components/responses/InternalServerError"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        default:
+          $ref: '#/components/responses/Error'
       operationId: getServiceInfo
   /v1/emission:
     post:
@@ -61,21 +73,27 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/EmissionRequest"
+              $ref: '#/components/schemas/EmissionRequest'
       responses:
-        "200":
+        '200':
           description: Columnar results; failed points are null and listed in errors
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/EmissionResponse"
-        "400":
-          $ref: "#/components/responses/BadRequest"
-        "500":
-          $ref: "#/components/responses/InternalServerError"
+                $ref: '#/components/schemas/EmissionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
         default:
-          $ref: "#/components/responses/Error"
+          $ref: '#/components/responses/Error'
       operationId: computeEmission
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
   /v1/spectra:
     post:
       summary: Total, normal and parallel energy distributions of one point
@@ -85,7 +103,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: "#/components/schemas/Point"
+                - $ref: '#/components/schemas/Point'
                 - type: object
                   properties:
                     points:
@@ -94,7 +112,7 @@ paths:
                       default: 256
                       description: Samples per distribution
       responses:
-        "200":
+        '200':
           description: Spectra
           content:
             application/json:
@@ -108,11 +126,11 @@ paths:
                     type: number
                     description: W/nm^2
                   totalEnergyDistribution:
-                    $ref: "#/components/schemas/Distribution"
+                    $ref: '#/components/schemas/Distribution'
                   normalEnergyDistribution:
-                    $ref: "#/components/schemas/Distribution"
+                    $ref: '#/components/schemas/Distribution'
                   parallelEnergyDistribution:
-                    $ref: "#/components/schemas/Distribution"
+                    $ref: '#/components/schemas/Distribution'
                   sumRules:
                     type: array
                     items:
@@ -120,13 +138,19 @@ paths:
                     description: >-
                       Integral of each distribution divided by J (total, normal,
                       parallel)
-        "400":
-          $ref: "#/components/responses/BadRequest"
-        "500":
-          $ref: "#/components/responses/InternalServerError"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
         default:
-          $ref: "#/components/responses/Error"
+          $ref: '#/components/responses/Error'
       operationId: computeEnergySpectra
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
   /v1/barrier:
     post:
       summary: Barrier potential profile and top
@@ -145,7 +169,7 @@ paths:
                 radius:
                   type:
                     - number
-                    - "null"
+                    - 'null'
                   description: nm; null = planar
                 gamma:
                   type: number
@@ -162,7 +186,7 @@ paths:
                   type: number
                   description: nm
       responses:
-        "200":
+        '200':
           description: Barrier
           content:
             application/json:
@@ -187,13 +211,19 @@ paths:
                   topHbarOmega:
                     type: number
                     description: eV
-        "400":
-          $ref: "#/components/responses/BadRequest"
-        "500":
-          $ref: "#/components/responses/InternalServerError"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
         default:
-          $ref: "#/components/responses/Error"
+          $ref: '#/components/responses/Error'
       operationId: computeBarrier
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
   /v1/transmission:
     post:
       summary: Transmission probability vs normal energy for one point
@@ -203,7 +233,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: "#/components/schemas/Point"
+                - $ref: '#/components/schemas/Point'
                 - type: object
                   properties:
                     energy:
@@ -224,7 +254,7 @@ paths:
                       default: 0
                       description: eV
       responses:
-        "200":
+        '200':
           description: Transmission
           content:
             application/json:
@@ -251,13 +281,19 @@ paths:
                     type: array
                     items:
                       type: number
-        "400":
-          $ref: "#/components/responses/BadRequest"
-        "500":
-          $ref: "#/components/responses/InternalServerError"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
         default:
-          $ref: "#/components/responses/Error"
+          $ref: '#/components/responses/Error'
       operationId: computeTransmission
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
   /v1/iv-fit:
     post:
       summary: Fit measured I–V data
@@ -287,7 +323,7 @@ paths:
                 radius:
                   type:
                     - number
-                    - "null"
+                    - 'null'
                 gamma:
                   type: number
                 temperature:
@@ -318,19 +354,19 @@ paths:
                   additionalProperties: false
                   properties:
                     beta:
-                      $ref: "#/components/schemas/Range"
+                      $ref: '#/components/schemas/Range'
                     radius:
-                      $ref: "#/components/schemas/Range"
+                      $ref: '#/components/schemas/Range'
                     gamma:
-                      $ref: "#/components/schemas/Range"
+                      $ref: '#/components/schemas/Range'
                     workFunction:
-                      $ref: "#/components/schemas/Range"
+                      $ref: '#/components/schemas/Range'
                     temperature:
-                      $ref: "#/components/schemas/Range"
+                      $ref: '#/components/schemas/Range'
                 options:
-                  $ref: "#/components/schemas/Options"
+                  $ref: '#/components/schemas/Options'
       responses:
-        "200":
+        '200':
           description: Fit result
           content:
             application/json:
@@ -344,17 +380,17 @@ paths:
                   rmsLogResidual:
                     type: number
                   beta:
-                    $ref: "#/components/schemas/Estimate"
+                    $ref: '#/components/schemas/Estimate'
                   area:
-                    $ref: "#/components/schemas/Estimate"
+                    $ref: '#/components/schemas/Estimate'
                   radius:
-                    $ref: "#/components/schemas/Estimate"
+                    $ref: '#/components/schemas/Estimate'
                   gamma:
-                    $ref: "#/components/schemas/Estimate"
+                    $ref: '#/components/schemas/Estimate'
                   workFunction:
-                    $ref: "#/components/schemas/Estimate"
+                    $ref: '#/components/schemas/Estimate'
                   temperature:
-                    $ref: "#/components/schemas/Estimate"
+                    $ref: '#/components/schemas/Estimate'
                   voltage:
                     type: array
                     items:
@@ -371,13 +407,166 @@ paths:
                     type: array
                     items:
                       type: number
-        "400":
-          $ref: "#/components/responses/BadRequest"
-        "500":
-          $ref: "#/components/responses/InternalServerError"
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
         default:
-          $ref: "#/components/responses/Error"
+          $ref: '#/components/responses/Error'
       operationId: fitCurrentVoltage
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+  /v1/batch:
+    post:
+      summary: Execute batch / bulk operations
+      description: >-
+        Atomic or sequential execution of multiple API operations in a single
+        HTTP request.
+      operationId: executeBatchOperations
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchRequest'
+      responses:
+        '200':
+          description: All batch operations executed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        default:
+          $ref: '#/components/responses/Error'
+  /v1/jobs:
+    post:
+      summary: Submit long-running asynchronous simulation job
+      description: >-
+        Returns 202 Accepted with a Location header and polling URL for
+        long-running physics or batch tasks.
+      operationId: createAsyncJob
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                job_type:
+                  type: string
+                  example: emission_spectrum_sweep
+                parameters:
+                  type: object
+              required:
+                - job_type
+      responses:
+        '202':
+          description: Accepted for background execution
+          headers:
+            Location:
+              description: Relative or absolute URL to poll the job status
+              schema:
+                type: string
+                format: uri
+            Retry-After:
+              description: Recommended delay before polling again
+              schema:
+                type: integer
+                default: 5
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        default:
+          $ref: '#/components/responses/Error'
+    get:
+      summary: List recent simulation jobs
+      description: Paginated list of asynchronous jobs submitted to the cluster.
+      operationId: listAsyncJobs
+      parameters:
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Paginated job listings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/JobStatus'
+                  pagination:
+                    $ref: '#/components/schemas/PaginationMeta'
+                required:
+                  - jobs
+                  - pagination
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        default:
+          $ref: '#/components/responses/Error'
+  /v1/jobs/{job_id}:
+    get:
+      summary: Poll asynchronous simulation job status
+      description: Retrieve status, progress, and results for a background job.
+      operationId: getAsyncJob
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          description: Job ID returned from POST /v1/jobs
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Current job status and result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        default:
+          $ref: '#/components/responses/Error'
 components:
   schemas:
     Range:
@@ -386,7 +575,7 @@ components:
         type: number
       minItems: 2
       maxItems: 2
-      description: "[lower, upper]"
+      description: '[lower, upper]'
     NumOrArray:
       oneOf:
         - type: number
@@ -417,7 +606,7 @@ components:
         radius:
           type:
             - number
-            - "null"
+            - 'null'
           description: Radius of curvature (nm); null = planar
         gamma:
           type: number
@@ -438,7 +627,7 @@ components:
           default: 10
           description: eV
         options:
-          $ref: "#/components/schemas/Options"
+          $ref: '#/components/schemas/Options'
     EmissionRequest:
       type: object
       required:
@@ -446,27 +635,27 @@ components:
         - workFunction
       properties:
         field:
-          $ref: "#/components/schemas/NumOrArray"
+          $ref: '#/components/schemas/NumOrArray'
         radius:
           oneOf:
             - type: number
-            - type: "null"
+            - type: 'null'
             - type: array
               items:
                 type: number
           description: nm; omit or null for planar
         gamma:
-          $ref: "#/components/schemas/NumOrArray"
+          $ref: '#/components/schemas/NumOrArray'
         workFunction:
-          $ref: "#/components/schemas/NumOrArray"
+          $ref: '#/components/schemas/NumOrArray'
         temperature:
-          $ref: "#/components/schemas/NumOrArray"
+          $ref: '#/components/schemas/NumOrArray'
         effectiveMass:
-          $ref: "#/components/schemas/NumOrArray"
+          $ref: '#/components/schemas/NumOrArray'
         bandDepth:
-          $ref: "#/components/schemas/NumOrArray"
+          $ref: '#/components/schemas/NumOrArray'
         options:
-          $ref: "#/components/schemas/Options"
+          $ref: '#/components/schemas/Options'
     EmissionResponse:
       type: object
       properties:
@@ -477,35 +666,35 @@ components:
           items:
             type:
               - number
-              - "null"
+              - 'null'
           description: A/nm^2
         nottinghamHeat:
           type: array
           items:
             type:
               - number
-              - "null"
+              - 'null'
           description: W/nm^2; negative = emitter heated
         meanEnergy:
           type: array
           items:
             type:
               - number
-              - "null"
+              - 'null'
           description: eV relative to E_F
         barrierTop:
           type: array
           items:
             type:
               - number
-              - "null"
+              - 'null'
           description: eV relative to E_F
         regime:
           type: array
           items:
             type:
               - string
-              - "null"
+              - 'null'
             enum:
               - field
               - intermediate
@@ -514,7 +703,7 @@ components:
         errors:
           type: array
           items:
-            $ref: "#/components/schemas/PointError"
+            $ref: '#/components/schemas/PointError'
         elapsedMs:
           type: number
     PointError:
@@ -590,28 +779,273 @@ components:
         code:
           type: string
           example: invalid_parameter
+    PaginationMeta:
+      type: object
+      properties:
+        cursor:
+          type: string
+          nullable: true
+          description: Pointer to next page cursor.
+        has_more:
+          type: boolean
+          description: True if more records exist beyond this page.
+        next_cursor:
+          type: string
+          nullable: true
+          description: Opaque token for the next page.
+        total_count:
+          type: integer
+          description: Total number of items in the dataset.
+      required:
+        - has_more
+    JobStatus:
+      type: object
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          description: Unique asynchronous job identifier.
+        status:
+          type: string
+          enum:
+            - pending
+            - running
+            - completed
+            - failed
+          description: Current execution lifecycle state.
+        poll_url:
+          type: string
+          format: uri
+          description: Endpoint URL to poll for job progress.
+        progress:
+          type: number
+          minimum: 0
+          maximum: 1
+          description: Fractional completion from 0.0 to 1.0.
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        result:
+          type: object
+          nullable: true
+          description: Output payload upon completion.
+        error:
+          $ref: '#/components/schemas/Error'
+          nullable: true
+      required:
+        - job_id
+        - status
+        - poll_url
+    BatchOperation:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Client-assigned correlation ID.
+        method:
+          type: string
+          enum:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+          description: HTTP method.
+        path:
+          type: string
+          description: Relative endpoint path.
+        body:
+          type: object
+          nullable: true
+          description: Optional operation body.
+      required:
+        - id
+        - method
+        - path
+    BatchRequest:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/BatchOperation'
+          description: List of operations to execute atomically or in sequence.
+      required:
+        - operations
+    BatchOperationResult:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: integer
+          example: 200
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        body:
+          type: object
+      required:
+        - id
+        - status
+        - body
+    BatchResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/BatchOperationResult'
+      required:
+        - results
   responses:
-    Error:
-      description: Request-level error
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/Error"
     BadRequest:
-      description: Bad Request / Parameter Validation Failure (RFC 9457)
-      content:
-        application/problem+json:
+      description: Bad Request / Parameter Validation Failure (400)
+      headers:
+        RateLimit-Limit:
+          description: The request quota in the current time window
           schema:
-            $ref: "#/components/schemas/ProblemDetails"
+            type: integer
+        RateLimit-Remaining:
+          description: Remaining requests in the current window
+          schema:
+            type: integer
+        RateLimit-Reset:
+          description: Seconds until the rate limit resets
+          schema:
+            type: integer
+      content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ProblemDetails"
+            $ref: '#/components/schemas/Error'
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    NotFound:
+      description: Resource Not Found (404)
+      headers:
+        RateLimit-Limit:
+          description: The request quota in the current time window
+          schema:
+            type: integer
+        RateLimit-Remaining:
+          description: Remaining requests in the current window
+          schema:
+            type: integer
+        RateLimit-Reset:
+          description: Seconds until the rate limit resets
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    TooManyRequests:
+      description: Rate limit exceeded (429)
+      headers:
+        Retry-After:
+          description: Seconds until rate limit quota resets
+          schema:
+            type: integer
+        RateLimit-Limit:
+          description: The request quota in the current time window
+          schema:
+            type: integer
+        RateLimit-Remaining:
+          description: Remaining requests in the current window
+          schema:
+            type: integer
+        RateLimit-Reset:
+          description: Seconds until the rate limit resets
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
     InternalServerError:
-      description: Internal Server Error (RFC 9457)
-      content:
-        application/problem+json:
+      description: Internal Server Error (500)
+      headers:
+        RateLimit-Limit:
+          description: The request quota in the current time window
           schema:
-            $ref: "#/components/schemas/ProblemDetails"
+            type: integer
+        RateLimit-Remaining:
+          description: Remaining requests in the current window
+          schema:
+            type: integer
+        RateLimit-Reset:
+          description: Seconds until the rate limit resets
+          schema:
+            type: integer
+      content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ProblemDetails"
+            $ref: '#/components/schemas/Error'
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    Error:
+      description: Standard error response
+      headers:
+        Retry-After:
+          description: Seconds until rate limit quota resets
+          schema:
+            type: integer
+        RateLimit-Limit:
+          description: The request quota in the current time window
+          schema:
+            type: integer
+        RateLimit-Remaining:
+          description: Remaining requests in the current window
+          schema:
+            type: integer
+        RateLimit-Reset:
+          description: Seconds until the rate limit resets
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: false
+      description: >-
+        Unique UUID string to ensure idempotent retries on state-mutating
+        operations.
+      schema:
+        type: string
+        format: uuid
+    Cursor:
+      name: cursor
+      in: query
+      required: false
+      description: Opaque pagination cursor for fetching the next page of results.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of items to return in a single page (1 to 100).
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+

@@ -144,7 +144,12 @@
             "name": "SpaceCorps",
             "url": "https://spacecorps.github.io/",
             "logo": "https://spacecorps.github.io/og-image.png",
-            "sameAs": ["https://github.com/SpaceCorps"],
+            "sameAs": [
+              "https://github.com/SpaceCorps",
+              "https://www.wikidata.org/wiki/Q115865239",
+              "https://www.linkedin.com/company/spacecorps-systems",
+              "https://x.com/SpaceCorpsHQ"
+            ],
             "email": "contact@spacecorps.dev",
             "description": "High-performance systems engineering collective building native Rust command-line tools, the Space3d cross-platform 3D game engine, Space3d-Molecular scientific computing, and autonomous AI agent infrastructure.",
             "contactPoint": {
@@ -162,6 +167,53 @@
               "postalCode": "94104",
               "addressCountry": "US"
             }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://spacecorps.github.io/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://spacecorps.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Play SpaceCorps 2027",
+                "item": "https://spacecorps.github.io/play/"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://spacecorps.github.io/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is SpaceCorps?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SpaceCorps is a high-performance systems engineering collective building native Rust command-line tools, the Space3d cross-platform 3D game engine, Space3d-Molecular simulation physics, and autonomous AI agent infrastructure."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can AI agents integrate with SpaceCorps?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI agents can integrate via the official Model Context Protocol (MCP) server at https://spacecorps.github.io/server.json, OpenAPI 3.1 REST endpoints, and llms.txt."
+                }
+              }
+            ]
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://spacecorps.github.io/#dataset",
+            "name": "SpaceCorps Systems Registry & Release Feed",
+            "description": "Cryptographically signed release hashes and system telemetry for native Rust agent binaries.",
+            "url": "https://spacecorps.github.io/play/release.json"
           },
           {
             "@type": "WebSite",
@@ -1244,6 +1296,9 @@
       </div>
     </section>
 
+    <!-- Main Content -->
+    <main id="main">
+
     <!-- Flagship Showcase: Space3d-Molecular & Space3d Engine -->
     <section class="showcase-section" id="space3d">
       <div class="container">
@@ -1462,6 +1517,7 @@
               type="text"
               id="searchInput"
               class="search-input"
+              aria-label="Search systems, CLIs, crates and simulation tools"
               placeholder="Search by tool name, binary, crate, category, or description (e.g. 'spacemd', 'emission', 'search', 'deploy')..."
             />
           </div>
@@ -3209,6 +3265,7 @@
         </div>
       </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>

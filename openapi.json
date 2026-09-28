@@ -129,7 +129,12 @@
             "$ref": "#/components/responses/TooManyRequests"
           }
         },
-        "operationId": "computeEmission"
+        "operationId": "computeEmission",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ]
       }
     },
     "/v1/spectra": {
@@ -213,7 +218,12 @@
             "$ref": "#/components/responses/TooManyRequests"
           }
         },
-        "operationId": "computeEnergySpectra"
+        "operationId": "computeEnergySpectra",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ]
       }
     },
     "/v1/barrier": {
@@ -318,7 +328,12 @@
             "$ref": "#/components/responses/TooManyRequests"
           }
         },
-        "operationId": "computeBarrier"
+        "operationId": "computeBarrier",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ]
       }
     },
     "/v1/transmission": {
@@ -426,7 +441,12 @@
             "$ref": "#/components/responses/TooManyRequests"
           }
         },
-        "operationId": "computeTransmission"
+        "operationId": "computeTransmission",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ]
       }
     },
     "/v1/iv-fit": {
@@ -610,7 +630,239 @@
             "$ref": "#/components/responses/TooManyRequests"
           }
         },
-        "operationId": "fitCurrentVoltage"
+        "operationId": "fitCurrentVoltage",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ]
+      }
+    },
+    "/v1/batch": {
+      "post": {
+        "summary": "Execute batch / bulk operations",
+        "description": "Atomic or sequential execution of multiple API operations in a single HTTP request.",
+        "operationId": "executeBatchOperations",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All batch operations executed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/v1/jobs": {
+      "post": {
+        "summary": "Submit long-running asynchronous simulation job",
+        "description": "Returns 202 Accepted with a Location header and polling URL for long-running physics or batch tasks.",
+        "operationId": "createAsyncJob",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "job_type": {
+                    "type": "string",
+                    "example": "emission_spectrum_sweep"
+                  },
+                  "parameters": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "job_type"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted for background execution",
+            "headers": {
+              "Location": {
+                "description": "Relative or absolute URL to poll the job status",
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "Retry-After": {
+                "description": "Recommended delay before polling again",
+                "schema": {
+                  "type": "integer",
+                  "default": 5
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      },
+      "get": {
+        "summary": "List recent simulation jobs",
+        "description": "Paginated list of asynchronous jobs submitted to the cluster.",
+        "operationId": "listAsyncJobs",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Cursor"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated job listings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/JobStatus"
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/PaginationMeta"
+                    }
+                  },
+                  "required": [
+                    "jobs",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/v1/jobs/{job_id}": {
+      "get": {
+        "summary": "Poll asynchronous simulation job status",
+        "description": "Retrieve status, progress, and results for a background job.",
+        "operationId": "getAsyncJob",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "description": "Job ID returned from POST /v1/jobs",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current job status and result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
       }
     }
   },
@@ -922,6 +1174,173 @@
             "example": "invalid_parameter"
           }
         }
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "nullable": true,
+            "description": "Pointer to next page cursor."
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "True if more records exist beyond this page."
+          },
+          "next_cursor": {
+            "type": "string",
+            "nullable": true,
+            "description": "Opaque token for the next page."
+          },
+          "total_count": {
+            "type": "integer",
+            "description": "Total number of items in the dataset."
+          }
+        },
+        "required": [
+          "has_more"
+        ]
+      },
+      "JobStatus": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique asynchronous job identifier."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "running",
+              "completed",
+              "failed"
+            ],
+            "description": "Current execution lifecycle state."
+          },
+          "poll_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Endpoint URL to poll for job progress."
+          },
+          "progress": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Fractional completion from 0.0 to 1.0."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "result": {
+            "type": "object",
+            "nullable": true,
+            "description": "Output payload upon completion."
+          },
+          "error": {
+            "$ref": "#/components/schemas/Error",
+            "nullable": true
+          }
+        },
+        "required": [
+          "job_id",
+          "status",
+          "poll_url"
+        ]
+      },
+      "BatchOperation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Client-assigned correlation ID."
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "GET",
+              "POST",
+              "PUT",
+              "DELETE"
+            ],
+            "description": "HTTP method."
+          },
+          "path": {
+            "type": "string",
+            "description": "Relative endpoint path."
+          },
+          "body": {
+            "type": "object",
+            "nullable": true,
+            "description": "Optional operation body."
+          }
+        },
+        "required": [
+          "id",
+          "method",
+          "path"
+        ]
+      },
+      "BatchRequest": {
+        "type": "object",
+        "properties": {
+          "operations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BatchOperation"
+            },
+            "description": "List of operations to execute atomically or in sequence."
+          }
+        },
+        "required": [
+          "operations"
+        ]
+      },
+      "BatchOperationResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "example": 200
+          },
+          "headers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "body": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "body"
+        ]
+      },
+      "BatchResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BatchOperationResult"
+            }
+          }
+        },
+        "required": [
+          "results"
+        ]
       }
     },
     "responses": {
@@ -1110,6 +1529,39 @@
               "$ref": "#/components/schemas/ProblemDetails"
             }
           }
+        }
+      }
+    },
+    "parameters": {
+      "IdempotencyKey": {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": false,
+        "description": "Unique UUID string to ensure idempotent retries on state-mutating operations.",
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "Cursor": {
+        "name": "cursor",
+        "in": "query",
+        "required": false,
+        "description": "Opaque pagination cursor for fetching the next page of results.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Limit": {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "Maximum number of items to return in a single page (1 to 100).",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 20
         }
       }
     }
