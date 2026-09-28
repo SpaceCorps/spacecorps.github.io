@@ -1,7 +1,9 @@
 {
-  "resource": "https://spacecorps.github.io",
-  "authorization_servers": ["https://spacecorps-game.sliplane.app"],
+  "resource": "https://spacecorps.github.io/",
+  "resource_name": "SpaceCorps Universal Agent Platform",
+  "resource_logo_uri": "https://spacecorps.github.io/assets/logo.svg",
+  "authorization_servers": ["https://spacecorps.github.io/"],
+  "scopes_supported": ["read", "write"],
   "bearer_methods_supported": ["header"],
-  "resource_documentation": "https://spacecorps.github.io/auth.md",
-  "scopes_supported": ["read", "write"]
+  "resource_documentation": "https://spacecorps.github.io/auth.md"
 }

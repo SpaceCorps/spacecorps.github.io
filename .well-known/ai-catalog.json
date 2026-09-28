@@ -1,5 +1,6 @@
 {
   "$schema": "https://ai-catalog.io/schemas/v1/catalog.json",
+  "specVersion": "1.0",
   "name": "SpaceCorps Agentic Resources",
   "description": "Public catalog of SpaceCorps agentic resources, MCP servers, release feeds, and developer APIs.",
   "entries": [
