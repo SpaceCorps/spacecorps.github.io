@@ -13,6 +13,10 @@
 - OpenAPI Specification: https://spacecorps.github.io/openapi.json
 - Pricing & Free Tier: https://spacecorps.github.io/pricing.md
 - Authentication: https://spacecorps.github.io/auth.md
+- Verified Sandbox Environment: https://spacecorps.github.io/sandbox/
+- Sandbox Health Check: https://spacecorps.github.io/sandbox/api/v1/health
+- Sandbox Telemetry: https://spacecorps.github.io/sandbox/api/v1/telemetry
+- Self-Serve API Keys: https://spacecorps.github.io/api/keys
 - SpaceCorps 2027 Game: https://spacecorps.github.io/play/
 
 ## Organization & Architecture Overview
