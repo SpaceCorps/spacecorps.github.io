@@ -1,0 +1,31 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
+  "name": "spacecorps-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol server for SpaceCorps 2027 releases, cluster telemetry, and Space3d simulation engines.",
+  "homepage": "https://spacecorps.github.io/",
+  "repository": "https://github.com/SpaceCorps/spacecorps.github.io",
+  "transport": {
+    "type": "streamable-http",
+    "url": "https://spacecorps-game.sliplane.app/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "get_spacecorps_downloads",
+      "description": "Retrieve official download packages, file sizes, and SHA-256 cryptographic digests for SpaceCorps 2027 across macOS, Windows, and Linux."
+    },
+    {
+      "name": "check_server_status",
+      "description": "Probe live health and connection telemetry for the SpaceCorps 2027 multiplayer game server cluster."
+    },
+    {
+      "name": "query_simulation_physics",
+      "description": "Calculate thermal-field electron emission or atomistic molecular dynamics trajectories via Space3d-Molecular."
+    }
+  ]
+}

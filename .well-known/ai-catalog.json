@@ -1,0 +1,54 @@
+{
+  "$schema": "https://ai-catalog.io/schemas/v1/catalog.json",
+  "name": "SpaceCorps Agentic Resources",
+  "description": "Public catalog of SpaceCorps agentic resources, MCP servers, release feeds, and developer APIs.",
+  "entries": [
+    {
+      "identifier": "urn:air:spacecorps.github.io:play:game-release-catalog",
+      "displayName": "SpaceCorps 2027 Release Catalog",
+      "type": "application/json",
+      "url": "https://spacecorps.github.io/play/release.json",
+      "capabilities": [
+        "ReleaseTelemetry",
+        "ChecksumVerification",
+        "PlatformAssetResolution"
+      ],
+      "description": "Cryptographic release catalog and direct download resolution for SpaceCorps 2027 client binaries across macOS, Windows, and Linux."
+    },
+    {
+      "identifier": "urn:air:spacecorps.github.io:play:server-telemetry",
+      "displayName": "SpaceCorps 2027 Game Server Telemetry",
+      "type": "application/json",
+      "url": "https://spacecorps-game.sliplane.app/health",
+      "capabilities": [
+        "ServerHealthProbe",
+        "MultiplayerStatus"
+      ],
+      "description": "Live health and status endpoint for SpaceCorps 2027 dedicated game server clusters on Sliplane."
+    },
+    {
+      "identifier": "urn:air:spacecorps.github.io:play:agent-manual",
+      "displayName": "SpaceCorps 2027 Agent Operating Manual",
+      "type": "text/markdown",
+      "url": "https://spacecorps.github.io/play/llms.txt",
+      "capabilities": [
+        "AgentInstructions",
+        "AutomatedInstallation",
+        "Troubleshooting"
+      ],
+      "description": "Standardized instructions and operating procedures for AI agents automating SpaceCorps 2027 installation, verification, and execution."
+    },
+    {
+      "identifier": "urn:air:spacecorps.github.io:systems-hub",
+      "displayName": "SpaceCorps Systems, Simulation & Agent Hub",
+      "type": "text/markdown",
+      "url": "https://spacecorps.github.io/llms.txt",
+      "capabilities": [
+        "SystemCatalog",
+        "RustToolOrchestration",
+        "ScientificSimulation"
+      ],
+      "description": "Comprehensive agentic index of 29 native Rust CLIs, Space3d Engine, Space3d-Molecular simulation physics, and mobile AI inference libraries."
+    }
+  ]
+}

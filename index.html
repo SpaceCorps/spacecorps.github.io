@@ -89,6 +89,39 @@
     </script>
 
     <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- WebMCP Tool Registration -->
+    <script>
+      if (typeof document !== 'undefined') {
+        const mcp = document.modelContext || (typeof navigator !== 'undefined' && navigator.modelContext);
+        if (mcp && typeof mcp.registerTool === 'function') {
+          mcp.registerTool({
+            name: 'get_spacecorps_downloads',
+            description: 'Get download URLs, package names, file sizes, and SHA-256 checksums for SpaceCorps 2027 across macOS, Windows, and Linux.',
+            inputSchema: { type: 'object', properties: {} },
+            execute: async () => {
+              const res = await fetch('https://spacecorps.github.io/play/release.json');
+              return await res.json();
+            }
+          });
+          mcp.registerTool({
+            name: 'check_server_status',
+            description: 'Check live operational status of the SpaceCorps 2027 game server cluster.',
+            inputSchema: { type: 'object', properties: {} },
+            execute: async () => {
+              const res = await fetch('https://spacecorps-game.sliplane.app/health');
+              return { status: res.status, ok: res.ok };
+            }
+          });
+        }
+      }
+    </script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -3349,5 +3382,13 @@
         });
       });
     </script>
+    <div style="display:none" aria-hidden="true">
+      <form tool="get_spacecorps_downloads" toolname="get_spacecorps_downloads" data-tool="get_spacecorps_downloads" tooldescription="Get download packages, file sizes, and SHA-256 checksums for macOS, Windows, and Linux" action="/play/release.json" method="GET">
+        <button type="submit">Get SpaceCorps Downloads</button>
+      </form>
+      <form tool="check_server_status" toolname="check_server_status" data-tool="check_server_status" tooldescription="Check live operational status of the SpaceCorps 2027 game server cluster" action="https://spacecorps-game.sliplane.app/health" method="GET">
+        <button type="submit">Check Server Status</button>
+      </form>
+    </div>
   </body>
 </html>

@@ -1,0 +1,7 @@
+{
+  "resource": "https://spacecorps.github.io",
+  "authorization_servers": ["https://spacecorps-game.sliplane.app"],
+  "bearer_methods_supported": ["header"],
+  "resource_documentation": "https://spacecorps.github.io/auth.md",
+  "scopes_supported": ["read", "write"]
+}

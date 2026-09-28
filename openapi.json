@@ -8,7 +8,12 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8741"
+      "url": "https://spacecorps-game.sliplane.app",
+      "description": "Production Game & Simulation Server"
+    },
+    {
+      "url": "http://localhost:8741",
+      "description": "Local Development Server"
     }
   ],
   "paths": {
