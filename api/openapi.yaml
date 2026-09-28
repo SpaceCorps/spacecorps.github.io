@@ -14,7 +14,10 @@ info:
     URL path versioning (/v1). Deprecations announced via Sunset and Deprecation
     headers with 90-day grace period.
 servers:
+  - url: https://spaceemit-api.sliplane.app
+    description: Production Hosted Instance (Rate-Limited)
   - url: http://localhost:8741
+    description: Self-Hosted Local Instance
 paths:
   /health:
     get:
