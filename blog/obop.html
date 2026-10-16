@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>obop: one business, one platform | SpaceCorps Blog</title>
+    <meta name="description" content="obop is an open-source business platform from SpaceCorps: CRM, sales, invoicing and more on one data model, with generated REST, OpenAPI and MCP for people and AI agents." />
+    <link rel="canonical" href="https://spacecorps.github.io/blog/obop.html" />
+    <meta property="og:title" content="obop: one business, one platform" />
+    <meta property="og:description" content="An open-source business platform built for people and AI agents." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://spacecorps.github.io/blog/media/obop-poster.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="is-agentic-site-type" content="content" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/tokens.css" />
+    <link rel="stylesheet" href="blog.css" />
+  </head>
+  <body>
+    <article class="content-box">
+      <a href="./" class="back">&larr; SpaceCorps Blog</a>
+      <h1>obop: one business, one platform</h1>
+      <p class="meta">SpaceCorps · 16 October 2026 · Product</p>
+      <p class="lede">
+        obop is an open-source business platform: CRM, sales, invoicing, contacts and more on one
+        data model, with the permissions and privacy to trust both people and AI agents. It is early
+        code, and you can already get your own instance at <a href="https://obop.dev">obop.dev</a>,
+        free while in beta.
+      </p>
+      <figure class="figure">
+        <video controls playsinline preload="metadata" poster="media/obop-poster.jpg">
+          <source src="media/obop-teaser.mp4" type="video/mp4" />
+        </video>
+        <figcaption>25-second teaser. UI shots are the real backoffice running locally with demo data.</figcaption>
+      </figure>
+
+      <h2>What it is</h2>
+      <p>
+        Sales, purchasing, stock, invoicing, accounting and more as modules on one shared data
+        model, so there is one record of every customer, product and euro. Odoo is our functional
+        reference; obop re-implements its concepts clean-room, and changes the parts its users
+        complain about most: one open edition, a free generated API, and upgrades that are a
+        product feature.
+      </p>
+
+      <h2>Built for people and agents</h2>
+      <ul>
+        <li><strong>One command layer:</strong> REST, MCP and the CLI all go through the same dispatcher, so permissions, masking and approvals apply identically everywhere.</li>
+        <li><strong>Generated API:</strong> REST with OpenAPI and an MCP server for every model, on every plan.</li>
+        <li><strong>Scoped agent tokens:</strong> a token can only narrow what its owner may do; personal data is masked when an agent reads it.</li>
+        <li><strong>Agents draft, humans post:</strong> actions that matter can require approval.</li>
+      </ul>
+
+      <h2>Simple to run</h2>
+      <p>
+        The backend is Rust and the frontend is built with Vite+. Locally it runs on SQLite; for
+        deployment it is one binary plus PostgreSQL. Business logic ships as installable
+        declarative packages, and the backoffice renders itself from the model metadata, including
+        a Customize app for themes, apps and modules.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>Where it stands.</strong> obop is early code, not a finished Odoo replacement.
+          It starts with a fraction of Odoo's breadth (contacts, products, CRM, sales and
+          invoicing today), and we make no speed claims until we have a benchmark to show.
+        </p>
+      </div>
+
+      <h2>Try it</h2>
+      <p>Get an instance at <a href="https://obop.dev">obop.dev</a>.</p>
+    </article>
+  </body>
+</html>

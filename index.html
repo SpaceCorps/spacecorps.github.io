@@ -933,6 +933,8 @@
         margin-left: 12px;
       }
       .terminal-body {
+        margin: 0;
+        white-space: pre;
         padding: 24px;
         font-family: var(--font-mono);
         font-size: 0.88rem;
@@ -1289,6 +1291,7 @@
           <a href="docs/">Docs</a>
           <a href="developers/">Developers</a>
           <a href="about.html">About</a>
+          <a href="blog/">Blog</a>
           <a
             href="https://github.com/SpaceCorps"
             target="_blank"
@@ -1379,6 +1382,39 @@
               High-performance molecular dynamics, thermal-field electron emission physics, and a
               GPU-driven 3D game engine drawing 1M+ instances.
             </p>
+          </div>
+        </div>
+
+        <div class="showcase-card">
+          <div class="showcase-header">
+            <div class="showcase-title-area">
+              <span style="font-size: 1.4rem">🚀</span>
+              <div>
+                <div style="font-weight: 700; color: #fff; font-size: 1.1rem">
+                  SpaceCorps 2027 &bull; A free space MMO on Space3d
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-dim)">
+                  Real frames from v0.4.22 &bull; macOS, Windows, Linux &bull; Rust client and server
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-visual">
+            <img
+              src="blog/media/sc-combat.jpg"
+              alt="SpaceCorps 2027: a Wraith fighting a Bulwark alien over a blue nebula"
+              class="showcase-img"
+              loading="lazy"
+            />
+            <div class="showcase-overlay-bar">
+              <div class="showcase-caption">
+                <strong>Built on Space3d:</strong> HDR bloom, GPU particles and a native egui HUD,
+                with an authoritative Rust server.
+                <a href="https://spacecorps.github.io/play/">Download</a> &middot;
+                <a href="blog/spacecorps-2027.html">Read the launch post</a> &middot;
+                <a href="blog/space3d-engine.html">About the engine</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -3256,79 +3292,26 @@
             <div class="term-dot dot-green"></div>
             <div class="term-title">bash — spacecorps-agent-session</div>
           </div>
-          <div class="terminal-body">
-            <span class="term-comment"
-              ># 1. Non-interactive keystore login in CI/CD or Docker container</span
-            >
-            <span class="prompt-prefix">$</span>
-            <span class="prompt-cmd"
-              >echo "$SLIPLANE_API_KEY" | sliplane login prod --api-key-stdin</span
-            >
-            <span class="term-comment">✓ Saved credentials for 'prod' to system keystore</span>
+          <pre class="terminal-body"><span class="term-comment"># 1. Non-interactive keystore login in CI/CD or Docker container</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">echo "$SLIPLANE_API_KEY" | sliplane login prod --api-key-stdin</span>
+<span class="term-comment">✓ Saved credentials for 'prod' to system keystore</span>
 
-            <span class="term-comment"
-              ># 2. Query resources with structured JSON for agent parsing</span
-            >
-            <span class="prompt-prefix">$</span>
-            <span class="prompt-cmd">sliplane services list -a prod --json</span>
-            [ {
-            <span class="term-json-key">"id"</span>:
-            <span class="term-json-str">"srv_4891b01c"</span>,
-            <span class="term-json-key">"name"</span>:
-            <span class="term-json-str">"api-gateway"</span>,
-            <span class="term-json-key">"status"</span>:
-            <span class="term-json-str">"healthy"</span>,
-            <span class="term-json-key">"image"</span>:
-            <span class="term-json-str">"registry.spacecorps.dev/gateway:v1.0"</span>,
-            <span class="term-json-key">"port"</span>: <span class="term-json-num">8080</span>
-            } ]
+<span class="term-comment"># 2. Query resources with structured JSON for agent parsing</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">sliplane services list -a prod --json</span>
+[{ <span class="term-json-key">"id"</span>: <span class="term-json-str">"srv_4891b01c"</span>, <span class="term-json-key">"name"</span>: <span class="term-json-str">"api-gateway"</span>, <span class="term-json-key">"status"</span>: <span class="term-json-str">"healthy"</span>, <span class="term-json-key">"port"</span>: <span class="term-json-num">8080</span> }]
 
-            <span class="term-comment"
-              ># 3. Retrieve autonomous instructions directly from any binary</span
-            >
-            <span class="prompt-prefix">$</span>
-            <span class="prompt-cmd">firecrawl agent-readme --json</span>
-            {
-            <span class="term-json-key">"binary"</span>:
-            <span class="term-json-str">"firecrawl"</span>,
-            <span class="term-json-key">"version"</span>:
-            <span class="term-json-str">"1.0.0"</span>, <span class="term-json-key">"tools"</span>:
-            [<span class="term-json-str">"scrape"</span>,
-            <span class="term-json-str">"crawl"</span>,
-            <span class="term-json-str">"search"</span>],
-            <span class="term-json-key">"flags"</span>: {
-            <span class="term-json-key">"--json"</span>:
-            <span class="term-json-str">"machine readable stdout"</span> } }
+<span class="term-comment"># 3. Retrieve autonomous instructions directly from any binary</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">firecrawl agent-readme --json</span>
+{ <span class="term-json-key">"binary"</span>: <span class="term-json-str">"firecrawl"</span>, <span class="term-json-key">"tools"</span>: [<span class="term-json-str">"scrape"</span>, <span class="term-json-str">"crawl"</span>, <span class="term-json-str">"search"</span>], <span class="term-json-key">"flags"</span>: { <span class="term-json-key">"--json"</span>: <span class="term-json-str">"machine readable stdout"</span> } }
 
-            <span class="term-comment"
-              ># 4. Run pure-Rust molecular dynamics at 74M+ atom-steps/s</span
-            >
-            <span class="prompt-prefix">$</span>
-            <span class="prompt-cmd"
-              >spacemd example argon > argon.json &amp;&amp; spacemd run argon.json</span
-            >
-            <span class="term-comment"
-              >✓ Generated thermo.csv, report.json, summary.md, g(r), MSD, and XYZ trajectory</span
-            >
+<span class="term-comment"># 4. Run pure-Rust molecular dynamics at 74M+ atom-steps/s</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">spacemd example argon &gt; argon.json &amp;&amp; spacemd run argon.json</span>
+<span class="term-comment">✓ Generated thermo.csv, report.json, summary.md, g(r), MSD, and XYZ trajectory</span>
 
-            <span class="term-comment"
-              ># 5. Query thermal-field electron emission physics REST API</span
-            >
-            <span class="prompt-prefix">$</span>
-            <span class="prompt-cmd"
-              >curl -s localhost:8741/v1/emission -H 'content-type: application/json' -d '{"field":
-              5, "radius": 50, "workFunction": 4.5, "temperature": 1000}'</span
-            >
-            {
-            <span class="term-json-key">"count"</span>: <span class="term-json-num">1</span>,
-            <span class="term-json-key">"currentDensity"</span>: [<span class="term-json-num"
-              >3.605e-09</span
-            >], <span class="term-json-key">"regime"</span>: [<span class="term-json-str"
-              >"field"</span
-            >], <span class="term-json-key">"elapsedMs"</span>:
-            <span class="term-json-num">0.84</span>
-            }
-          </div>
+<span class="term-comment"># 5. Query thermal-field electron emission physics REST API</span>
+<span class="prompt-prefix">$</span> <span class="prompt-cmd">curl -s localhost:8741/v1/emission -H 'content-type: application/json' \</span>
+     -d '{"field": 5, "radius": 50, "workFunction": 4.5, "temperature": 1000}'
+{ <span class="term-json-key">"count"</span>: <span class="term-json-num">1</span>, <span class="term-json-key">"currentDensity"</span>: [<span class="term-json-num">3.605e-09</span>], <span class="term-json-key">"regime"</span>: [<span class="term-json-str">"field"</span>], <span class="term-json-key">"elapsedMs"</span>: <span class="term-json-num">0.84</span> }</pre>
         </div>
       </div>
     </section>
@@ -3395,6 +3378,7 @@
             <h4>Organization</h4>
             <ul>
               <li><a href="about.html">About SpaceCorps</a></li>
+              <li><a href="blog/">Blog</a></li>
               <li><a href="contact.html">Contact & Support</a></li>
               <li><a href="privacy.html">Privacy Policy</a></li>
               <li>

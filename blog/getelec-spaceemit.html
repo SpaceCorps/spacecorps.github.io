@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>47,000× faster electron emission: spaceemit vs GETELEC | SpaceCorps Blog</title>
+    <meta name="description" content="A client needed thermal-field electron emission for nanotips at scale. We built spaceemit in Rust: 17 µs per point instead of 650 ms, agreeing with GETELEC to a median 0.0007 % in current density." />
+    <link rel="canonical" href="https://spacecorps.github.io/blog/getelec-spaceemit.html" />
+    <meta property="og:title" content="47,000× faster electron emission: spaceemit vs GETELEC" />
+    <meta property="og:description" content="Custom Rust physics software for a client: 17 µs per emission point instead of 650 ms, with matching results." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://spacecorps.github.io/blog/media/getelec-spaceemit-poster.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="is-agentic-site-type" content="content" />
+    <link rel="alternate" type="text/markdown" href="/blog/getelec-spaceemit.md" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/tokens.css" />
+    <link rel="stylesheet" href="blog.css" />
+  </head>
+  <body>
+    <article class="content-box">
+      <a href="./" class="back">&larr; SpaceCorps Blog</a>
+      <h1>47,000× faster electron emission: what we built for a client, and how it compares to GETELEC</h1>
+      <p class="meta">SpaceCorps · 16 October 2026 · Case study · Physics &amp; simulation</p>
+
+      <p class="lede">
+        A client needed to compute electron emission from metal nanotips across millions of
+        field, geometry and temperature combinations. The reference tool took about 650 ms per
+        point. We built <code>spaceemit</code> in Rust: 17 µs per point, with the same answers.
+      </p>
+
+      <figure class="figure">
+        <video controls playsinline preload="metadata" poster="media/getelec-spaceemit-poster.jpg">
+          <source src="media/getelec-spaceemit.mp4" type="video/mp4" />
+        </video>
+        <figcaption>
+          34-second walkthrough. The nanotip animation is an illustration: its emission rate
+          follows the real <code>spaceemit</code> J(F) curve, but electron counts are not to scale.
+        </figcaption>
+      </figure>
+
+      <h2>The problem</h2>
+      <p>
+        Cold field emission, thermionic emission and everything between them: when a metal tip sits
+        in a strong electric field, electrons tunnel out through the surface barrier. The current
+        density J and the Nottingham heat P<sub>N</sub> (the energy the emission carries away or
+        deposits) depend on the local field, tip radius, work function and temperature, and the
+        relationship is highly non-linear. Coupled simulations of a heating tip need that answer for
+        every surface atom at every coupling step. At 650 ms per point, that is out of reach.
+      </p>
+
+      <h2>What we built</h2>
+      <p>
+        <code>spaceemit</code> is a Rust library and HTTP service that computes J, P<sub>N</sub> and
+        energy spectra with numerically exact transmission through the barrier (no analytic
+        shortcut such as Murphy&ndash;Good). It was written clean-room: its behaviour comes from the
+        published physics and black-box reference data, never from another program's source. It
+        sits inside the same engine family as our molecular dynamics code, <code>spacemd</code>, and
+        the coupled nanotip simulation <code>spacetip</code>.
+      </p>
+
+      <h2>Benchmarks</h2>
+      <p>
+        We compared <code>spaceemit</code> 0.2.0 against the 2026 Python/numba edition of
+        <a href="https://github.com/sbcarceles13/GETELEC" target="_blank" rel="noopener noreferrer">GETELEC</a>
+        (S. Barranco Cárceles et al.) on 2,456 metal emission points, on one Apple M4 Max with 16
+        threads, on 5 October 2026.
+      </p>
+      <table>
+        <thead><tr><th>Workload</th><th class="num">GETELEC</th><th class="num">spaceemit</th><th class="num">Speed-up</th></tr></thead>
+        <tbody>
+          <tr><td>One point, 1 thread (median of 40)</td><td class="num">650 ms</td><td class="num">17 µs</td><td class="num">~38,000×</td></tr>
+          <tr><td>One point, GETELEC default threading</td><td class="num">372 ms</td><td class="num">17 µs</td><td class="num">~22,000×</td></tr>
+          <tr><td>2,456 points, all cores</td><td class="num">224 s</td><td class="num">4.7 ms</td><td class="num">~47,000×</td></tr>
+          <tr><td>10<sup>6</sup> points, all cores (extrapolated)</td><td class="num">~25 h</td><td class="num">1.9 s</td><td class="num">~47,000×</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Do the answers match?</h2>
+      <p>
+        Speed means nothing if the physics drifts. Over the 2,199 points with J &ge; 10<sup>&minus;20</sup>
+        A/nm², the median |&Delta;J| between the two programs is <strong>0.0007 %</strong> (90th
+        percentile 0.003 %, worst case 0.4 %), and the median |&Delta;P<sub>N</sub>| is 0.003 %. The
+        sign of the Nottingham heat agrees at every point across the field, intermediate and
+        thermionic regimes.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>Fair-comparison notes.</strong> GETELEC was run with the settings shipped in its
+          own examples and was not tuned; coarser grids would be faster and less accurate. GETELEC
+          solves a more general problem (including semiconductor emitters, which we did not
+          compare), and its timings are in-process after JIT warm-up. Both programs agree closely
+          with each other, and both differ from an older reference data set by the same median
+          1.5 %. We are not claiming that GETELEC is badly written; <code>spaceemit</code> is a
+          purpose-built solver for one problem. Full method and raw data are in the
+          <code>benchmarks/getelec</code> folder of the engine repository.
+        </p>
+      </div>
+
+      <h2>Why it matters</h2>
+      <p>
+        A solver that takes microseconds changes what you can do: a live viewer where you drag the
+        applied field and watch a copper tip heat up, parameter sweeps over millions of points in
+        seconds, or fitting measured I&ndash;V curves interactively. That is what the
+        <code>spacetip</code> coupled simulation does: molecular dynamics, a field solver and
+        emission physics in one loop.
+      </p>
+
+      <h2>Try it</h2>
+      <ul>
+        <li><strong>Binaries and crates:</strong> published on the <a href="https://spacecorps-registry.sliplane.app">SpaceCorps registry</a>.</li>
+        <li><strong>Overview:</strong> <a href="https://github.com/SpaceCorps/Space3d-Molecular">Space3d-Molecular</a>.</li>
+        <li><strong>License:</strong> PolyForm Shield 1.0.0: free for any use, commercial included, except building a competing product.</li>
+      </ul>
+
+      <h2>Need custom scientific software?</h2>
+      <p>
+        We build fast, validated simulation and physics tools to order, in Rust.
+        <a href="/contact.html">Get in touch</a>.
+      </p>
+    </article>
+  </body>
+</html>
