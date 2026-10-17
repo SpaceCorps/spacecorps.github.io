@@ -45,7 +45,7 @@
       </div>
       <p>
         Measured on 16 October 2026 with <code>examples/instancing_million</code> (release build,
-        Apple M4 Max, Metal, GPU multi-draw path): 1,000,000 instances in one explicit instance
+        Apple M4 Max, Metal, GPU multi-draw path, run unthrottled without vsync, which is why it exceeds the 120 fps vsync-limited figure in our docs): 1,000,000 instances in one explicit instance
         buffer, culled on the GPU, with a travelling wave that rewrites a band of 16,384 instances
         per frame through dirty-range uploads. Window size and scene are the example's defaults, so
         treat it as a rendering-throughput figure, not a game benchmark.
@@ -55,13 +55,12 @@
       <p>
         Simulation runs on a deterministic fixed tick (60 Hz by default) decoupled from the frame
         rate. In the engine's own benchmark, one tick over 100,000 entities with transform
-        propagation takes about 0.8 ms on a single core of the same machine.
+        propagation takes about 0.8 ms on the same machine (criterion median; the run was noisy, range 0.65&ndash;1.01 ms).
       </p>
 
       <h2>Never block the frame</h2>
       <p>
-        File, network and database I/O return tasks; CPU-heavy work goes to a compute pool. In the
-        async-loading example, 14 assets stream in over about 1.4 s while around 155 frames render
+        File, network and database I/O return tasks; CPU-heavy work goes to a compute pool. In the async-loading example (a debug build with simulated network latency of 0.2&ndash;1.6 s per asset), 14 assets stream in over about 1.4 s while around 155 frames render
         and the longest frame stays near 17&ndash;22 ms.
       </p>
 
@@ -90,5 +89,6 @@
         <a href="https://spacecorps.github.io/play/">downloadable</a>.
       </p>
     </article>
+      <script src="/wave.js" defer></script>
   </body>
 </html>

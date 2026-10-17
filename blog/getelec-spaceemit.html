@@ -29,8 +29,7 @@
 
       <p class="lede">
         A client needed to compute electron emission from metal nanotips across millions of
-        field, geometry and temperature combinations. The reference tool took about 650 ms per
-        point. We built <code>spaceemit</code> in Rust: 17 µs per point, with the same answers.
+        field, geometry and temperature combinations. The reference tool (GETELEC) took about 650 ms per point for current density plus Nottingham heat. We built <code>spaceemit</code> in Rust: 17 µs per point, agreeing with GETELEC to 0.0007 % (median) in current density.
       </p>
 
       <figure class="figure">
@@ -97,8 +96,7 @@
           compare), and its timings are in-process after JIT warm-up. Both programs agree closely
           with each other, and both differ from an older reference data set by the same median
           1.5 %. We are not claiming that GETELEC is badly written; <code>spaceemit</code> is a
-          purpose-built solver for one problem. Full method and raw data are in the
-          <code>benchmarks/getelec</code> folder of the engine repository.
+          purpose-built solver for one problem. The batch figure compares 8 GETELEC processes with 16 <code>spaceemit</code> threads; the single-thread figure is ~38,000×. Method and raw data are available on request.
         </p>
       </div>
 
@@ -124,5 +122,6 @@
         <a href="/contact.html">Get in touch</a>.
       </p>
     </article>
+      <script src="/wave.js" defer></script>
   </body>
 </html>

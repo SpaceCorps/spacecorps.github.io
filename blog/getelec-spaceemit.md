@@ -8,7 +8,7 @@ canonical: "https://spacecorps.github.io/blog/getelec-spaceemit.html"
 
 # 47,000× faster electron emission: spaceemit vs GETELEC
 
-A client needed thermal-field electron emission for metal nanotips across millions of field, geometry and temperature combinations. The reference tool took ~650 ms per point. SpaceCorps built `spaceemit` (Rust, numerically exact barrier transmission, clean-room): 17 µs per point.
+A client needed thermal-field electron emission for metal nanotips across millions of field, geometry and temperature combinations. The reference tool (GETELEC) took ~650 ms per point (current density plus Nottingham heat). SpaceCorps built `spaceemit` (Rust, numerically exact barrier transmission, clean-room): 17 µs per point.
 
 Benchmark: spaceemit 0.2.0 vs GETELEC (2026 Python/numba edition, settings shipped in its examples, untuned), Apple M4 Max, 16 threads, 2026-10-05, 2,456 metal points.
 
