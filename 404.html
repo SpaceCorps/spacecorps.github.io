@@ -1,195 +1,45 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 — Page Not Found · SpaceCorps</title>
-    <link rel="canonical" href="https://spacecorps.github.io/404.html" />
+    <title>Not found | SpaceCorps</title>
+    <meta name="description" content="Page not found." />
+    <link rel="canonical" href="https://spacecorps.tech/404.html" />
+    <meta property="og:title" content="Not found | SpaceCorps" />
+    <meta property="og:description" content="Page not found." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spacecorps.tech/404.html" />
+    <meta property="og:image" content="https://spacecorps.tech/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="tokens.css" />
-    <style>
-      body {
-        background: var(--background);
-        color: var(--foreground);
-        font-family: var(--font-sans);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        text-align: center;
-        background-image: radial-gradient(
-          circle at 50% 50%,
-          rgba(0, 204, 146, 0.12),
-          transparent 70%
-        );
-      }
-      .box {
-        max-width: 520px;
-        padding: 40px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-boxes, 8px);
-        backdrop-filter: blur(12px);
-      }
-      h1 {
-        font-size: 4rem;
-        margin: 0 0 12px 0;
-        color: var(--ivy-green);
-      }
-      h2 {
-        font-size: 1.5rem;
-        margin: 0 0 16px 0;
-        color: var(--foreground);
-      }
-      p {
-        color: var(--muted-foreground);
-        margin-bottom: 24px;
-        line-height: 1.6;
-      }
-      a {
-        display: inline-block;
-        background: var(--ivy-green);
-        color: #000000;
-        padding: 12px 24px;
-        border-radius: var(--radius-fields, 6px);
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.15s ease;
-      }
-      a:hover {
-        background: #00e6a5;
-        transform: translateY(-1px);
-      }
-    </style>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="text/markdown" href="/index.md" />
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/site.css" />
   </head>
   <body>
-    <div class="box">
-      <h1>404</h1>
-      <h2>Signal Lost in Deep Space</h2>
-      <p>
-        The page or documentation resource you are looking for does not exist or has been moved
-        across the SpaceCorps fleet.
-      </p>
-      <a href="/">&larr; Return to SpaceCorps Developer Hub</a>
-      <nav
-        aria-label="Agent recovery links"
-        style="
-          margin-top: 24px;
-          text-align: left;
-          border-top: 1px solid var(--border);
-          padding-top: 16px;
-        "
-      >
-        <p
-          style="
-            font-weight: 600;
-            font-size: 0.875rem;
-            margin-bottom: 8px;
-            color: var(--foreground);
-          "
-        >
-          Where to look next:
-        </p>
-        <ul
-          style="
-            margin: 0;
-            padding-left: 20px;
-            font-size: 0.85rem;
-            line-height: 1.8;
-            color: var(--muted-foreground);
-          "
-        >
-          <li>
-            <a
-              href="/"
-              style="
-                background: none;
-                padding: 0;
-                color: var(--ivy-green);
-                text-decoration: underline;
-                font-weight: normal;
-              "
-              >SpaceCorps Developer Hub</a
-            >
-          </li>
-          <li>
-            <a
-              href="/llms.txt"
-              style="
-                background: none;
-                padding: 0;
-                color: var(--ivy-green);
-                text-decoration: underline;
-                font-weight: normal;
-              "
-              >Machine-readable site guide (llms.txt)</a
-            >
-          </li>
-          <li>
-            <a
-              href="/sitemap.xml"
-              style="
-                background: none;
-                padding: 0;
-                color: var(--ivy-green);
-                text-decoration: underline;
-                font-weight: normal;
-              "
-              >XML Sitemap</a
-            >
-          </li>
-          <li>
-            <a
-              href="/#space3d"
-              style="
-                background: none;
-                padding: 0;
-                color: var(--ivy-green);
-                text-decoration: underline;
-                font-weight: normal;
-              "
-              >Space3d Simulation Ecosystem</a
-            >
-          </li>
-          <li>
-            <a
-              href="/404.md"
-              style="
-                background: none;
-                padding: 0;
-                color: var(--ivy-green);
-                text-decoration: underline;
-                font-weight: normal;
-              "
-              >Markdown recovery guide</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <pre id="agent-markdown" style="display: none">
-# Page not found
-
-The requested SpaceCorps resource does not exist. Use one of these public indexes to recover:
-
-- Developer Hub: https://spacecorps.github.io/
-- Machine-readable site guide: https://spacecorps.github.io/llms.txt
-- Browse the XML sitemap: https://spacecorps.github.io/sitemap.xml
-- Space3d Simulation Ecosystem: https://spacecorps.github.io/#space3d
-- Cargo Sparse Registry: https://spacecorps-registry.sliplane.app
-      </pre>
-    </div>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav"><div class="wrap">
+      <a class="brand" href="/">Space<b>Corps</b></a>
+      <a class="l" href="/#products">Products</a>
+      <a class="l" href="/#open-source">Open source</a>
+      <a class="l" href="/#design-system">Design system</a>
+      <a class="l" href="/blog/">Blog</a>
+      <a class="l" href="/about.html">About</a>
+      <a class="l" href="/contact.html">Contact</a>
+    </div></header>
+    <main id="main" class="wrap">
+      <section class="hero"><h1>Page not found</h1><p class="lead">That page does not exist. Try the <a href="/">home page</a>, the <a href="/blog/">blog</a> or <a href="https://github.com/SpaceCorps">our repositories</a>.</p></section>
+    </main>
+    <footer><div class="wrap">
+      <span class="sp">&copy; 2026 SpaceCorps Technology AB</span>
+      <a href="https://github.com/SpaceCorps">GitHub</a>
+      <a href="https://storybook.spacecorps.tech">Storybook</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+    </div></footer>
+    <script src="/wave.js" defer></script>
   </body>
 </html>

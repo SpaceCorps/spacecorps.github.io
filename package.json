@@ -1,17 +1,21 @@
 {
-  "name": "spacecorps.github.io",
+  "name": "spacecorps-tech",
   "version": "1.0.0",
   "private": true,
-  "description": "SpaceCorps Developer Portal and Agentic Registry, powered by Vite+",
+  "description": "spacecorps.tech: the SpaceCorps Technology AB company site (static, built with Vite+)",
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "vp build",
+    "build": "node scripts/sync-fonts.mjs && vp build",
     "preview": "vp preview",
+    "sync-tokens": "node scripts/sync-tokens.mjs",
     "check": "vp check",
     "fmt": "vp fmt"
   },
   "devDependencies": {
-    "vite-plus": "^1.0.0-rc.0"
-  }
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "vite-plus": "^1.7.0"
+  },
+  "packageManager": "pnpm@10.33.2"
 }

@@ -1,6 +1,8 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite-plus";
 
+// Static multi-page site. Everything else (blog, fonts, tokens, agent files) lives in public/
+// and is copied to dist/ as is.
 export default defineConfig({
   build: {
     outDir: "dist",

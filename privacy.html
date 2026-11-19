@@ -1,160 +1,56 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy · SpaceCorps</title>
-    <meta
-      name="description"
-      content="Privacy policy and data protection principles for SpaceCorps tools: Zero telemetry, cryptographic OS keystores, and complete user sovereignty."
-    />
-    <link rel="canonical" href="https://spacecorps.github.io/privacy.html" />
-    <meta property="og:title" content="Privacy Policy · SpaceCorps" />
-    <meta
-      property="og:description"
-      content="Privacy policy and data protection principles for SpaceCorps tools: Zero telemetry, cryptographic OS keystores, and complete user sovereignty."
-    />
-    <link rel="canonical" href="https://spacecorps.github.io/privacy.html" />
+    <title>Privacy | SpaceCorps</title>
+    <meta name="description" content="What spacecorps.tech and SpaceCorps tools collect: nothing on this site, and links to the game policy." />
+    <link rel="canonical" href="https://spacecorps.tech/privacy.html" />
+    <meta property="og:title" content="Privacy | SpaceCorps" />
+    <meta property="og:description" content="What spacecorps.tech and SpaceCorps tools collect: nothing on this site, and links to the game policy." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://spacecorps.github.io/og-image.png" />
+    <meta property="og:url" content="https://spacecorps.tech/privacy.html" />
+    <meta property="og:image" content="https://spacecorps.tech/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="is-agentic-site-type" content="content" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="tokens.css" />
-    <style>
-      :root {
-        --bg: var(--background);
-        --bg-card: rgba(18, 18, 21, 0.75);
-        --border: var(--border);
-        --text: var(--foreground);
-        --text-muted: var(--muted-foreground);
-        --primary: var(--ivy-green);
-        --accent: var(--cyan);
-      }
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        line-height: 1.7;
-        padding: 40px 20px;
-        margin: 0;
-        background-image:
-          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.18), transparent),
-          radial-gradient(circle 400px at 90% 20%, rgba(56, 189, 248, 0.08), transparent);
-      }
-      .content-box {
-        max-width: 860px;
-        margin: 0 auto;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 48px;
-        backdrop-filter: blur(12px);
-      }
-      h1 {
-        font-size: 2.4rem;
-        margin-bottom: 24px;
-        color: #fff;
-        line-height: 1.2;
-      }
-      h2 {
-        font-size: 1.5rem;
-        margin-top: 36px;
-        margin-bottom: 14px;
-        color: var(--accent);
-      }
-      p {
-        margin-bottom: 18px;
-        color: var(--text-muted);
-        font-size: 1.05rem;
-      }
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .back {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 28px;
-        color: var(--primary);
-        font-weight: 600;
-        font-size: 0.95rem;
-      }
-    </style>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="text/markdown" href="/index.md" />
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/site.css" />
   </head>
   <body>
-    <div class="content-box">
-      <a href="./" class="back">&larr; Back to SpaceCorps Hub</a>
-      <h1>Privacy Policy & Security Standard</h1>
-
-      <p>
-        Last updated: September 24, 2026. This Privacy Policy details the data protection practices,
-        telemetry posture, and credential handling mechanisms enforced across all software released
-        by <strong>SpaceCorps</strong>.
-      </p>
-
-      <h2>1. Strict Zero-Telemetry Commitment</h2>
-      <p>
-        Every binary published by SpaceCorps contains <strong>zero telemetry</strong>, zero usage
-        tracking, and zero analytical beacons. We firmly believe that developers' terminal commands
-        and autonomous agent tool calls are private. SpaceCorps operates no tracking servers and
-        collects no IP addresses, logs, execution counts, or device identifiers from any of our CLI
-        tools.
-      </p>
-
-      <h2>2. Cryptographic Local Keystores</h2>
-      <p>
-        API keys, bearer tokens, and credentials are never stored in plaintext configuration files
-        by default. Each SpaceCorps CLI integrates natively with host operating system credential
-        vaults:
-      </p>
-      <ul>
-        <li>
-          <strong>macOS:</strong> Native Apple Keychain Services API via
-          <code>/usr/bin/security</code>.
-        </li>
-        <li>
-          <strong>Linux:</strong> freedesktop.org Secret Service API via
-          <code>secret-tool</code> and DBus.
-        </li>
-        <li>
-          <strong>Windows:</strong> Microsoft Data Protection API (DPAPI) encrypted under user
-          credentials.
-        </li>
-      </ul>
-
-      <h2>3. Direct Outbound Communications</h2>
-      <p>
-        When you run a command against an upstream provider (e.g. Sliplane, Cloudflare, Apify, Exa,
-        Firecrawl), the binary makes direct HTTPS requests from your local machine to the official
-        target provider's API. No proxy or relay infrastructure is operated or inserted by
-        SpaceCorps.
-      </p>
-
-      <h2>4. Website Privacy</h2>
-      <p>
-        The <code>spacecorps.github.io</code> domain and documentation pages are statically hosted
-        on GitHub Pages. They contain no tracking pixels, analytics cookies, or external
-        surveillance scripts. Standard server access logs are handled directly by GitHub in
-        accordance with the GitHub Privacy Statement.
-      </p>
-    </div>
-      <script src="/wave.js" defer></script>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav"><div class="wrap">
+      <a class="brand" href="/">Space<b>Corps</b></a>
+      <a class="l" href="/#products">Products</a>
+      <a class="l" href="/#open-source">Open source</a>
+      <a class="l" href="/#design-system">Design system</a>
+      <a class="l" href="/blog/">Blog</a>
+      <a class="l" href="/about.html">About</a>
+      <a class="l" href="/contact.html">Contact</a>
+    </div></header>
+    <main id="main" class="wrap">
+      <div class="prose">
+      <section class="hero" style="padding-bottom:0"><h1>Privacy</h1>
+      <p class="lead">This site collects nothing about you.</p></section>
+      <h2>This website</h2>
+      <p>spacecorps.tech sets no cookies, runs no analytics or trackers and loads no third-party scripts, fonts or images. Our web server keeps standard request logs (address, time, page) for security and operations, which we do not share.</p>
+      <h2>The game</h2>
+      <p>SpaceCorps 2027 has its own privacy policy, which covers the client, the game server and the download site: <a href="https://play.spacecorps.tech/privacy/">play.spacecorps.tech/privacy</a>. It is operated by SpaceCorps Technology AB.</p>
+      <h2>Our command-line tools</h2>
+      <p>They send no telemetry. API credentials you give a tool are stored in your operating system's keystore (macOS Keychain, Linux Secret Service or Windows DPAPI) and are sent only to the service the tool talks to. Each tool's repository documents what it contacts.</p>
+      <h2>Contact</h2>
+      <p>Questions about privacy: see <a href="/contact.html">Contact</a>.</p>
+      </div>
+    </main>
+    <footer><div class="wrap">
+      <span class="sp">&copy; 2026 SpaceCorps Technology AB</span>
+      <a href="https://github.com/SpaceCorps">GitHub</a>
+      <a href="https://storybook.spacecorps.tech">Storybook</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+    </div></footer>
+    <script src="/wave.js" defer></script>
   </body>
 </html>

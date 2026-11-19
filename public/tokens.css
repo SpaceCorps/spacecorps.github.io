@@ -1,0 +1,268 @@
+/* Vendored from SpaceCorps/storybook (development) src/styles/tokens.css, :root + .dark blocks.
+   Re-sync with: pnpm run sync-tokens. Source of truth is the design system, never edit by hand. */
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #64646b;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #ef4444;
+  --destructive-foreground: #000000;
+  --success: #22c55e;
+  --success-foreground: #000000;
+  --warning: #f59e0b;
+  --warning-foreground: #000000;
+  --info: #3b82f6;
+  --info-foreground: #000000;
+  --cyan: #0369a1;
+  --purple: #7e22ce;
+  --pink: #be185d;
+  --violet: #6d28d9;
+
+  /* Named palette colors */
+  --ivy-green: #00cc92;
+  --ivy-green-foreground: #000000;
+  --slate: #334155;
+  --slate-foreground: #ffffff;
+  --gray: #374151;
+  --gray-foreground: #ffffff;
+  --zinc: #3f3f46;
+  --zinc-foreground: #ffffff;
+  --neutral: #404040;
+  --neutral-foreground: #ffffff;
+  --stone: #44403c;
+  --stone-foreground: #ffffff;
+  --black: #000000;
+  --black-foreground: #ffffff;
+  --white: #ffffff;
+  --white-foreground: #000000;
+  --red: #b91c1c;
+  --red-foreground: #ffffff;
+  --orange: #c2410c;
+  --orange-foreground: #ffffff;
+  --amber: #b45309;
+  --amber-foreground: #ffffff;
+  --yellow: #a16207;
+  --yellow-foreground: #ffffff;
+  --lime: #4d7c0f;
+  --lime-foreground: #ffffff;
+  --green: #15803d;
+  --green-foreground: #ffffff;
+  --emerald: #047857;
+  --emerald-foreground: #ffffff;
+  --teal: #0f766e;
+  --teal-foreground: #ffffff;
+  --sky: #0369a1;
+  --sky-foreground: #ffffff;
+  --blue: #1d4ed8;
+  --blue-foreground: #ffffff;
+  --indigo: #4338ca;
+  --indigo-foreground: #ffffff;
+  --fuchsia: #a21caf;
+  --fuchsia-foreground: #ffffff;
+  --rose: #be123c;
+  --rose-foreground: #ffffff;
+  --cyan-foreground: #ffffff;
+  --purple-foreground: #ffffff;
+  --pink-foreground: #ffffff;
+  --violet-foreground: #ffffff;
+
+  /* Status tint scales used by `badgeVariant`. Unlike the solid status colors above, these are the
+   * same in both themes and the badge picks the step per theme: -200 fill with -800 text in light,
+   * -800 fill with -100 text in dark. Every pair clears WCAG AA (design-tokens.test.ts enforces it). */
+  --success-100: #dcfce7;
+  --success-200: #bbf7d0;
+  --success-800: #166534;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
+  --warning-800: #92400e;
+  --info-100: #dbeafe;
+  --info-200: #bfdbfe;
+  --info-800: #1e40af;
+  --destructive-100: #fee2e2;
+  --destructive-200: #fecaca;
+  --destructive-800: #991b1b;
+  --ivy-green-100: #d1f6eb;
+  --ivy-green-200: #adefdc;
+  --ivy-green-800: #004e37;
+
+  /* Badge tint defaults (overridden inline per element by consumers) */
+  --badge-tint-bg-light: var(--muted);
+  --badge-tint-fg-light: var(--foreground);
+  --badge-tint-bg-dark: var(--muted);
+  --badge-tint-fg-dark: var(--foreground);
+
+  /* Letter spacing base */
+  --tracking-normal: 0em;
+
+  /* Shadow ramp */
+  --shadow-2xs: 0 1px 2px 0 hsl(0 0% 0% / 0.03);
+  --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.03);
+  --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+  --shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.05);
+  --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.05);
+  --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.05);
+  --shadow-xl: 0 6px 10px 0 hsl(0 0% 0% / 0.05);
+  --shadow-2xl: 0 8px 14px 0 hsl(0 0% 0% / 0.08);
+
+  /* Misc framework tokens */
+  --font-serif: "Geist Variable", "Geist", serif;
+  --spacing: 0.27rem;
+  --toolbox: #38363a;
+  /* Borders are derived from the foreground rather than fixed greys, so they follow whatever the
+   * surface is: a fixed #27272a was the same hex as the dark secondary, muted and accent fills and
+   * disappeared (1.00:1) against all of them, while 14% of the foreground still reads there (1.55:1).
+   * Two tiers. --border is the soft structural line (cards, tables, separators). --input is the edge
+   * of a form control, which WCAG 1.4.11 wants at 3:1 against its surroundings; 46% here and 38% in
+   * dark are the smallest round values that clear it on the page, card, muted and hover fills. A text
+   * box drawn by a component's own stylesheet, not through Tailwind's border-input, has to name
+   * var(--input) itself: `border: 1px solid var(--border)` is the soft tier.
+   *
+   * Both are declared again in .dark, and that is not redundancy: a custom property holding
+   * color-mix(var(--foreground)) is resolved on the element that declares it and inherited as that
+   * finished colour, so a .dark subtree inside a light page would keep the page's border. (A light
+   * subtree inside a dark page has to redeclare them the same way.) The value read back from JS is
+   * the color-mix text, not a colour a canvas library can parse; see ThemeColors. */
+  --border: color-mix(in oklab, var(--foreground) 14%, transparent);
+  --input: color-mix(in oklab, var(--foreground) 46%, transparent);
+  --ring: #18181b;
+  --radius: 0.5rem;
+  --radius-boxes: 0.5rem;
+  --radius-fields: 0.375rem;
+  --radius-selectors: 0.25rem;
+  --shadow-boxes: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  --shadow-fields: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-selectors: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --font-sans:
+    "Geist Variable", "Geist", "Geist Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", monospace;
+  --sidebar-background: #ffffff;
+  --sidebar-foreground: #3f3f46;
+  --sidebar-primary: #18181b;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #18181b;
+  --sidebar-border: var(--border);
+  --sidebar-ring: #18181b;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  /* One step above the page (1.05:1), so a card or popover reads as raised even though dark mode
+   * flattens its shadows. Muted text on it is 7.4:1, so the lift costs no text contrast. */
+  --card: #111113;
+  --card-foreground: #fafafa;
+  --popover: #111113;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+  --success: #15803d;
+  --success-foreground: #ffffff;
+  --warning: #b45309;
+  --warning-foreground: #ffffff;
+  --info: #1d4ed8;
+  --info-foreground: #ffffff;
+  --cyan: #38bdf8;
+  --purple: #c084fc;
+  --pink: #f472b6;
+  --violet: #a78bfa;
+
+  /* Named palette colors */
+  --ivy-green: #00cc92;
+  --ivy-green-foreground: #000000;
+  --slate: #94a3b8;
+  --slate-foreground: #000000;
+  --gray: #9ca3af;
+  --gray-foreground: #000000;
+  --zinc: #a1a1aa;
+  --zinc-foreground: #000000;
+  --neutral: #a3a3a3;
+  --neutral-foreground: #000000;
+  --stone: #a8a29e;
+  --stone-foreground: #000000;
+  --black: #000000;
+  --black-foreground: #ffffff;
+  --white: #ffffff;
+  --white-foreground: #000000;
+  --red: #f87171;
+  --red-foreground: #000000;
+  --orange: #fb923c;
+  --orange-foreground: #000000;
+  --amber: #fbbf24;
+  --amber-foreground: #000000;
+  --yellow: #facc15;
+  --yellow-foreground: #000000;
+  --lime: #a3e635;
+  --lime-foreground: #000000;
+  --green: #4ade80;
+  --green-foreground: #000000;
+  --emerald: #34d399;
+  --emerald-foreground: #000000;
+  --teal: #2dd4bf;
+  --teal-foreground: #000000;
+  --sky: #38bdf8;
+  --sky-foreground: #000000;
+  --blue: #60a5fa;
+  --blue-foreground: #000000;
+  --indigo: #818cf8;
+  --indigo-foreground: #000000;
+  --fuchsia: #e879f9;
+  --fuchsia-foreground: #000000;
+  --rose: #fb7185;
+  --rose-foreground: #000000;
+  --cyan-foreground: #000000;
+  --purple-foreground: #000000;
+  --pink-foreground: #000000;
+  --violet-foreground: #000000;
+
+  /* Shadow ramp — flat in dark mode.
+   *
+   * Flat is a zero-offset, fully transparent shadow, never the keyword `none`. Tailwind builds every
+   * element's `box-shadow` as a comma list ending in `var(--tw-shadow)`, and `none` is not valid
+   * inside a list: one `none` makes the whole declaration invalid at computed-value time, so the
+   * computed `box-shadow` collapses to `none` and every `focus-visible:ring-*` on an element that
+   * also has a `shadow-*` class (Button, Input, Select...) disappears. Dark mode had no visible
+   * focus ring on any of them. `0 0 #0000` paints nothing and keeps the list valid. */
+  --shadow-2xs: 0 0 #0000;
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+  --shadow-xl: 0 0 #0000;
+  --shadow-2xl: 0 0 #0000;
+
+  /* Misc framework tokens */
+  --toolbox: #edeaf1;
+  /* Declared again for the reason given on the :root pair; 38% is the dark counterpart of 46%. */
+  --border: color-mix(in oklab, var(--foreground) 14%, transparent);
+  --input: color-mix(in oklab, var(--foreground) 38%, transparent);
+  --ring: #d4d4d8;
+  --sidebar-background: #18181b;
+  --sidebar-foreground: #f4f4f5;
+  --sidebar-primary: #fafafa;
+  --sidebar-primary-foreground: #18181b;
+  --sidebar-accent: #27272a;
+  --sidebar-accent-foreground: #f4f4f5;
+  --sidebar-border: var(--border);
+  --sidebar-ring: #d4d4d8;
+}

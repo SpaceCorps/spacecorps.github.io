@@ -1,0 +1,33 @@
+# SpaceCorps
+
+> SpaceCorps Technology AB builds the SpaceCorps 2027 space MMO, the Space3d game engine (Rust), the obop open-source business platform, and 24 open-source Rust command-line tools. Company site: https://spacecorps.tech
+
+## Products
+
+- [SpaceCorps 2027](https://play.spacecorps.tech/): free-to-play space MMO. Desktop clients for macOS, Windows and Linux, an Android build, and a browser build at https://web.spacecorps.xyz/. Latest release 0.5.9. Machine-readable release feed: https://play.spacecorps.tech/release.json. Agent docs for the game: https://play.spacecorps.tech/llms.txt
+- [Space3d](https://space3d.dev/): cross-platform game engine in Rust (native, web, mobile), Apache-2.0. Agent docs: https://space3d.dev/llms.txt. Source: https://github.com/SpaceCorps/Space3d
+- [obop](https://obop.dev/): open-source business OS in Rust and Vite+ (accounting, invoicing, sales, CRM, stock as modules on one data model), Apache-2.0, early code. Source: https://github.com/SpaceCorps/obop
+- [Space3d-Molecular](https://github.com/SpaceCorps/Space3d-Molecular): molecular dynamics (spacemd) and thermal-field electron emission (spaceemit). Hosted spaceemit REST API, described by https://spacecorps.tech/openapi.json (server https://spaceemit-api.sliplane.app).
+- [Swindle](https://github.com/SpaceCorps/swindle-releases): trading game for Mac with on-device AI NPCs (release 0.1.0).
+
+## Open source
+
+- [GitHub organisation](https://github.com/SpaceCorps): all public repositories.
+- 24 MIT-licensed Rust CLIs: Sliplane, Cloudflare, Spaceship, Loopia, Namecheap, Storage, Exa, Firecrawl, Tic, Gmail, Notify, Bugsink, HeyReach, Reddit, Twitter/X, LinkedIn, YouTube, TikTok, Product Hunt, Stack Overflow, Samsung Art Mode, GitHub Issue Importer, Claude Sessions, open-apply. Repository pattern: https://github.com/SpaceCorps/<Name>-Cli (also namecheap-cli, Github-Issue-Importer, open-apply). Output is YAML by default and JSON with --json.
+- Libraries: open-apple-models (Swift), open-android-models (Kotlin), open-glass, open-browser, open-agents, open-accounting-sweden, DiskLens.
+
+## Design system
+
+- [Storybook](https://storybook.spacecorps.tech): the @spacecorps/components design system. Source and install notes: https://github.com/SpaceCorps/storybook
+
+## Site
+
+- [Blog](https://spacecorps.tech/blog/)
+- [About](https://spacecorps.tech/about.html), [Contact](https://spacecorps.tech/contact.html), [Privacy](https://spacecorps.tech/privacy.html)
+- [Markdown version of the home page](https://spacecorps.tech/index.md)
+- [Sitemap](https://spacecorps.tech/sitemap.xml)
+
+## Notes for agents
+
+- There is no MCP server, public API key service or sandbox on spacecorps.tech. The only HTTP API is the spaceemit API in openapi.json.
+- Source of this site: https://github.com/SpaceCorps/spacecorps.github.io
