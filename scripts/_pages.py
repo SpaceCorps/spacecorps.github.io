@@ -92,8 +92,10 @@ contact = """      <div class="prose">
         <li><strong>obop:</strong> <a href="https://github.com/SpaceCorps/obop/issues">obop issues</a>.</li>
         <li><strong>Any other tool:</strong> open an issue in its repository on <a href="https://github.com/SpaceCorps">github.com/SpaceCorps</a>.</li>
       </ul>
+      <h2>Email</h2>
+      <p>General questions: <a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a>.</p>
       <h2>Security</h2>
-      <p>Please report vulnerabilities privately with GitHub's &ldquo;Report a vulnerability&rdquo; on the affected repository (Security tab), not in a public issue.</p>
+      <p>Please report vulnerabilities privately, not in a public issue: email <a href="mailto:security@spacecorpstechnology.com">security@spacecorpstechnology.com</a>, or use GitHub's &ldquo;Report a vulnerability&rdquo; on the affected repository (Security tab).</p>
       <h2>Company</h2>
       <p>SpaceCorps Technology AB, Sweden.</p>
       </div>
@@ -110,7 +112,7 @@ privacy = """      <div class="prose">
       <h2>Our command-line tools</h2>
       <p>They send no telemetry. API credentials you give a tool are stored in your operating system's keystore (macOS Keychain, Linux Secret Service or Windows DPAPI) and are sent only to the service the tool talks to. Each tool's repository documents what it contacts.</p>
       <h2>Contact</h2>
-      <p>Questions about privacy: see <a href="/contact.html">Contact</a>.</p>
+      <p>Questions about privacy: <a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a> (see also <a href="/contact.html">Contact</a>).</p>
       </div>
 """
 page("privacy.html", "Privacy | SpaceCorps", "What spacecorps.tech and SpaceCorps tools collect: nothing on this site, and links to the game policy.", "/privacy.html", privacy)

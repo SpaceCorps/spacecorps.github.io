@@ -29,3 +29,5 @@ SpaceCorps Technology AB builds a space MMO, the Space3d engine it runs on, an o
 ## More
 
 [Blog](https://spacecorps.tech/blog/) · [About](https://spacecorps.tech/about.html) · [Contact](https://spacecorps.tech/contact.html) · [Privacy](https://spacecorps.tech/privacy.html)
+
+Email: hello@spacecorpstechnology.com · security reports: security@spacecorpstechnology.com

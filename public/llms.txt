@@ -23,6 +23,7 @@
 ## Site
 
 - [Blog](https://spacecorps.tech/blog/)
+- Email: hello@spacecorpstechnology.com (general), security@spacecorpstechnology.com (vulnerability reports; also GitHub private vulnerability reporting)
 - [About](https://spacecorps.tech/about.html), [Contact](https://spacecorps.tech/contact.html), [Privacy](https://spacecorps.tech/privacy.html)
 - [Markdown version of the home page](https://spacecorps.tech/index.md)
 - [Sitemap](https://spacecorps.tech/sitemap.xml)
