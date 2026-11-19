@@ -23,7 +23,7 @@ The site does not install the React package: it is a static site with no React c
 
 ## Agent-facing files (single source: this repo)
 
-All served from the site root and maintained only here: `llms.txt`, `index.md` (Markdown of the home page), `openapi.json` (the hosted spaceemit API), `robots.txt`, `sitemap.xml`. There is deliberately no MCP server card, sandbox, API-key service or `.well-known/` agent metadata: none of those existed behind the old files (the advertised MCP endpoint returned 404). Add them back only when the service is real.
+All served from the site root and maintained only here: `llms.txt`, `index.md` (Markdown of the home page), `openapi.json` (the hosted spaceemit API), `robots.txt`, `sitemap.xml`. There is deliberately no MCP server card, sandbox or API-key service, and `.well-known/` holds only `security.txt`: none of those existed behind the old files (the advertised MCP endpoint returned 404). Add them back only when the service is real.
 
 ## Develop, build, run
 
