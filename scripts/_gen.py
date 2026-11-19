@@ -42,6 +42,7 @@ FOOT = """    </main>
       <a href="https://storybook.spacecorps.tech">Storybook</a>
       <a href="/privacy.html">Privacy</a>
       <a href="/contact.html">Contact</a>
+      <a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a>
     </div></footer>
     <script src="/wave.js" defer></script>
   </body>

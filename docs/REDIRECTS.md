@@ -1,56 +1,43 @@
-# Domain and redirect plan
+# Domain and redirect setup
 
-Plan only. Nothing here has been applied: no DNS or Sliplane settings were changed.
+What is live, and what is still open.
 
-## Target state
+## State
 
-| Host | Serves |
-| --- | --- |
-| `spacecorps.tech` | **this site** (canonical company home) |
-| `www.spacecorps.tech` | 301 to `https://spacecorps.tech{uri}` |
-| `play.spacecorps.tech` | game downloads (the `play` repo's static site) |
-| `storybook.spacecorps.tech` | Storybook (SpaceCorps/storybook) |
-| `web.spacecorps.xyz`, `spacecorps.xyz` | browser build of the game (unchanged) |
-| `obop.dev`, `space3d.dev` | product sites (unchanged) |
-| `spacecorpstechnology.com`, `www.` | 301 to `https://spacecorps.tech{uri}` (old site, title "SpaceCorps Technology") |
-| `spacecorps.eu`, `spacecorps.online`, and their `www.` | 301 to `https://spacecorps.tech{uri}` |
-| `spacecorps.github.io` | old GitHub Pages site; see below |
+| Host | Serves | How |
+| --- | --- | --- |
+| `spacecorps.tech` | this site | Sliplane service `spacecorps-site` (this repo's Dockerfile, port 80, health check `/healthz`) |
+| `www.spacecorps.tech` | 301 to `https://spacecorps.tech{uri}` | `deploy/Caddyfile` (needs the host added as a custom domain on the service) |
+| `spacecorpstechnology.com`, `www.` | 301 to `https://spacecorps.tech{uri}`, path and query kept | Custom domains on `spacecorps-site`, redirected by `deploy/Caddyfile`. **Google Workspace MX records are kept untouched**: only the web records (apex and `www`) point at Sliplane. |
+| `spacecorps.eu`, `spacecorps.online` | 301 to `https://spacecorps.tech` | Namecheap "URL Redirect" records (301, **http only**: there is no certificate, so `https://spacecorps.eu` shows a certificate error until these move to a Caddy-served custom domain) |
+| `play.spacecorps.tech` | game downloads (`play` repo) | separate service |
+| `storybook.spacecorps.tech` | Storybook | separate service, see the storybook README |
+| `web.spacecorps.xyz`, `obop.dev`, `space3d.dev` | unchanged | |
+| `spacecorps.github.io` | old GitHub Pages site | see below |
 
-## Steps (in order)
+Company email is on `@spacecorpstechnology.com` (Google Workspace): `hello@` for general contact, `security@` for vulnerability reports (also published in `/.well-known/security.txt`). That is why the domain's MX must stay as it is.
 
-1. **Sliplane**: deploy this repo's `Dockerfile` as a service (port 80, health check `/healthz`). Check it on the temporary `*.sliplane.app` URL first.
-2. **DNS, `spacecorps.tech`**: add the custom domain in Sliplane, then create the record it shows (CNAME for `www`; for the apex, the A/ALIAS record Sliplane specifies). Wait for the certificate; `https://spacecorps.tech/healthz` must return `ok`. Same procedure for `play.` and `storybook.` (`storybook` is described in the storybook README).
-3. **Redirect domains**: either (a) give each domain's DNS to Sliplane and add all four as custom domains of a second tiny service running the redirect Caddy below, or (b) use the registrar's / Cloudflare's own redirect rule if the zone is on Cloudflare (a single "redirect all, keep path, 301" rule per domain). (b) needs no extra container; (a) keeps everything in one place. Recommendation: (b) for the three domains that are only redirects.
-4. **Last**: switch the old content off only after step 2 works, and keep the redirects for at least a year.
+## The Caddy rules
 
-## Redirect-only Caddyfile (option a)
-
-```caddyfile
-{
-	auto_https off
-	admin off
-}
-
-:80 {
-	@health path /healthz
-	respond @health "ok" 200
-	redir https://spacecorps.tech{uri} permanent
-}
-```
-
-Run it as `caddy:2-alpine` with that file at `/etc/caddy/Caddyfile`. TLS is terminated by Sliplane, so every hostname must be added as a custom domain of this service for certificates to be issued. Add `www.spacecorps.tech` here as well.
-
-## `spacecorps.github.io`
-
-GitHub Pages cannot redirect by HTTP status. This PR removes the Pages workflow, so the last deployed old version stays online until Pages is disabled. Options, after `spacecorps.tech` is live: (1) leave it (project pages such as `spacecorps.github.io/Sliplane-Cli/` and `/play/` keep working, and they are linked from many places); (2) replace `index.html` on a small branch with a meta-refresh and `rel=canonical` to `https://spacecorps.tech/`. Do **not** set `spacecorps.tech` as the Pages custom domain: that would move every project page (`/Sliplane-Cli/`, `/open-glass/` ...) under `spacecorps.tech/<repo>/`.
-
-## Checks after cutover
+`deploy/Caddyfile` uses ordered, mutually exclusive `handle` blocks: `/healthz` first (answers `ok` for every host, so health checks never get redirected), then the two redirect host matchers, then the static site. Check locally:
 
 ```bash
-for h in spacecorpstechnology.com www.spacecorpstechnology.com spacecorps.eu spacecorps.online www.spacecorps.tech; do
+docker build -t spacecorps-tech . && docker run -d --name t -p 8081:80 spacecorps-tech
+curl -sI -H 'Host: spacecorpstechnology.com' 'localhost:8081/about.html?x=1'   # 301, Location: https://spacecorps.tech/about.html?x=1
+curl -s  -H 'Host: spacecorpstechnology.com' localhost:8081/healthz              # ok
+```
+
+## Open
+
+- `https://spacecorps.eu` and `https://spacecorps.online` (https) do not redirect. Fix: add both (and `www.`) as custom domains on `spacecorps-site` and extend the `@oldcompany` matcher in the Caddyfile, then drop the Namecheap redirects.
+- `spacecorps.github.io`: GitHub Pages cannot send HTTP redirects. Project pages such as `/Sliplane-Cli/` and `/play/` keep working there, so leave the org site as is, or replace its index with a meta refresh. Do **not** set `spacecorps.tech` as its Pages custom domain: that would move every project page under `spacecorps.tech/<repo>/`.
+- Update the `homepage` field of repositories that still point at `spacecorps.github.io` or `spacecorpstechnology.com` (for example `SpaceCorps/web`), add `spacecorps.tech` to Google Search Console and use "Change of address" for spacecorpstechnology.com. Keep the redirects for at least a year.
+
+## After a change
+
+```bash
+for h in spacecorpstechnology.com www.spacecorpstechnology.com www.spacecorps.tech; do
   curl -sI "https://$h/about.html" | grep -iE '^(HTTP|location)'
 done    # expect 301 and Location: https://spacecorps.tech/about.html
 curl -s https://spacecorps.tech/healthz   # ok
 ```
-
-Also update: the `homepage` field of the GitHub org and of the repositories that point at `spacecorps.github.io` or `spacecorpstechnology.com` (for example `SpaceCorps/web`), Google Search Console (add `spacecorps.tech`, submit the sitemap, use "Change of address" for spacecorpstechnology.com).
