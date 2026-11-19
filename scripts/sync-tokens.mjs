@@ -2,7 +2,7 @@
 // Usage: pnpm run sync-tokens   (then review the diff and commit)
 import { writeFileSync } from "node:fs";
 const url = "https://raw.githubusercontent.com/SpaceCorps/storybook/development/src/styles/tokens.css";
-const css = (await (await fetch(url)).text()).replaceAll("iv" + "y-green", "sc-green"); // brand token rename, until upstream lands it
+const css = (await (await fetch(url)).text());
 const lines = css.split("\n");
 const start = lines.findIndex((l) => l.startsWith(":root"));
 const end = lines.findIndex((l) => l.startsWith("@theme inline"));
