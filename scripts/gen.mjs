@@ -220,13 +220,13 @@ const home = `
       <section class="sec" id="design-system" aria-labelledby="ds-h"><div class="wrap">
         <div class="ds-grid">
           <div>
-            ${SECTION("04", "ds", "Design system", "One system, every screen.", `Our sites and apps share <code>@spacecorps/components</code>: React components, renderers and widgets. The colours and type on this page come straight from its tokens: ivy green, zinc neutrals, Geist. Browse every component in Storybook.`)}
+            ${SECTION("04", "ds", "Design system", "One system, every screen.", `Our sites and apps share <code>@spacecorps/components</code>: React components, renderers and widgets. The colours and type on this page come straight from its tokens: brand green, zinc neutrals, Geist. Browse every component in Storybook.`)}
             <div class="cta-row"><a class="btn" href="https://storybook.spacecorps.tech">Open Storybook ${arrow}</a><a class="btn o" href="${GH}/storybook">Source and install notes</a></div>
             ${stats.designSystem.latest ? `<p class="proof-note">Latest release ${stats.designSystem.latest}, MIT.</p>` : ""}
           </div>
           <div class="ds-stage" aria-label="Design token preview">
-            <div class="swatches" role="img" aria-label="Colour tokens: ivy green, foreground, muted foreground, muted, card, background">
-              <span style="background:var(--ivy-green);color:#000">ivy-green</span><span style="background:var(--foreground);color:var(--background)">foreground</span><span style="background:var(--muted-foreground);color:var(--background)">muted-fg</span><span style="background:var(--muted)">muted</span><span style="background:var(--card);border-left:1px solid var(--line)">card</span><span style="background:var(--background);border-left:1px solid var(--line)">bg</span>
+            <div class="swatches" role="img" aria-label="Colour tokens: brand green, foreground, muted foreground, muted, card, background">
+              <span style="background:var(--sc-green);color:#000">sc-green</span><span style="background:var(--foreground);color:var(--background)">foreground</span><span style="background:var(--muted-foreground);color:var(--background)">muted-fg</span><span style="background:var(--muted)">muted</span><span style="background:var(--card);border-left:1px solid var(--line)">card</span><span style="background:var(--background);border-left:1px solid var(--line)">bg</span>
             </div>
             <div class="ds-demo"><a class="btn sm" href="https://storybook.spacecorps.tech">Button</a><a class="btn o sm" href="https://storybook.spacecorps.tech">Outline</a><span class="badge">Badge</span><span class="field">Input field</span></div>
             <div class="type-spec"><span class="aa">Aa</span><span>Geist Variable &middot; Geist Mono Variable<br />self-hosted, latin subset</span></div>
