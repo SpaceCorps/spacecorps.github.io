@@ -1,6 +1,0 @@
-/* Shared by every page: design-system tokens plus the two derived values the pages need. */
-@import url("/tokens.css");
-:root { --link: var(--ivy-green-800); color-scheme: light; }
-:root.dark { --link: var(--ivy-green); color-scheme: dark; }
-@font-face{font-family:"Geist Variable";font-style:normal;font-display:swap;font-weight:100 900;src:url("/fonts/geist-latin.woff2") format("woff2-variations")}
-@font-face{font-family:"Geist Mono Variable";font-style:normal;font-display:swap;font-weight:100 900;src:url("/fonts/geist-mono-latin.woff2") format("woff2-variations")}

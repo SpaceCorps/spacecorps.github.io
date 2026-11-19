@@ -6,65 +6,222 @@
     <title>SpaceCorps | Games, engines and software in Rust</title>
     <meta name="description" content="SpaceCorps Technology AB builds the SpaceCorps 2027 space MMO, the Space3d engine, the obop open-source business platform and 24 open-source Rust command-line tools." />
     <link rel="canonical" href="https://spacecorps.tech/" />
+    <meta name="theme-color" content="#04070a" />
+    <meta property="og:site_name" content="SpaceCorps" />
     <meta property="og:title" content="SpaceCorps | Games, engines and software in Rust" />
     <meta property="og:description" content="SpaceCorps Technology AB builds the SpaceCorps 2027 space MMO, the Space3d engine, the obop open-source business platform and 24 open-source Rust command-line tools." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://spacecorps.tech/" />
     <meta property="og:image" content="https://spacecorps.tech/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://spacecorps.tech/og-image.png" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="alternate" type="text/markdown" href="/index.md" />
-    <script src="/theme.js"></script>
-    <link rel="stylesheet" href="/site.css" />
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script>try{var t=localStorage.getItem("sc-theme");if(t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.classList.add("dark")}catch(e){}</script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SpaceCorps Technology AB","url":"https://spacecorps.tech","logo":"https://spacecorps.tech/apple-touch-icon.png","sameAs":["https://github.com/SpaceCorps"],"description":"Swedish software company building the SpaceCorps 2027 space MMO, the Space3d engine, obop and open-source Rust tools."}</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="nav"><div class="wrap">
-      <a class="brand" href="/">Space<b>Corps</b></a>
-      <a class="l" href="/#products">Products</a>
-      <a class="l" href="/#open-source">Open source</a>
-      <a class="l" href="/#design-system">Design system</a>
-      <a class="l" href="/blog/">Blog</a>
-      <a class="l" href="/about.html">About</a>
-      <a class="l" href="/contact.html">Contact</a>
+      <a class="brand" href="/" aria-label="SpaceCorps home"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><mask id="crescent"><rect width="64" height="64" fill="#fff"/><circle cx="39" cy="27" r="19" fill="#000"/></mask></defs><circle cx="29" cy="35" r="23" fill="#00cc92" mask="url(#crescent)"/><path d="M5 47C21 60 52 53 58 23" fill="none" stroke="#00cc92" stroke-width="3.4" stroke-linecap="round"/><circle cx="57" cy="17" r="5.6" fill="currentColor"/></svg><span>Space<b>Corps</b></span></a>
+      <nav class="nav-links" aria-label="Main"><a href="/#products">Products</a><a href="/#open-source">Open source</a><a href="/#design-system">Design system</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+      <a class="btn sm cta-sm" href="https://play.spacecorps.tech/">Play free</a>
+      <button class="icon-btn theme-btn" type="button" aria-label="Toggle dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <details class="menu"><summary class="icon-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav class="panel" aria-label="Main (mobile)"><a href="/#products">Products</a><a href="/#open-source">Open source</a><a href="/#design-system">Design system</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="https://play.spacecorps.tech/">Play SpaceCorps 2027</a></nav></details>
     </div></header>
-    <main id="main" class="wrap">
-      <section class="hero">
-        <h1>Games, engines and software, <em>built in Rust</em>.</h1>
-        <p class="lead">SpaceCorps Technology AB builds a space MMO, the Space3d engine it runs on, an open-source business platform and a fleet of command-line tools. Most of it is open source.</p>
-        <div class="cta"><a class="btn" href="https://play.spacecorps.tech/">Play SpaceCorps 2027</a><a class="btn o" href="#products">All products</a></div>
+    <main id="main">
+
+      <section class="hero space" aria-labelledby="hero-h">
+        <div class="hero-panel">
+          <div class="hero-bg"></div><div class="hero-grid"></div><canvas id="stars" aria-hidden="true"></canvas>
+          <div class="hero-ship" aria-hidden="true"><img src="/img/hero-ship-1190.webp" srcset="/img/hero-ship-640.webp 640w, /img/hero-ship-1190.webp 1190w" sizes="(max-width:900px) 100vw, 62vw" width="1190" height="800" alt="" fetchpriority="high" decoding="async" /></div>
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="dot"></span>SpaceCorps Technology AB &middot; Sweden</p>
+            <h1 id="hero-h">Space games, engines and tools. <span class="grad">Built in Rust.</span></h1>
+            <p class="lead">We make a free space MMO, the engine it runs on, an open-source business platform and a fleet of command-line tools. A small team, plus AI agents, shipping in the open.</p>
+            <div class="cta"><a class="btn" href="https://play.spacecorps.tech/">Play SpaceCorps 2027 <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a><a class="btn o" href="#products">Explore the products</a></div>
+          </div>
+          <dl class="telemetry">
+            <div><dt>Latest build</dt><dd>v0.5.9<small>18 Nov 2026</small></dd></div>
+            <div><dt>Game releases</dt><dd>48<small>in 8 weeks</small></dd></div>
+            <div><dt>Platforms</dt><dd>macOS &middot; Win &middot; Linux<small>Android, web</small></dd></div>
+            <div><dt>Engine</dt><dd>Space3d<small>Rust &middot; Apache-2.0</small></dd></div>
+          </dl>
+        </div>
       </section>
-      <section id="products">
-        <h2>Products</h2>
-        <p class="sub">What we ship today. Status is stated plainly on each card.</p>
-        <div class="grid"><article class="card"><span class="tag">Game</span><h3>SpaceCorps 2027</h3><p>A free-to-play space MMO: fly for a corporation, hunt aliens with your clan and climb the season ranking. Desktop clients for macOS, Windows and Linux, an Android build and a browser build, all on our own engine. Version 0.5.9.</p><div class="links"><a href="https://play.spacecorps.tech/">Download</a><a href="https://web.spacecorps.xyz/">Play in browser</a><a href="https://play.spacecorps.tech/patchnotes.html">Patch notes</a></div></article><article class="card"><span class="tag">Engine</span><h3>Space3d</h3><p>A cross-platform game engine in Rust for native, web and mobile, with a Claude Code integration for agent-driven development. Apache-2.0.</p><div class="links"><a href="https://space3d.dev/">space3d.dev</a><a href="https://github.com/SpaceCorps/Space3d">Source</a></div></article><article class="card"><span class="tag">Business software</span><h3>obop</h3><p>One business, one platform: an open-source business OS in Rust and Vite+, with accounting, invoicing, sales, CRM and stock as modules on one data model. Apache-2.0. Early code, not a finished product.</p><div class="links"><a href="https://obop.dev/">obop.dev</a><a href="https://github.com/SpaceCorps/obop">Source</a></div></article><article class="card"><span class="tag">Simulation</span><h3>Space3d-Molecular</h3><p>Molecular dynamics (<code>spacemd</code>) and thermal-field electron emission (<code>spaceemit</code>) on Space3d. Public API docs, input formats and examples.</p><div class="links"><a href="https://github.com/SpaceCorps/Space3d-Molecular">Docs</a><a href="/blog/getelec-spaceemit.html">Case study</a></div></article><article class="card"><span class="tag">Game</span><h3>Swindle</h3><p>Trading game for Mac with on-device AI NPCs: 100 days to hit the quota in a bazaar of LLM-driven characters. iPhone and iPad are planned. Release 0.1.0.</p><div class="links"><a href="https://github.com/SpaceCorps/swindle-releases/releases">Releases</a></div></article></div>
-      </section>
-      <section id="open-source">
-        <h2>Open source</h2>
-        <p class="sub">24 command-line tools, all in Rust and MIT-licensed, built for people and for agents: readable output by default, JSON with <code>--json</code>. Each links to its repository, with install notes and releases.</p>
-        <ul class="cols"><li><a href="https://github.com/SpaceCorps/Sliplane-Cli">Sliplane</a></li><li><a href="https://github.com/SpaceCorps/Cloudflare-Cli">Cloudflare</a></li><li><a href="https://github.com/SpaceCorps/Spaceship-Cli">Spaceship</a></li><li><a href="https://github.com/SpaceCorps/Loopia-Cli">Loopia</a></li><li><a href="https://github.com/SpaceCorps/namecheap-cli">Namecheap</a></li><li><a href="https://github.com/SpaceCorps/Storage-Cli">Storage</a></li><li><a href="https://github.com/SpaceCorps/Exa-Cli">Exa</a></li><li><a href="https://github.com/SpaceCorps/Firecrawl-Cli">Firecrawl</a></li><li><a href="https://github.com/SpaceCorps/Tic-Cli">Tic</a></li><li><a href="https://github.com/SpaceCorps/Gmail-Cli">Gmail</a></li><li><a href="https://github.com/SpaceCorps/Notify-Cli">Notify</a></li><li><a href="https://github.com/SpaceCorps/Bugsink-Cli">Bugsink</a></li><li><a href="https://github.com/SpaceCorps/Heyreach-Cli">HeyReach</a></li><li><a href="https://github.com/SpaceCorps/Reddit-Cli">Reddit</a></li><li><a href="https://github.com/SpaceCorps/Twitter-Cli">Twitter / X</a></li><li><a href="https://github.com/SpaceCorps/Linkedin-Cli">LinkedIn</a></li><li><a href="https://github.com/SpaceCorps/Youtube-Cli">YouTube</a></li><li><a href="https://github.com/SpaceCorps/TikTok-Cli">TikTok</a></li><li><a href="https://github.com/SpaceCorps/Producthunt-Cli">Product Hunt</a></li><li><a href="https://github.com/SpaceCorps/Stackoverflow-Cli">Stack Overflow</a></li><li><a href="https://github.com/SpaceCorps/Samsung-Artmode-Cli">Samsung Art Mode</a></li><li><a href="https://github.com/SpaceCorps/Github-Issue-Importer">GitHub Issue Importer</a></li><li><a href="https://github.com/SpaceCorps/Claude-Sessions-Cli">Claude Sessions</a></li><li><a href="https://github.com/SpaceCorps/open-apply">open-apply</a></li></ul>
-        <p class="sub" style="margin-top:20px">Also: <a href="https://github.com/SpaceCorps/DiskLens">DiskLens</a> (desktop disk-space explorer), <a href="https://github.com/SpaceCorps/open-apple-models">open-apple-models</a> and <a href="https://github.com/SpaceCorps/open-android-models">open-android-models</a> (on-device game AI for Apple and Android), <a href="https://github.com/SpaceCorps/open-accounting-sweden">open-accounting-sweden</a>, <a href="https://github.com/SpaceCorps/open-browser">open-browser</a>, <a href="https://github.com/SpaceCorps/open-agents">open-agents</a> and <a href="https://github.com/SpaceCorps/open-glass">open-glass</a>. Everything is on <a href="https://github.com/SpaceCorps">github.com/SpaceCorps</a>.</p>
-      </section>
-      <section id="design-system">
-        <h2>Design system</h2>
-        <p class="sub">Our sites and apps share one design system, <code>@spacecorps/components</code>: React components, renderers and widgets, with this site's colours and type taken from its tokens. Browse every component in Storybook.</p>
-        <div class="cta" style="margin-top:0"><a class="btn" href="https://storybook.spacecorps.tech">Open Storybook</a><a class="btn o" href="https://github.com/SpaceCorps/storybook">Source and install notes</a></div>
-      </section>
-      <section>
-        <h2>From the blog</h2>
-        <p class="sub"><a href="/blog/spacecorps-2027.html">SpaceCorps 2027 is out</a> &middot; <a href="/blog/space3d-engine.html">Space3d: a Rust 3D engine built for AI agents</a> &middot; <a href="/blog/obop.html">obop: one business, one platform</a> &middot; <a href="/blog/getelec-spaceemit.html">47,000&times; faster electron emission</a></p>
+
+      <section class="sec" id="products" aria-labelledby="products-h"><div class="wrap">
+        <div class="sec-head"><p class="eyebrow"><span class="dot"></span>01 / Products</p><h2 id="products-h">One studio. Four things you can use today.</h2><p class="sub">Each card says plainly where the product stands.</p></div>
+        <div class="bento">
+          <article class="card hud span-7 flagship">
+            <div class="shot"><img src="/img/combat-800.webp" srcset="/img/combat-800.webp 800w, /img/combat-1600.webp 1600w" sizes="(max-width:980px) 100vw, 700px" alt="A SpaceCorps 2027 fleet battle: ships trading fire against aliens in deep space" width="1600" height="900" loading="lazy" decoding="async" /></div>
+            <div class="card-body">
+              <div class="card-top"><span class="tag live"><span class="dot"></span>Live</span><span class="tag">Game</span><span class="meta">v0.5.9 &middot; 18 Nov 2026</span></div>
+              <h3><a href="https://play.spacecorps.tech/">SpaceCorps 2027</a></h3>
+              <p>A free-to-play space MMO: fly for a corporation, hunt aliens with your clan and climb the season ranking. Desktop clients for macOS, Windows and Linux, an Android build and a browser build, all on our own engine.</p>
+              <div class="links"><a class="primary" href="https://play.spacecorps.tech/">Download</a><a href="https://web.spacecorps.xyz/">Play in browser</a><a href="https://play.spacecorps.tech/patchnotes.html">Patch notes</a><a href="/blog/spacecorps-2027.html">Read the launch post</a></div>
+            </div>
+          </article>
+          <article class="card hud span-5">
+            <div class="card-body">
+              <div class="card-top"><span class="tag">Engine</span><span class="meta">Rust &middot; Apache-2.0</span></div>
+              <h3><a href="https://space3d.dev/">Space3d</a></h3>
+              <p>A cross-platform game engine in Rust for native, web and mobile. Deterministic simulation, headless rendering and golden-screenshot tests make it a loop an AI agent can verify. It runs SpaceCorps 2027.</p>
+              <pre class="term"><span class="c"># no binary releases yet: build from source</span>
+<span class="p">$</span> cargo install --git https://github.com/SpaceCorps/Space3d space3d-cli
+<span class="p">$</span> space3d new my_game
+<span class="p">$</span> space3d run</pre>
+              <div class="links"><a href="https://space3d.dev/">space3d.dev</a><a href="https://github.com/SpaceCorps/Space3d">Source</a><a href="/blog/space3d-engine.html">How it works</a></div>
+            </div>
+            <div class="shot wide"><img src="/img/station-800.webp" srcset="/img/station-800.webp 800w, /img/station-1600.webp 1600w" sizes="(max-width:980px) 100vw, 500px" alt="A space station in SpaceCorps 2027, rendered by Space3d" width="1600" height="900" loading="lazy" decoding="async" /></div>
+          </article>
+          <article class="card hud span-4">
+            <div class="card-body">
+              <div class="card-top"><span class="tag">Business software</span><span class="tag">Pre-1.0</span></div>
+              <h3><a href="https://obop.dev/">obop</a></h3>
+              <p>One business, one platform: an open-source business OS in Rust and Vite+, with sales, CRM, invoicing and stock as modules on one data model. Agents propose, humans approve. Early code, not a finished product.</p>
+              <div class="chips" role="list" aria-label="obop modules"><span class="chip on" role="listitem">CRM</span><span class="chip on" role="listitem">Sales</span><span class="chip on" role="listitem">Invoicing</span><span class="chip on" role="listitem">Contacts</span><span class="chip on" role="listitem">Products</span><span class="chip off" role="listitem">Accounting</span><span class="chip off" role="listitem">Inventory</span><span class="chip off" role="listitem">+ marketplace</span></div>
+              <p class="meta">Solid: available. Dashed: marketplace modules.</p>
+              <div class="links"><a href="https://obop.dev/">obop.dev</a><a href="https://github.com/SpaceCorps/obop">Source</a></div>
+            </div>
+          </article>
+          <article class="card hud span-4">
+            <div class="shot"><img style="object-position:50% 38%" src="/img/molecular-640.webp" srcset="/img/molecular-640.webp 640w, /img/molecular-1200.webp 1200w" sizes="(max-width:980px) 100vw, 400px" alt="Illustration of electron field emission from a nanotip between anode and cathode" width="1080" height="1080" loading="lazy" decoding="async" /></div>
+            <div class="card-body">
+              <div class="card-top"><span class="tag">Simulation</span><span class="tag">Client work</span></div>
+              <h3><a href="/blog/getelec-spaceemit.html">Space3d-Molecular</a></h3>
+              <p>Molecular dynamics (<code>spacemd</code>) and thermal-field electron emission (<code>spaceemit</code>) on Space3d.</p>
+              <div class="bigstat">47,000&times;<small>faster than GETELEC, 2,456 points, all cores</small></div>
+              <div class="links"><a href="/blog/getelec-spaceemit.html">Case study</a><a href="https://github.com/SpaceCorps/Space3d-Molecular">API docs</a></div>
+            </div>
+          </article>
+          <article class="card hud span-4">
+            <div class="card-body">
+              <div class="card-top"><span class="tag">Game</span><span class="tag">macOS</span></div>
+              <h3><a href="https://github.com/SpaceCorps/swindle-releases/releases">Swindle</a></h3>
+              <p>A trading game with on-device AI NPCs: 100 days to hit the quota in a bazaar of LLM-driven characters. Runs on a Mac; iPhone and iPad are planned.</p>
+              <div class="chips"><span class="chip">On-device AI</span><span class="chip">Release 0.1.0</span><span class="chip off">iPhone &amp; iPad planned</span></div>
+              <div class="links"><a href="https://github.com/SpaceCorps/swindle-releases/releases">Releases</a><a href="https://github.com/SpaceCorps/open-apple-models">open-apple-models</a></div>
+            </div>
+          </article>
+        </div>
+      </div></section>
+
+      <section class="sec" aria-labelledby="proof-h"><div class="wrap">
+        <div class="sec-head"><p class="eyebrow"><span class="dot"></span>02 / Track record</p><h2 id="proof-h">We ship, and the history is public.</h2><p class="sub">Counts come straight from the GitHub API, not estimates.</p></div>
+        <div class="proof">
+          <div><div class="n">57</div><div class="l">active public repositories under github.com/SpaceCorps</div></div>
+          <div><div class="n">33</div><div class="l">of them written in Rust</div></div>
+          <div><div class="n">38</div><div class="l">under the MIT or Apache-2.0 licence</div></div>
+          <div><div class="n">48</div><div class="l">game releases in 8 weeks, latest v0.5.9</div></div>
+        </div>
+        <p class="proof-note">Source: GitHub API, fetched 19 Nov 2026 and committed in data/stats.json. Archived repositories and forks are not counted.</p>
+      </div></section>
+
+      <section class="sec" id="open-source" aria-labelledby="oss-h"><div class="wrap">
+        <div class="sec-head"><p class="eyebrow"><span class="dot"></span>03 / Open source</p><h2 id="oss-h">24 command-line tools, all Rust, all MIT.</h2><p class="sub">Built for people and for agents: readable output by default, JSON with <code>--json</code>. Credentials live in your OS keystore and no tool sends telemetry. Each links to its repository with install notes and releases.</p></div>
+        <div class="dir-tools">
+          <div class="search"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><label class="vh" for="q">Search the command-line tools</label><input id="q" type="search" placeholder="Search tools: dns, scrape, mail&hellip;" autocomplete="off" spellcheck="false" /><kbd aria-hidden="true">/</kbd></div>
+          <div class="filters" role="group" aria-label="Filter by category"><button type="button" data-cat="all" aria-pressed="true">All 24</button><button type="button" data-cat="Hosting &amp; domains" aria-pressed="false">Hosting &amp; domains 6</button><button type="button" data-cat="Search &amp; scraping" aria-pressed="false">Search &amp; scraping 3</button><button type="button" data-cat="Social &amp; content" aria-pressed="false">Social &amp; content 8</button><button type="button" data-cat="Mail &amp; notifications" aria-pressed="false">Mail &amp; notifications 2</button><button type="button" data-cat="Developer tools" aria-pressed="false">Developer tools 3</button><button type="button" data-cat="Personal" aria-pressed="false">Personal 2</button></div>
+        </div>
+        <p class="count" id="count" role="status" aria-live="polite">24 command-line tools</p>
+        <ul class="dir" id="dir">
+          <li data-cat="Hosting &amp; domains" data-s="sliplane deploy and manage services on sliplane cloud hosting. hosting &amp; domains sliplane-cli"><a href="https://github.com/SpaceCorps/Sliplane-Cli"><span class="nm">Sliplane</span><span class="ds">Deploy and manage services on Sliplane cloud hosting.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.3.0</span></span></a></li>
+          <li data-cat="Hosting &amp; domains" data-s="cloudflare dns, zones, page rules and cache purge on the cloudflare v4 api. hosting &amp; domains cloudflare-cli"><a href="https://github.com/SpaceCorps/Cloudflare-Cli"><span class="nm">Cloudflare</span><span class="ds">DNS, zones, page rules and cache purge on the Cloudflare v4 API.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Hosting &amp; domains" data-s="spaceship domains, dns and hosting at the spaceship registrar. hosting &amp; domains spaceship-cli"><a href="https://github.com/SpaceCorps/Spaceship-Cli"><span class="nm">Spaceship</span><span class="ds">Domains, DNS and hosting at the Spaceship registrar.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Hosting &amp; domains" data-s="loopia domains, subdomains, dns records and billing over loopia's xml-rpc api. hosting &amp; domains loopia-cli"><a href="https://github.com/SpaceCorps/Loopia-Cli"><span class="nm">Loopia</span><span class="ds">Domains, subdomains, DNS records and billing over Loopia's XML-RPC API.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Hosting &amp; domains" data-s="namecheap domain availability, dns management and account administration. hosting &amp; domains namecheap-cli"><a href="https://github.com/SpaceCorps/namecheap-cli"><span class="nm">Namecheap</span><span class="ds">Domain availability, DNS management and account administration.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Hosting &amp; domains" data-s="storage upload files and folders to azure blob storage with zip and sas links. hosting &amp; domains storage-cli"><a href="https://github.com/SpaceCorps/Storage-Cli"><span class="nm">Storage</span><span class="ds">Upload files and folders to Azure Blob Storage with zip and SAS links.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Search &amp; scraping" data-s="exa neural search and web retrieval with the exa api. search &amp; scraping exa-cli"><a href="https://github.com/SpaceCorps/Exa-Cli"><span class="nm">Exa</span><span class="ds">Neural search and web retrieval with the Exa API.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Search &amp; scraping" data-s="firecrawl scrape, crawl and search the web through firecrawl. search &amp; scraping firecrawl-cli"><a href="https://github.com/SpaceCorps/Firecrawl-Cli"><span class="nm">Firecrawl</span><span class="ds">Scrape, crawl and search the web through Firecrawl.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Search &amp; scraping" data-s="tic swedish company, debtor, vehicle and bankruptcy data from tic. search &amp; scraping tic-cli"><a href="https://github.com/SpaceCorps/Tic-Cli"><span class="nm">Tic</span><span class="ds">Swedish company, debtor, vehicle and bankruptcy data from TIC.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="reddit search and scrape reddit communities, posts and comments via apify. social &amp; content reddit-cli"><a href="https://github.com/SpaceCorps/Reddit-Cli"><span class="nm">Reddit</span><span class="ds">Search and scrape Reddit communities, posts and comments via Apify.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="twitter / x search and scrape tweets, profiles and threads via apify. social &amp; content twitter-cli"><a href="https://github.com/SpaceCorps/Twitter-Cli"><span class="nm">Twitter / X</span><span class="ds">Search and scrape tweets, profiles and threads via Apify.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="linkedin fetch profiles and extract posts via apify. social &amp; content linkedin-cli"><a href="https://github.com/SpaceCorps/Linkedin-Cli"><span class="nm">LinkedIn</span><span class="ds">Fetch profiles and extract posts via Apify.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="youtube videos, channels, playlists and search results via apify. social &amp; content youtube-cli"><a href="https://github.com/SpaceCorps/Youtube-Cli"><span class="nm">YouTube</span><span class="ds">Videos, channels, playlists and search results via Apify.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="tiktok profiles, videos, hashtags and search results via apify. social &amp; content tiktok-cli"><a href="https://github.com/SpaceCorps/TikTok-Cli"><span class="nm">TikTok</span><span class="ds">Profiles, videos, hashtags and search results via Apify.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="product hunt launches, products and topics from product hunt via apify. social &amp; content producthunt-cli"><a href="https://github.com/SpaceCorps/Producthunt-Cli"><span class="nm">Product Hunt</span><span class="ds">Launches, products and topics from Product Hunt via Apify.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="stack overflow questions, tags and answers from stack overflow via apify. social &amp; content stackoverflow-cli"><a href="https://github.com/SpaceCorps/Stackoverflow-Cli"><span class="nm">Stack Overflow</span><span class="ds">Questions, tags and answers from Stack Overflow via Apify.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Social &amp; content" data-s="heyreach linkedin lead generation and campaign automation with heyreach. social &amp; content heyreach-cli"><a href="https://github.com/SpaceCorps/Heyreach-Cli"><span class="nm">HeyReach</span><span class="ds">LinkedIn lead generation and campaign automation with HeyReach.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Mail &amp; notifications" data-s="gmail search mail, read threads and messages, fetch attachments, write drafts. mail &amp; notifications gmail-cli"><a href="https://github.com/SpaceCorps/Gmail-Cli"><span class="nm">Gmail</span><span class="ds">Search mail, read threads and messages, fetch attachments, write drafts.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Mail &amp; notifications" data-s="notify send notifications to slack webhooks, email, system alerts and message boxes. mail &amp; notifications notify-cli"><a href="https://github.com/SpaceCorps/Notify-Cli"><span class="nm">Notify</span><span class="ds">Send notifications to Slack webhooks, email, system alerts and message boxes.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Developer tools" data-s="bugsink work with the self-hosted bugsink error tracker. developer tools bugsink-cli"><a href="https://github.com/SpaceCorps/Bugsink-Cli"><span class="nm">Bugsink</span><span class="ds">Work with the self-hosted Bugsink error tracker.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Developer tools" data-s="github issue importer bulk-import issues from yaml or json into github, idempotently. developer tools github-issue-importer"><a href="https://github.com/SpaceCorps/Github-Issue-Importer"><span class="nm">GitHub Issue Importer</span><span class="ds">Bulk-import issues from YAML or JSON into GitHub, idempotently.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Developer tools" data-s="claude sessions move claude desktop code-tab sessions between accounts and organisations. developer tools claude-sessions-cli"><a href="https://github.com/SpaceCorps/Claude-Sessions-Cli"><span class="nm">Claude Sessions</span><span class="ds">Move Claude desktop Code-tab sessions between accounts and organisations.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+          <li data-cat="Personal" data-s="open-apply run a job search with an ai agent: find postings, prepare materials, track replies. personal open-apply"><a href="https://github.com/SpaceCorps/open-apply"><span class="nm">open-apply</span><span class="ds">Run a job search with an AI agent: find postings, prepare materials, track replies.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v0.1.0</span></span></a></li>
+          <li data-cat="Personal" data-s="samsung art mode control samsung the frame art mode: uploads, matte, brightness, slideshows. personal samsung-artmode-cli"><a href="https://github.com/SpaceCorps/Samsung-Artmode-Cli"><span class="nm">Samsung Art Mode</span><span class="ds">Control Samsung The Frame Art Mode: uploads, matte, brightness, slideshows.</span><span class="mt"><span>MIT</span><span>Rust</span><span class="rel">v1.0.0</span></span></a></li>
+        </ul>
+        <p class="empty" id="empty" hidden>No tool matches that search. Try a different word, or <a href="https://github.com/SpaceCorps">browse every repository on GitHub</a>.</p>
+        <div class="also">
+          <h3>Libraries and apps</h3>
+          <ul>
+            <li><a href="https://github.com/SpaceCorps/DiskLens">DiskLens</a>, a desktop disk-space explorer</li>
+            <li><a href="https://github.com/SpaceCorps/open-apple-models">open-apple-models</a>, on-device game AI for Apple</li>
+            <li><a href="https://github.com/SpaceCorps/open-android-models">open-android-models</a>, the same for Android</li>
+            <li><a href="https://github.com/SpaceCorps/open-accounting-sweden">open-accounting-sweden</a>, agentic bookkeeping</li>
+            <li><a href="https://github.com/SpaceCorps/open-browser">open-browser</a>, agentic browser automation</li>
+            <li><a href="https://github.com/SpaceCorps/open-agents">open-agents</a>, a CLI-first agent runner</li>
+            <li><a href="https://github.com/SpaceCorps/open-glass">open-glass</a>, Apple Glass UI for the web</li>
+            <li><a href="https://github.com/SpaceCorps">All repositories on GitHub</a></li>
+          </ul>
+        </div>
+      </div></section>
+
+      <section class="sec" id="design-system" aria-labelledby="ds-h"><div class="wrap">
+        <div class="ds-grid">
+          <div>
+            <div class="sec-head"><p class="eyebrow"><span class="dot"></span>04 / Design system</p><h2 id="ds-h">One system, every screen.</h2><p class="sub">Our sites and apps share <code>@spacecorps/components</code>: React components, renderers and widgets. The colours and type on this page come straight from its tokens: brand green, zinc neutrals, Geist. Browse every component in Storybook.</p></div>
+            <div class="cta-row"><a class="btn" href="https://storybook.spacecorps.tech">Open Storybook <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a><a class="btn o" href="https://github.com/SpaceCorps/storybook">Source and install notes</a></div>
+            <p class="proof-note">Latest release v0.2.3, MIT.</p>
+          </div>
+          <div class="ds-stage" aria-label="Design token preview">
+            <div class="swatches" role="img" aria-label="Colour tokens: brand green, foreground, muted foreground, muted, card, background">
+              <span style="background:var(--sc-green);color:#000">sc-green</span><span style="background:var(--foreground);color:var(--background)">foreground</span><span style="background:var(--muted-foreground);color:var(--background)">muted-fg</span><span style="background:var(--muted)">muted</span><span style="background:var(--card);border-left:1px solid var(--line)">card</span><span style="background:var(--background);border-left:1px solid var(--line)">bg</span>
+            </div>
+            <div class="ds-demo"><a class="btn sm" href="https://storybook.spacecorps.tech">Button</a><a class="btn o sm" href="https://storybook.spacecorps.tech">Outline</a><span class="badge">Badge</span><span class="field">Input field</span></div>
+            <div class="type-spec"><span class="aa">Aa</span><span>Geist Variable &middot; Geist Mono Variable<br />self-hosted, latin subset</span></div>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="sec defer" aria-labelledby="how-h"><div class="wrap">
+        <div class="sec-head"><p class="eyebrow"><span class="dot"></span>05 / How we build</p><h2 id="how-h">Small team. Strong defaults.</h2></div>
+        <div class="principles">
+          <div><div class="k">01</div><h3>Rust first</h3><p>Services, the engine and the tools are Rust. The web is TypeScript on Vite+.</p></div>
+          <div><div class="k">02</div><h3>Agent-friendly</h3><p>Every CLI speaks plain text for people and <code>--json</code> for agents. Engines come with headless test loops.</p></div>
+          <div><div class="k">03</div><h3>Everything in a container</h3><p>If it runs, it ships as a Docker image. This site is one: Caddy serving static files.</p></div>
+          <div><div class="k">04</div><h3>Open by default</h3><p>Source, releases and decisions are public. No cookies or trackers on our sites.</p></div>
+        </div>
+      </div></section>
+
+      <section class="sec defer" aria-labelledby="blog-h"><div class="wrap">
+        <div class="sec-head"><p class="eyebrow"><span class="dot"></span>06 / Blog</p><h2 id="blog-h">Notes from the build.</h2></div>
+        <div class="posts"><article class="card hud post-card"><div class="card-body"><div class="card-top"><span class="tag">Game</span><span class="meta">16 Oct 2026</span></div><h3><a href="/blog/spacecorps-2027.html">SpaceCorps 2027 is out: a free space MMO built on our own engine</a></h3><p>Three companies, 16 sectors, clans, crafting and 30-day seasons. Free on macOS, Windows and Linux.</p></div></article><article class="card hud post-card"><div class="card-body"><div class="card-top"><span class="tag">Engine</span><span class="meta">16 Oct 2026</span></div><h3><a href="/blog/space3d-engine.html">Space3d: a Rust 3D engine built for AI agents</a></h3><p>A million instances at ~1,780 fps, async that never blocks a frame, and a headless harness agents can drive.</p></div></article><article class="card hud post-card"><div class="card-body"><div class="card-top"><span class="tag">Product</span><span class="meta">16 Oct 2026</span></div><h3><a href="/blog/obop.html">obop: one business, one platform</a></h3><p>An open-source business platform built for people and AI agents.</p></div></article><article class="card hud post-card"><div class="card-body"><div class="card-top"><span class="tag">Case study</span><span class="meta">16 Oct 2026</span></div><h3><a href="/blog/getelec-spaceemit.html">47,000× faster electron emission: spaceemit vs GETELEC</a></h3><p>Custom Rust physics software for a client: 17 µs per point instead of 650 ms, with matching results.</p></div></article></div>
+      </div></section>
+
+      <section class="band space wrap" aria-labelledby="contact-h">
+        <div class="hero-panel">
+          <div class="hero-bg"></div><div class="hero-grid"></div>
+          <div><p class="eyebrow"><span class="dot"></span>Contact</p><h2 id="contact-h">Questions, bugs, partnerships?</h2><p>Bugs and feature requests are fastest in the product's issue tracker. For everything else, write to us.</p></div>
+          <div class="addr"><a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com<small>General</small></a><a href="mailto:security@spacecorpstechnology.com">security@spacecorpstechnology.com<small>Security</small></a><a href="/contact.html">All the ways to reach us<small>&rarr;</small></a></div>
+        </div>
       </section>
     </main>
-    <footer><div class="wrap">
-      <span class="sp">&copy; 2026 SpaceCorps Technology AB</span>
-      <a href="https://github.com/SpaceCorps">GitHub</a>
-      <a href="https://storybook.spacecorps.tech">Storybook</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/contact.html">Contact</a>
-      <a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a>
+    <footer class="site"><div class="wrap">
+      <div class="foot">
+        <div class="about"><a class="brand" href="/" aria-label="SpaceCorps home"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><mask id="crescent"><rect width="64" height="64" fill="#fff"/><circle cx="39" cy="27" r="19" fill="#000"/></mask></defs><circle cx="29" cy="35" r="23" fill="#00cc92" mask="url(#crescent)"/><path d="M5 47C21 60 52 53 58 23" fill="none" stroke="#00cc92" stroke-width="3.4" stroke-linecap="round"/><circle cx="57" cy="17" r="5.6" fill="currentColor"/></svg><span>Space<b>Corps</b></span></a><p>SpaceCorps Technology AB. A small Swedish studio building games, a game engine, business software and developer tools in Rust.</p></div>
+        <div><p class="fh">Products</p><ul><li><a href="https://play.spacecorps.tech/">SpaceCorps 2027</a></li><li><a href="https://space3d.dev/">Space3d</a></li><li><a href="https://obop.dev/">obop</a></li><li><a href="https://github.com/SpaceCorps/swindle-releases/releases">Swindle</a></li></ul></div>
+        <div><p class="fh">Build</p><ul><li><a href="/#open-source">Rust CLI tools</a></li><li><a href="https://storybook.spacecorps.tech">Design system</a></li><li><a href="https://github.com/SpaceCorps">GitHub</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+        <div><p class="fh">Company</p><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li></ul></div>
+        <div><p class="fh">Reach us</p><ul><li><a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a></li><li><a href="mailto:security@spacecorpstechnology.com">security@spacecorpstechnology.com</a></li><li><a href="https://discord.gg/VjW67tkrTb">Discord</a></li></ul></div>
+      </div>
+      <div class="legal"><span>&copy; 2026 SpaceCorps Technology AB, Sweden</span><span>No cookies. No trackers. No third-party requests.</span></div>
     </div></footer>
-    <script src="/wave.js" defer></script>
   </body>
 </html>
