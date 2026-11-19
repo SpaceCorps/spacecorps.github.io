@@ -1,0 +1,163 @@
+{
+  "generatedAt": "2026-11-19T19:47:06.868Z",
+  "org": {
+    "publicRepos": 57,
+    "rustRepos": 33,
+    "openLicensed": 38
+  },
+  "game": {
+    "releases": 48,
+    "latest": "v0.5.9",
+    "latestDate": "2026-11-18T20:53:17Z",
+    "first": "2026-09-25T18:20:13Z"
+  },
+  "designSystem": {
+    "latest": "v0.2.3"
+  },
+  "cli": {
+    "Sliplane-Cli": {
+      "pushed": "2026-11-09T09:25:09Z",
+      "license": "MIT",
+      "release": "v1.3.0",
+      "released": "2026-11-01T10:44:37Z"
+    },
+    "Cloudflare-Cli": {
+      "pushed": "2026-09-26T14:36:09Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:16Z"
+    },
+    "Spaceship-Cli": {
+      "pushed": "2026-09-26T14:31:36Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:24Z"
+    },
+    "Loopia-Cli": {
+      "pushed": "2026-09-26T14:31:25Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:21Z"
+    },
+    "namecheap-cli": {
+      "pushed": "2026-09-26T14:31:49Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:29Z"
+    },
+    "Storage-Cli": {
+      "pushed": "2026-09-26T14:31:40Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:26Z"
+    },
+    "Exa-Cli": {
+      "pushed": "2026-09-26T14:31:16Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:16Z"
+    },
+    "Firecrawl-Cli": {
+      "pushed": "2026-09-26T14:31:18Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:17Z"
+    },
+    "Tic-Cli": {
+      "pushed": "2026-09-26T14:31:42Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:27Z"
+    },
+    "Reddit-Cli": {
+      "pushed": "2026-09-26T14:31:31Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:23Z"
+    },
+    "Twitter-Cli": {
+      "pushed": "2026-09-26T14:31:45Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:28Z"
+    },
+    "Linkedin-Cli": {
+      "pushed": "2026-09-26T14:31:23Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:20Z"
+    },
+    "Youtube-Cli": {
+      "pushed": "2026-09-26T14:31:47Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:16:38Z"
+    },
+    "TikTok-Cli": {
+      "pushed": "2026-09-26T14:31:44Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:27Z"
+    },
+    "Producthunt-Cli": {
+      "pushed": "2026-09-26T14:31:29Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:22Z"
+    },
+    "Stackoverflow-Cli": {
+      "pushed": "2026-09-26T14:31:38Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:25Z"
+    },
+    "Heyreach-Cli": {
+      "pushed": "2026-09-26T14:31:22Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:19Z"
+    },
+    "Gmail-Cli": {
+      "pushed": "2026-09-26T14:31:20Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:18Z"
+    },
+    "Notify-Cli": {
+      "pushed": "2026-09-26T14:31:27Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:21Z"
+    },
+    "Bugsink-Cli": {
+      "pushed": "2026-09-26T14:31:12Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:15Z"
+    },
+    "Github-Issue-Importer": {
+      "pushed": "2026-09-26T14:32:06Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T16:18:08Z"
+    },
+    "Claude-Sessions-Cli": {
+      "pushed": "2026-10-08T15:51:18Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-25T15:03:24Z"
+    },
+    "open-apply": {
+      "pushed": "2026-10-01T13:23:49Z",
+      "license": "MIT",
+      "release": "v0.1.0",
+      "released": "2026-10-01T13:22:21Z"
+    },
+    "Samsung-Artmode-Cli": {
+      "pushed": "2026-09-26T14:31:33Z",
+      "license": "MIT",
+      "release": "v1.0.0",
+      "released": "2026-09-24T17:17:23Z"
+    }
+  }
+}

@@ -4,53 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy | SpaceCorps</title>
-    <meta name="description" content="What spacecorps.tech and SpaceCorps tools collect: nothing on this site, and links to the game policy." />
+    <meta name="description" content="spacecorps.tech sets no cookies, runs no analytics and loads nothing from third parties." />
     <link rel="canonical" href="https://spacecorps.tech/privacy.html" />
+    <meta name="theme-color" content="#04070a" />
+    <meta property="og:site_name" content="SpaceCorps" />
     <meta property="og:title" content="Privacy | SpaceCorps" />
-    <meta property="og:description" content="What spacecorps.tech and SpaceCorps tools collect: nothing on this site, and links to the game policy." />
+    <meta property="og:description" content="spacecorps.tech sets no cookies, runs no analytics and loads nothing from third parties." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://spacecorps.tech/privacy.html" />
     <meta property="og:image" content="https://spacecorps.tech/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://spacecorps.tech/og-image.png" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="alternate" type="text/markdown" href="/index.md" />
-    <script src="/theme.js"></script>
-    <link rel="stylesheet" href="/site.css" />
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <script>try{var t=localStorage.getItem("sc-theme");if(t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.classList.add("dark")}catch(e){}</script>
+    <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="nav"><div class="wrap">
-      <a class="brand" href="/">Space<b>Corps</b></a>
-      <a class="l" href="/#products">Products</a>
-      <a class="l" href="/#open-source">Open source</a>
-      <a class="l" href="/#design-system">Design system</a>
-      <a class="l" href="/blog/">Blog</a>
-      <a class="l" href="/about.html">About</a>
-      <a class="l" href="/contact.html">Contact</a>
+      <a class="brand" href="/" aria-label="SpaceCorps home"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><mask id="crescent"><rect width="64" height="64" fill="#fff"/><circle cx="39" cy="27" r="19" fill="#000"/></mask></defs><circle cx="29" cy="35" r="23" fill="#00cc92" mask="url(#crescent)"/><path d="M5 47C21 60 52 53 58 23" fill="none" stroke="#00cc92" stroke-width="3.4" stroke-linecap="round"/><circle cx="57" cy="17" r="5.6" fill="currentColor"/></svg><span>Space<b>Corps</b></span></a>
+      <nav class="nav-links" aria-label="Main"><a href="/#products">Products</a><a href="/#open-source">Open source</a><a href="/#design-system">Design system</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+      <a class="btn sm cta-sm" href="https://play.spacecorps.tech/">Play free</a>
+      <button class="icon-btn theme-btn" type="button" aria-label="Toggle dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <details class="menu"><summary class="icon-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav class="panel" aria-label="Main (mobile)"><a href="/#products">Products</a><a href="/#open-source">Open source</a><a href="/#design-system">Design system</a><a href="/blog/">Blog</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="https://play.spacecorps.tech/">Play SpaceCorps 2027</a></nav></details>
     </div></header>
-    <main id="main" class="wrap">
+    <main id="main">
+      <div class="wrap"><header class="page-head"><p class="eyebrow"><span class="dot"></span>SpaceCorps</p><h1>This site collects nothing about you.</h1></header>
       <div class="prose">
-      <section class="hero" style="padding-bottom:0"><h1>Privacy</h1>
-      <p class="lead">This site collects nothing about you.</p></section>
-      <h2>This website</h2>
-      <p>spacecorps.tech sets no cookies, runs no analytics or trackers and loads no third-party scripts, fonts or images. Our web server keeps standard request logs (address, time, page) for security and operations, which we do not share.</p>
-      <h2>The game</h2>
-      <p>SpaceCorps 2027 has its own privacy policy, which covers the client, the game server and the download site: <a href="https://play.spacecorps.tech/privacy/">play.spacecorps.tech/privacy</a>. It is operated by SpaceCorps Technology AB.</p>
-      <h2>Our command-line tools</h2>
-      <p>They send no telemetry. API credentials you give a tool are stored in your operating system's keystore (macOS Keychain, Linux Secret Service or Windows DPAPI) and are sent only to the service the tool talks to. Each tool's repository documents what it contacts.</p>
-      <h2>Contact</h2>
-      <p>Questions about privacy: see <a href="/contact.html">Contact</a>.</p>
-      </div>
+        <h2>This website</h2>
+        <p>spacecorps.tech sets no cookies, runs no analytics or trackers and loads no third-party scripts, fonts or images. The only thing we store is your light or dark theme choice, in your own browser, if you use the theme switch. Our web server keeps standard request logs (address, time, page) for security and operations, which we do not share.</p>
+        <h2>The game</h2>
+        <p>SpaceCorps 2027 has its own privacy policy, which covers the client, the game server and the download site: <a href="https://play.spacecorps.tech/privacy/">play.spacecorps.tech/privacy</a>. It is operated by SpaceCorps Technology AB.</p>
+        <h2>Our command-line tools</h2>
+        <p>They send no telemetry. API credentials you give a tool are stored in your operating system's keystore (macOS Keychain, Linux Secret Service or Windows DPAPI) and are sent only to the service the tool talks to. Each tool's repository documents what it contacts.</p>
+        <h2>Contact</h2>
+        <p>Questions about privacy: <a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a> or see <a href="/contact.html">Contact</a>.</p>
+      </div></div>
     </main>
-    <footer><div class="wrap">
-      <span class="sp">&copy; 2026 SpaceCorps Technology AB</span>
-      <a href="https://github.com/SpaceCorps">GitHub</a>
-      <a href="https://storybook.spacecorps.tech">Storybook</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/contact.html">Contact</a>
+    <footer class="site"><div class="wrap">
+      <div class="foot">
+        <div class="about"><a class="brand" href="/" aria-label="SpaceCorps home"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><mask id="crescent"><rect width="64" height="64" fill="#fff"/><circle cx="39" cy="27" r="19" fill="#000"/></mask></defs><circle cx="29" cy="35" r="23" fill="#00cc92" mask="url(#crescent)"/><path d="M5 47C21 60 52 53 58 23" fill="none" stroke="#00cc92" stroke-width="3.4" stroke-linecap="round"/><circle cx="57" cy="17" r="5.6" fill="currentColor"/></svg><span>Space<b>Corps</b></span></a><p>SpaceCorps Technology AB. A small Swedish studio building games, a game engine, business software and developer tools in Rust.</p></div>
+        <div><p class="fh">Products</p><ul><li><a href="https://play.spacecorps.tech/">SpaceCorps 2027</a></li><li><a href="https://space3d.dev/">Space3d</a></li><li><a href="https://obop.dev/">obop</a></li><li><a href="https://github.com/SpaceCorps/swindle-releases/releases">Swindle</a></li></ul></div>
+        <div><p class="fh">Build</p><ul><li><a href="/#open-source">Rust CLI tools</a></li><li><a href="https://storybook.spacecorps.tech">Design system</a></li><li><a href="https://github.com/SpaceCorps">GitHub</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+        <div><p class="fh">Company</p><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li></ul></div>
+        <div><p class="fh">Reach us</p><ul><li><a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a></li><li><a href="mailto:security@spacecorpstechnology.com">security@spacecorpstechnology.com</a></li><li><a href="https://discord.gg/VjW67tkrTb">Discord</a></li></ul></div>
+      </div>
+      <div class="legal"><span>&copy; 2026 SpaceCorps Technology AB, Sweden</span><span>No cookies. No trackers. No third-party requests.</span></div>
     </div></footer>
-    <script src="/wave.js" defer></script>
   </body>
 </html>

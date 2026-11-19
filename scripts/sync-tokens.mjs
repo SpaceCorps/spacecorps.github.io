@@ -8,7 +8,7 @@ const start = lines.findIndex((l) => l.startsWith(":root"));
 const end = lines.findIndex((l) => l.startsWith("@theme inline"));
 const body = lines.slice(start, end).join("\n").trimEnd();
 writeFileSync(
-  "public/tokens.css",
+  "src/styles/tokens.css",
   `/* Vendored from SpaceCorps/storybook (development) src/styles/tokens.css, :root + .dark blocks.\n   Re-sync with: pnpm run sync-tokens. Source of truth is the design system, never edit by hand. */\n${body}\n`,
 );
 console.log("tokens.css updated");

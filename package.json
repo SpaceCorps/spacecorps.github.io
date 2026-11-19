@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
-    "build": "node scripts/sync-fonts.mjs && vp build",
+    "gen": "node scripts/gen.mjs",
+    "stats": "node scripts/fetch-stats.mjs && node scripts/gen.mjs",
+    "build": "node scripts/sync-fonts.mjs && node scripts/gen.mjs && vp build",
     "preview": "vp preview",
     "sync-tokens": "node scripts/sync-tokens.mjs",
     "check": "vp check",

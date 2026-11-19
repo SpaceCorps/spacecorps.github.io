@@ -3,7 +3,7 @@ title: "47,000× faster electron emission: spaceemit vs GETELEC"
 description: "Custom Rust physics software built for a client: 17 µs per emission point instead of 650 ms, agreeing with GETELEC to a median 0.0007 % in current density."
 author: "SpaceCorps"
 date: "2026-10-16"
-canonical: "https://spacecorps.github.io/blog/getelec-spaceemit.html"
+canonical: "https://spacecorps.tech/blog/getelec-spaceemit.html"
 ---
 
 # 47,000× faster electron emission: spaceemit vs GETELEC
@@ -23,4 +23,4 @@ Agreement over 2,199 points with J ≥ 1e-20 A/nm²: median |ΔJ| 0.0007 % (p90 
 
 Caveats: GETELEC solves a more general problem (semiconductor emitters were not compared); coarser GETELEC grids would be faster and less accurate; timings are in-process after JIT warm-up.
 
-Licence: PolyForm Shield 1.0.0. Registry: https://spacecorps-registry.sliplane.app. Full write-up: https://spacecorps.github.io/blog/getelec-spaceemit.html
+Licence: PolyForm Shield 1.0.0. Registry: https://spacecorps-registry.sliplane.app. Full write-up: https://spacecorps.tech/blog/getelec-spaceemit.html
