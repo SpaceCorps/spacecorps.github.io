@@ -21,6 +21,13 @@
 		redir https://spacecorps.tech{uri} permanent
 	}
 
+	# The players-online page lives on the game's site now; the API below stays here, because the play page reads it
+	# cross-origin (play.spacecorps.tech is GitHub Pages and cannot proxy).
+	@statuspage path /status /status/ /status.html
+	handle @statuspage {
+		redir https://play.spacecorps.tech/status/ permanent
+	}
+
 	# The status service (status/ in this repository) is a separate container; STATUS_UPSTREAM is its address
 	# (for example https://spacecorps-status.sliplane.app). Without it this path answers 502 and the rest of the site
 	# is unaffected: the chart on /status.html then says the history is not available.

@@ -69,7 +69,7 @@ ${body}
         <div class="about"><a class="brand" href="/" aria-label="SpaceCorps home">${MARK}<span>Space<b>Corps</b></span></a><p>SpaceCorps Technology AB. A small Swedish studio building games, a game engine, business software and developer tools in Rust.</p></div>
         <div><p class="fh">Products</p><ul><li><a href="https://play.spacecorps.tech/">SpaceCorps 2027</a></li><li><a href="https://space3d.dev/">Space3d</a></li><li><a href="https://obop.dev/">obop</a></li><li><a href="${GH}/swindle-releases/releases">Swindle</a></li></ul></div>
         <div><p class="fh">Build</p><ul><li><a href="/#open-source">Rust CLI tools</a></li><li><a href="https://storybook.spacecorps.tech">Design system</a></li><li><a href="${GH}">GitHub</a></li><li><a href="/blog/">Blog</a></li></ul></div>
-        <div><p class="fh">Company</p><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/status.html">Status</a></li><li><a href="/privacy.html">Privacy</a></li></ul></div>
+        <div><p class="fh">Company</p><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/privacy.html">Privacy</a></li></ul></div>
         <div><p class="fh">Reach us</p><ul><li><a href="mailto:hello@spacecorpstechnology.com">hello@spacecorpstechnology.com</a></li><li><a href="mailto:security@spacecorpstechnology.com">security@spacecorpstechnology.com</a></li><li><a href="https://discord.gg/VjW67tkrTb">Discord</a></li></ul></div>
       </div>
       <div class="legal"><span>&copy; 2026 SpaceCorps Technology AB, Sweden</span><span>No cookies. No trackers. No third-party requests.</span></div>
@@ -311,31 +311,6 @@ out("contact.html", shell({
         <h2>Company</h2>
         <p>SpaceCorps Technology AB, Sweden.</p>
       </div></div>`,
-}));
-
-out("status.html", shell({
-  title: "Status | SpaceCorps", cur: "/status.html", path: "/status.html",
-  desc: "How many pilots are online on the SpaceCorps 2027 game servers: now, today, this week and month, the last 3 months, the last year and since the very beginning.",
-  body: `${head("Players online.", "Pilots connected to the SpaceCorps 2027 game servers, recorded every minute. <a href=\"https://play.spacecorps.tech/\">Play free</a> and add yourself.")}
-      <section class="status" id="status" data-endpoint="/api/status/series" aria-label="Players online over time">
-        <div class="st-now" id="st-now" aria-live="polite"></div>
-        <div class="st-range" role="group" aria-label="Time range">
-          <button type="button" data-range="day" aria-pressed="true">Today</button>
-          <button type="button" data-range="week" aria-pressed="false">Week</button>
-          <button type="button" data-range="month" aria-pressed="false">Month</button>
-          <button type="button" data-range="quarter" aria-pressed="false">3 months</button>
-          <button type="button" data-range="year" aria-pressed="false">Year</button>
-          <button type="button" data-range="all" aria-pressed="false">All time</button>
-        </div>
-        <figure class="st-card">
-          <figcaption id="st-caption"></figcaption>
-          <div class="st-plot" id="st-plot" tabindex="0" role="group" aria-label="Line chart of players online per server. Use the left and right arrow keys to read values, or open the table below."><p class="st-msg">Loading&hellip;</p></div>
-          <p class="st-note" id="st-note"></p>
-          <p class="st-note"><span class="st-legend-down"></span>A red band marks a time when a server was down or updating.</p>
-        </figure>
-        <details class="st-table"><summary>Show as table</summary><div id="st-table"></div></details>
-        <noscript><p class="st-note">The chart needs JavaScript. The numbers behind it are at <a href="/api/status/series?range=day">/api/status/series</a>.</p></noscript>
-      </section></div>`,
 }));
 
 out("privacy.html", shell({
