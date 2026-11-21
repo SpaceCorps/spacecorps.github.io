@@ -1,6 +1,6 @@
 # status: players online over time
 
-The recorder and read API behind the chart on <https://spacecorps.tech/status.html>. One small Rust service, one SQLite file, one container.
+The recorder and read API behind the chart on <https://play.spacecorps.tech/status/> (the page is in the `SpaceCorps/play` repository; it reads this API cross-origin through the company site, `https://spacecorps.tech/api/status/series`, and `https://spacecorps.tech/status.html` is a 301 to it). One small Rust service, one SQLite file, one container.
 
 ## What it does
 
@@ -64,6 +64,6 @@ To look at the chart before there is history, `cargo run --example seed_demo -- 
 
 ## Deploy (Sliplane)
 
-A second service next to the site, from this repository: Dockerfile `status/Dockerfile`, build context `status/`, a volume at `/data`, port 8090, health check `/healthz`. The site's Caddy proxies `/api/status/*` to it, so the page stays same-origin (the site promises no third-party requests): set `STATUS_UPSTREAM` on the **site** service to the status service's address, for example `https://spacecorps-status.sliplane.app`. Without it that path answers 502 and the rest of the site is untouched; the page then says the history is not available.
+A second service next to the site, from this repository: Dockerfile `status/Dockerfile`, build context `status/`, a volume at `/data`, port 8090, health check `/healthz`. The site's Caddy proxies `/api/status/*` to it (the answer carries `Access-Control-Allow-Origin: *`, which is what lets the play site read it; GitHub Pages cannot proxy): set `STATUS_UPSTREAM` on the **site** service to the status service's address, for example `https://spacecorps-status.sliplane.app`. Without it that path answers 502 and the rest of the site is untouched; the page then says the history is not available.
 
 Back up `/data/status.db` with the volume: it is the only copy of the history.

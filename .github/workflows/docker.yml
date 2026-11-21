@@ -23,22 +23,11 @@ jobs:
           curl -fsS http://127.0.0.1:8080/ | grep -q "SpaceCorps"
           curl -fsS http://127.0.0.1:8080/llms.txt | grep -q "SpaceCorps"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/nope)" = "404"
-          curl -fsS http://127.0.0.1:8080/status.html | grep -q "Players online"
+          # the players-online page moved to the game site: 301 there, the API stays here
+          test "$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' http://127.0.0.1:8080/status.html)" = "301 https://play.spacecorps.tech/status/"
           # no STATUS_UPSTREAM here: the status path answers 502 and the rest of the site is fine
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/api/status/series)" = "502"
           docker rm -f site
-
-  chart:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-      - run: corepack enable
-      - run: pnpm install --frozen-lockfile
-      - name: Chart helper tests
-        run: pnpm exec vp test run
 
   status:
     runs-on: ubuntu-latest

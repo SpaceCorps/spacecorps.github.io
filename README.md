@@ -10,9 +10,8 @@ The company site of SpaceCorps Technology AB: <https://spacecorps.tech>. Static 
 | `src/` | `main.js` (theme switch, CLI search, starfield, click wave) and `styles/` (`site.css`, vendored `tokens.css`). Bundled, minified and hashed by Vite+. |
 | `data/` | `clis.json` (the 24 CLI directory entries) and `stats.json` (real GitHub numbers; refresh with `pnpm run stats`, needs the `gh` CLI). |
 | `public/` | Copied to the site root as is: `img/` (game art as webp), `blog/media`, icons, og-image, and the **agent-facing files** below. `public/fonts/` is generated at build (Geist, from `@fontsource-variable`) and git-ignored. |
-| `status.html` | Generated like the other pages: the players-online chart. `src/status.js` draws it (plain SVG, no library) from `/api/status/series`; `src/status-chart.js` holds the pure helpers, tested in `src/status-chart.test.js` (`pnpm exec vp test run`). |
-| `status/` | The recorder and read API behind that chart: a Rust service with one SQLite file, its own `Dockerfile`. See [status/README.md](status/README.md). |
-| `deploy/Caddyfile` | Caddy config: `/healthz`, `/api/status/*` proxied to the status service (`STATUS_UPSTREAM`), text/markdown content types, caching, 404 page. |
+| `status/` | The recorder and read API behind the players-online chart on <https://play.spacecorps.tech/status/>: a Rust service with one SQLite file, its own `Dockerfile`. The chart page itself lives in the `SpaceCorps/play` repository; `/status.html` here is a 301 to it. See [status/README.md](status/README.md). |
+| `deploy/Caddyfile` | Caddy config: `/healthz`, `/api/status/*` proxied to the status service (`STATUS_UPSTREAM`; the play site reads it cross-origin), `/status.html` 301 to the play site, text/markdown content types, caching, 404 page. |
 | `Dockerfile` | Node 24 builds with `pnpm`, Caddy serves `dist/` on port 80. |
 | `.github/workflows/docker.yml` | Builds the image on every PR and push to `main` and smoke-tests `/healthz`, `/`, `/llms.txt` and a 404. |
 | `docs/REDIRECTS.md` | Plan for spacecorpstechnology.com, spacecorps.eu and spacecorps.online. |
@@ -42,7 +41,7 @@ docker run --rm -p 8080:80 spacecorps-tech   # http://localhost:8080, health at 
 
 Create a Sliplane service from this repository's `Dockerfile` (port 80, health check `/healthz`), then add the custom domain `spacecorps.tech` and the DNS record Sliplane shows. DNS and Sliplane configuration are made by hand; see `docs/REDIRECTS.md` for the other domains.
 
-The status page needs a second service, the status recorder (`status/Dockerfile`, build context `status/`, a volume at `/data`, port 8090; see [status/README.md](status/README.md)), and the environment variable `STATUS_UPSTREAM` on the site service set to its address. Without the variable the site works as before and `/api/status/*` answers 502.
+The players-online chart (on the play site) needs a second service, the status recorder (`status/Dockerfile`, build context `status/`, a volume at `/data`, port 8090; see [status/README.md](status/README.md)), and the environment variable `STATUS_UPSTREAM` on the site service set to its address. Without the variable the site works as before and `/api/status/*` answers 502.
 
 ## Cleanup needed in the `play` repository (`SpaceCorps/play`)
 
