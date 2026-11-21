@@ -21,6 +21,19 @@
 		redir https://spacecorps.tech{uri} permanent
 	}
 
+	# The status service (status/ in this repository) is a separate container; STATUS_UPSTREAM is its address
+	# (for example https://spacecorps-status.sliplane.app). Without it this path answers 502 and the rest of the site
+	# is unaffected: the chart on /status.html then says the history is not available.
+	handle /api/status/* {
+		reverse_proxy {$STATUS_UPSTREAM:http://127.0.0.1:8090} {
+			header_up Host {upstream_hostport}
+			transport http {
+				dial_timeout 3s
+				response_header_timeout 10s
+			}
+		}
+	}
+
 	handle {
 		root * /srv
 		encode zstd gzip
