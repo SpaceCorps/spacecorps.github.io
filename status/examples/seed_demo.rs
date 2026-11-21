@@ -1,11 +1,41 @@
 //! Writes SYNTHETIC history into a database, for looking at the chart in all six ranges before real
 //! history exists: `cargo run --example seed_demo -- demo.db 400`. Never use the file in production; run the
-//! service on it with `STATUS_RECORD=off` so nothing real is mixed in.
+//! service on it with `STATUS_RECORD=off` so nothing real is mixed in. The split by client is seeded
+//! for the last 60 days only (`cargo run --example seed_demo -- demo.db 400 60`), like a game that
+//! began reporting it recently; give 0 as the third argument for a database without any split.
 
 use spacecorps_status::sampler::unix_now;
-use spacecorps_status::store::{Sample, ServerSample, Store};
+use spacecorps_status::store::{Platforms, Sample, ServerSample, Store};
 
-fn server(id: &str, name: &str, region: &str, status: &str, online: i64) -> ServerSample {
+/// A made-up split of `online` pilots: Steam about half, then native desktop, a few on Android and
+/// iOS (growing), the web client after a while, and a handful of unknown builds. The six parts add up.
+fn split(online: i64, t: i64, start: i64, now: i64) -> Platforms {
+    let grow = ((t - start) as f64 / (now - start).max(1) as f64).clamp(0.0, 1.0);
+    let shares = [
+        0.52 - 0.10 * grow,
+        0.34 - 0.08 * grow,
+        0.03 + 0.07 * grow,
+        0.06 + 0.12 * grow,
+        if grow > 0.5 { 0.03 } else { 0.0 },
+    ];
+    let mut out = [0; 6];
+    let mut left = online;
+    for (slot, share) in out.iter_mut().zip(shares) {
+        *slot = ((online as f64 * share).round() as i64).min(left);
+        left -= *slot;
+    }
+    out[5] = left; // whatever the shares did not place is "unknown"
+    out
+}
+
+fn server(
+    id: &str,
+    name: &str,
+    region: &str,
+    status: &str,
+    online: i64,
+    platforms: Option<Platforms>,
+) -> ServerSample {
     ServerSample {
         id: id.into(),
         name: name.into(),
@@ -15,6 +45,7 @@ fn server(id: &str, name: &str, region: &str, status: &str, online: i64) -> Serv
         up: status == "up",
         online,
         flying: online / 2,
+        platforms,
     }
 }
 
@@ -22,9 +53,11 @@ fn main() {
     let mut args = std::env::args().skip(1);
     let path = args.next().expect("usage: seed_demo <db> [days]");
     let days: i64 = args.next().and_then(|d| d.parse().ok()).unwrap_or(400);
+    let split_days: i64 = args.next().and_then(|d| d.parse().ok()).unwrap_or(60);
     let mut store = Store::open(&path).expect("open");
     let now = unix_now() - unix_now() % 60;
     let start = now - days * 86_400;
+    let split_start = now - split_days * 86_400;
     let mut seed: u64 = 7;
     let mut noise = move || {
         seed = seed
@@ -49,24 +82,29 @@ fn main() {
         let updating = day % 9 == 4 && (t % 86_400) / 60 < 6; // six minutes of deploy every 9th day
         let sg_down = day == days / 2 && (t % 86_400) / 60 < 40; // one longer outage
         let home_state = if updating { "updating" } else { "up" };
+        let (home, sg) = (
+            if updating { 0 } else { home },
+            if sg_down { 0 } else { sg },
+        );
+        // the split: only after `split_start`, and US East (a node that updates later) only for the last 25 days
+        let with_split = split_days > 0 && t >= split_start;
+        let by = |online: i64, late: bool| {
+            (with_split && (!late || t >= now - 25 * 86_400))
+                .then(|| split(online, t, split_start, now))
+        };
         let sample = Sample {
             ts: t,
             servers: vec![
-                server(
-                    "home",
-                    "Helsinki",
-                    "eu",
-                    home_state,
-                    if updating { 0 } else { home },
-                ),
+                server("home", "Helsinki", "eu", home_state, home, by(home, false)),
                 server(
                     "singapore-1",
                     "Singapore",
                     "ap",
                     if sg_down { "down" } else { "up" },
-                    if sg_down { 0 } else { sg },
+                    sg,
+                    by(sg, false),
                 ),
-                server("us-east-1", "US East", "us", "up", us),
+                server("us-east-1", "US East", "us", "up", us, by(us, true)),
             ],
         };
         store.record(&sample).expect("record");

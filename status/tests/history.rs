@@ -15,6 +15,7 @@ fn server(id: &str, name: &str, status: &str, online: i64, flying: i64) -> Serve
         up: status == "up" || status == "full",
         online,
         flying,
+        platforms: None,
     }
 }
 

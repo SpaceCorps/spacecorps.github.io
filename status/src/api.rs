@@ -1,4 +1,5 @@
-//! The read API: `GET /api/status/series?range=day|week|month|quarter|year|all`.
+//! The read API: `GET /api/status/series?range=day|week|month|quarter|year|all`, and the same with
+//! `&by=platform` for the split of the pilots by client (steam, desktop, ios, android, web, unknown).
 //!
 //! Public and read-only: player counts that the game already shows on its login screen. Answers are
 //! kept for 30 seconds in memory, so a crowd on the page costs one query per range per half minute.
@@ -6,6 +7,9 @@
 use crate::store::{Range, Store};
 use std::collections::HashMap;
 use std::sync::Mutex;
+
+/// A built answer: when it was built, and the JSON.
+type Built = (i64, Vec<u8>);
 
 /// How long a built answer is served again.
 const KEEP_SECS: i64 = 30;
@@ -38,7 +42,8 @@ impl Reply {
 
 #[derive(Default)]
 pub struct Api {
-    cache: Mutex<HashMap<Range, (i64, Vec<u8>)>>,
+    /// Built answers by range and view (`true`: by platform).
+    cache: Mutex<HashMap<(Range, bool), Built>>,
 }
 
 /// The value of `name` in a query string.
@@ -68,11 +73,17 @@ impl Api {
                         "range must be day, week, month, quarter, year or all",
                     );
                 };
+                let by_platform = match query_value(query, "by") {
+                    None | Some("") => false,
+                    Some("platform") => true,
+                    Some(_) => return Reply::error(400, "by must be platform, or left out"),
+                };
+                let key = (range, by_platform);
                 if let Some((at, body)) = self
                     .cache
                     .lock()
                     .unwrap_or_else(|e| e.into_inner())
-                    .get(&range)
+                    .get(&key)
                     && now - at < KEEP_SECS
                 {
                     return Reply {
@@ -82,13 +93,21 @@ impl Api {
                         max_age: KEEP_SECS,
                     };
                 }
-                match store.series(range, now) {
-                    Ok(series) => {
-                        let body = serde_json::to_vec(&series).unwrap_or_default();
+                let built = if by_platform {
+                    store
+                        .series_by_platform(range, now)
+                        .map(|s| serde_json::to_vec(&s).unwrap_or_default())
+                } else {
+                    store
+                        .series(range, now)
+                        .map(|s| serde_json::to_vec(&s).unwrap_or_default())
+                };
+                match built {
+                    Ok(body) => {
                         self.cache
                             .lock()
                             .unwrap_or_else(|e| e.into_inner())
-                            .insert(range, (now, body.clone()));
+                            .insert(key, (now, body.clone()));
                         Reply {
                             status: 200,
                             content_type: "application/json",
