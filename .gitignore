@@ -3,3 +3,7 @@ dist/
 public/fonts/
 .DS_Store
 *.log
+*.db
+*.db-shm
+*.db-wal
+status/target/

@@ -1,6 +1,8 @@
 import "./styles/site.css";
 import "./wave.js";
 
+if (document.getElementById("status")) import("./status.js");
+
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---- Theme: system by default, manual override remembered (the inline head script applies it first). ---- */

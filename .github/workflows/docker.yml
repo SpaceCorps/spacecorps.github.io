@@ -23,4 +23,46 @@ jobs:
           curl -fsS http://127.0.0.1:8080/ | grep -q "SpaceCorps"
           curl -fsS http://127.0.0.1:8080/llms.txt | grep -q "SpaceCorps"
           test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/nope)" = "404"
+          curl -fsS http://127.0.0.1:8080/status.html | grep -q "Players online"
+          # no STATUS_UPSTREAM here: the status path answers 502 and the rest of the site is fine
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/api/status/series)" = "502"
           docker rm -f site
+
+  chart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - name: Chart helper tests
+        run: pnpm exec vp test run
+
+  status:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: status
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: status
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets --locked -- -D warnings
+      - run: cargo test --locked
+      - name: Build image
+        run: docker build -t spacecorps-status .
+      - name: Smoke test
+        run: |
+          docker run -d --name status -p 8090:8090 -e STATUS_SOURCE_URL=http://127.0.0.1:9/none spacecorps-status
+          for i in $(seq 1 20); do curl -fsS http://127.0.0.1:8090/healthz && break || sleep 1; done
+          test "$(curl -fsS http://127.0.0.1:8090/healthz)" = "ok"
+          curl -fsS "http://127.0.0.1:8090/api/status/series?range=day" | grep -q '"range":"day"'
+          test "$(curl -s -o /dev/null -w '%{http_code}' 'http://127.0.0.1:8090/api/status/series?range=decade')" = "400"
+          docker rm -f status
